@@ -1,0 +1,26 @@
+doctype html
+
+//-Default Pug markup with Blade syntax
+html(lang='en')
+	head
+		meta(charset='utf-8')
+		meta(http-equiv='content-type' content='text/html; charset=utf-8')
+		meta(http-equiv='X-UA-Compatible' content='IE=edge')
+		meta(name='apple-moblie-web-app-capable' content='yes')
+		meta(name='viewport' content='width=device-width, initial-scale=1')
+		meta(name='description' content='')
+		meta(name='author' content='Goran Radmanovic')
+		meta(name='robots' content='index, follow, all')
+		meta(name='keywords' content='')
+		link(rel='icon' href='' type='image/x-icon')
+		link(rel='stylesheet' href='css/style.css')
+		title @yield('title')
+	body
+		.container-fluid(id='app')
+
+			.row 
+				include partials/navigation.pug
+				
+				| @yield('content')
+
+		script(src='js/app.js')
