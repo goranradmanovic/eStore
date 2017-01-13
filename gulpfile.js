@@ -17,11 +17,11 @@ require('laravel-elixir-pug')
 elixir((mix) => {
     mix.sass('style.sass')
     	.pug({
-       		blade: false,
+       		blade: true,
        		pretty: true,
-       		src: 'resources/assets/pug/**/*',
+       		src: 'resources/assets/pug/**/**',
        		search: '**/*.pug',
-       		dest: 'resources/views',
+       		dest: 'resources/views/**/**',
        })
        .webpack('app.js');
 });
