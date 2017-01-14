@@ -1,8 +1,3 @@
-const elixir = require('laravel-elixir');
-
-require('laravel-elixir-vue-2');
-require('laravel-elixir-pug')
-
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -14,14 +9,28 @@ require('laravel-elixir-pug')
  |
  */
 
+const elixir = require('laravel-elixir');
+
+require('laravel-elixir-vue-2');
+require('laravel-elixir-browsersync-official');
+require('laravel-elixir-pug');
+
+//Disable generating source.map files
+elixir.config.sourcemaps = false;
+
+//Elixir mixin function
 elixir((mix) => {
     mix.sass('style.sass')
     	.pug({
        		blade: true,
        		pretty: true,
-       		src: 'resources/assets/pug/**/**',
+       		src: 'resources/assets/pug/**/*',
        		search: '**/*.pug',
-       		dest: 'resources/views/**/**',
+       		dest: 'resources/views/**/*',
        })
-       .webpack('app.js');
+       .webpack('app.js')
+       .browserSync({
+       		files: ["public/**/*", "resources/views/**/*"],
+			proxy: 'http://192.168.1.10:8000',
+		});
 });
