@@ -3,5 +3,5 @@
 @section('title', 'Home')
 
 @section('content')
-    Hello World!
+    Hello World Again!
 @endsection

@@ -1,36 +1,62 @@
-menu(class='main__menu')
-	nav(class='navbar navbar-default')
+menu.main__menu
+	nav.navbar.navbar-default
 		.container-fluid
+			// Brand and toggle get grouped for better mobile display
 			.navbar-header
-				button(type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#bs-example-navbar-collapse-1' aria-expanded='false')
-					span(class='sr-only') Toggle navigation
-					each val in ['icon-bar', 'icon-bar', 'icon-bar']
-						span(class=val)
+				button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
+					span.sr-only Toggle navigation
+					span.icon-bar
+					span.icon-bar
+					span.icon-bar
+				a.navbar-brand(href='#')
+					img(src='images/logo.png', alt='Brand logo', class='brand-img')
+			// Collect the nav links, forms, and other content for toggling
+			#bs-example-navbar-collapse-1.collapse.navbar-collapse
+				ul.nav.navbar-nav
+					li.active
+						a(href='#')
+							| Matcha Tea
+							span.sr-only (current)
+					li
+						a(href='#') Fitness Gear
+					li
+						a(href='#') Food Supplements
 
-				a(class='navbar-brand nopadding' href='')
-					img(class='brand-img' src='' alt='Brand image')
-
-		.collapse.navbar-collapse(id='bs-example-navbar-collapse-1')
-			ul(class='nav navbar-nav')
-				li(class='active')
-					a(href='#') Home
-						span(class='sr-only') (current)
-				li
-					a(href='#') Moctha
-				li
-					a(href='#') Fitness Gear
-				li
-					a(href='#') Food Supplements
-
-			form(action='' method='' target='_blanck' autocomplete='off' class='navbar-form navbar-left' role='search')
-				.form-group
-					input(type='text' name='' class='form-control' placeholder='Search')
-					button(type='submit' class='btn btn-default') Search
-
-			ul(class='nav navbar-nav navbar-right')
-				li
-					a(href='#') Sign Up
-				li
-					a(href='#') Sign In
-				li
-					a(href='#') Sign Out
+					li.dropdown
+						a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+							| Dropdown 
+							span.caret
+						ul.dropdown-menu
+							li
+								a(href='#') Action
+							li
+								a(href='#') Another action
+							li
+								a(href='#') Something else here
+							li.divider(role='separator')
+							li
+								a(href='#') Separated link
+							li.divider(role='separator')
+							li
+								a(href='#') One more separated link
+				form.navbar-form.navbar-left
+					.form-group
+						input.form-control(type='text', placeholder='Search')
+					button.btn.btn-default(type='submit') Search
+				ul.nav.navbar-nav.navbar-right
+					li
+						a(href='#') Link
+					li.dropdown
+						a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+							| Dropdown 
+							span.caret
+						ul.dropdown-menu
+							li
+								a(href='#') Action
+							li
+								a(href='#') Another action
+							li
+								a(href='#') Something else here
+							li.divider(role='separator')
+							li
+								a(href='#') Separated link
