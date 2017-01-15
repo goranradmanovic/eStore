@@ -40035,7 +40035,17 @@ __webpack_require__(1);
 Vue.component('example', __webpack_require__(2));
 
 var app = new Vue({
-    el: '#app'
+    el: '#app',
+
+    data: {
+		isActive: false,
+	},
+
+    methods: {
+    	active: function(event) {
+    		console.log('clicked');
+    	}
+    }
 });
 
 
