@@ -3,13 +3,12 @@
 	padding: 0
 
 	.navbar-default
-		//background-color: #4D545D
-		background-color: #323A45
-		border-top: 2px solid #00b1b3
+		background-color: $bg-color-nav
+		border-top: 2px solid $bg-color-nav-hover
 		border-radius: 0
 
 		.navbar-toggle
-			background-color: #327177
+			background-color: $bg-color-nav-toggle
 			border-color: white
 
 			.icon-bar
@@ -19,27 +18,28 @@
 			.navbar-brand
 				padding: 5px
 
-				.brand-img
+				.brand__img
 					display: inline
 					width: 100px
 					height: 30px
 
 		.navbar-collapse
 			.nav.navbar-nav
+				.dropdown.open
+					background-color: red
 
 				.dropdown-menu
-					background-color: #323A45
+					background-color: $bg-color-nav
 
-				ul.dropdown-menu li
-					&:hover
-						background-color: #00b1b3
+				ul.dropdown-menu li:hover
+					background-color: $bg-color-nav-hover
 
-			ul.nav.navbar-nav li.active
-				background-color: #14B9D6
+			ul.nav.navbar-nav li.active a
+				background-color: $bg-color-nav-active
 
 			ul.nav.navbar-nav li
 				&:hover
-					background-color: #00b1b3
+					background-color: $bg-color-nav-hover
 
 			ul.nav.navbar-nav li a
 				color: white
@@ -53,7 +53,7 @@
 
 				.btn-default
 					height: 34px
-					background-color: #00b1b3
+					background-color: $bg-color-nav-hover
 					color: white
 					border: none
 					border-radius: 0
@@ -61,4 +61,4 @@
 					text-transform: uppercase
 
 					&:hover
-						background-color: #327177
+						background-color: $bg-color-button-hover
