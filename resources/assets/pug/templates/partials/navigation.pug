@@ -9,11 +9,11 @@ menu.main__menu
 					span.icon-bar
 					span.icon-bar
 				a.navbar-brand(href='#')
-					img(src='images/logo.png', alt='Brand logo', class='brand-img')
+					img(src='images/logo.png', alt='Brand logo', class='brand__img')
 			// Collect the nav links, forms, and other content for toggling
 			#bs-example-navbar-collapse-1.collapse.navbar-collapse
 				ul.nav.navbar-nav
-					li.active
+					li(v-on:click='active')
 						a(href='#')
 							| Matcha Tea
 							span.sr-only (current)
