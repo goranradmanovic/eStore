@@ -4,12 +4,12 @@
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display-->
       <div class="navbar-header">
-        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="#"><img class="brand-img" src="images/logo.png" alt="Brand logo"/></a>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="#"><img class="brand__img" src="images/logo.png" alt="Brand logo"/></a>
       </div>
       <!-- Collect the nav links, forms, and other content for toggling-->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Matcha Tea<span class="sr-only">(current)</span></a></li>
+          <li v-on:click="active"><a href="#">Matcha Tea<span class="sr-only">(current)</span></a></li>
           <li><a href="#">Fitness Gear</a></li>
           <li><a href="#">Food Supplements</a></li>
           <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
