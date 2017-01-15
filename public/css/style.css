@@ -8194,6 +8194,7 @@ img::-moz-selection {
 
 body {
   background-color: #e9ebee;
+  font-family: "Raleway", sans-serif;
   -webkit-tap-highlight-color: #FFF498;
 }
 
@@ -8221,10 +8222,14 @@ body {
   padding: 5px;
 }
 
-.main__menu .navbar-default .navbar-header .navbar-brand .brand-img {
+.main__menu .navbar-default .navbar-header .navbar-brand .brand__img {
   display: inline;
   width: 100px;
   height: 30px;
+}
+
+.main__menu .navbar-default .navbar-collapse .nav.navbar-nav .dropdown.open {
+  background-color: red;
 }
 
 .main__menu .navbar-default .navbar-collapse .nav.navbar-nav .dropdown-menu {
@@ -8235,7 +8240,7 @@ body {
   background-color: #00b1b3;
 }
 
-.main__menu .navbar-default .navbar-collapse ul.nav.navbar-nav li.active {
+.main__menu .navbar-default .navbar-collapse ul.nav.navbar-nav li.active a {
   background-color: #14B9D6;
 }
 
