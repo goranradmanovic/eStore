@@ -8228,19 +8228,23 @@ body {
   height: 30px;
 }
 
-.main__menu .navbar-default .navbar-collapse .nav.navbar-nav .dropdown.open {
-  background-color: red;
+.main__menu .navbar-default .navbar-collapse .nav.navbar-nav .open > a, .main__menu .navbar-default .navbar-collapse .nav.navbar-nav .open > a:hover, .main__menu .navbar-default .navbar-collapse .nav.navbar-nav .open > a:focus {
+  background-color: #00b1b3;
 }
 
 .main__menu .navbar-default .navbar-collapse .nav.navbar-nav .dropdown-menu {
   background-color: #323A45;
 }
 
+.main__menu .navbar-default .navbar-collapse .nav.navbar-nav .dropdown-menu > li > a:hover, .main__menu .navbar-default .navbar-collapse .nav.navbar-nav .dropdown-menu > li > a:focus {
+  background-color: #00b1b3;
+}
+
 .main__menu .navbar-default .navbar-collapse .nav.navbar-nav ul.dropdown-menu li:hover {
   background-color: #00b1b3;
 }
 
-.main__menu .navbar-default .navbar-collapse ul.nav.navbar-nav li.active a {
+.main__menu .navbar-default .navbar-collapse ul.nav.navbar-nav li a:focus {
   background-color: #14B9D6;
 }
 
@@ -8256,6 +8260,9 @@ body {
 
 .main__menu .navbar-default .navbar-collapse .navbar-form .form-control {
   border-radius: 0;
+  background-image: url("images/microphone.png");
+  background-repeat: no-repeat;
+  background-position: right;
 }
 
 .main__menu .navbar-default .navbar-collapse .navbar-form .btn-default {
@@ -8269,7 +8276,7 @@ body {
 }
 
 .main__menu .navbar-default .navbar-collapse .navbar-form .btn-default:hover {
-  background-color: #327177;
+  background-color: #14B9D6;
 }
 
 .header {
