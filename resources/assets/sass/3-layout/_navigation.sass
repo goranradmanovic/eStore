@@ -15,6 +15,7 @@
 				background-color: white
 
 		.navbar-header
+
 			.navbar-brand
 				padding: 5px
 
@@ -24,20 +25,27 @@
 					height: 30px
 
 		.navbar-collapse
+
 			.nav.navbar-nav
-				.dropdown.open
-					background-color: red
+
+				//Dropdown menu (override bootsrap)
+				.open > a, .open > a:hover, .open > a:focus
+					background-color: $bg-color-nav-hover
 
 				.dropdown-menu
 					background-color: $bg-color-nav
 
+				.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus
+					background-color: $bg-color-nav-hover
+
 				ul.dropdown-menu li:hover
 					background-color: $bg-color-nav-hover
 
-			ul.nav.navbar-nav li.active a
+			ul.nav.navbar-nav li a:focus
 				background-color: $bg-color-nav-active
 
 			ul.nav.navbar-nav li
+
 				&:hover
 					background-color: $bg-color-nav-hover
 
@@ -50,6 +58,9 @@
 
 				.form-control
 					border-radius: 0
+					background-image: url('images/microphone.png')
+					background-repeat: no-repeat
+					background-position: right
 
 				.btn-default
 					height: 34px
@@ -61,4 +72,4 @@
 					text-transform: uppercase
 
 					&:hover
-						background-color: $bg-color-button-hover
+						background-color: $bg-color-nav-active
