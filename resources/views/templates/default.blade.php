@@ -10,7 +10,7 @@
     <meta name="author" content="Goran Radmanovic">
     <meta name="robots" content="index, follow, all">
     <meta name="keywords" content="">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
     <title>@yield('title')</title>
   </head>
@@ -21,7 +21,7 @@
           <nav class="navbar navbar-default">
             <div class="container-fluid">
               <div class="navbar-header">
-                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="#"><img class="brand__img" src="images/logo.png" alt="Brand logo"></a>
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="#"><span class="brand__img"></span></a>
               </div>
               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
