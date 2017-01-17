@@ -8223,9 +8223,12 @@ body {
 }
 
 .main__menu .navbar-default .navbar-header .navbar-brand .brand__img {
-  display: inline;
-  width: 100px;
-  height: 30px;
+  display: inline-block;
+  width: 42px;
+  height: 42px;
+  background-image: url("../images/logo/logo2.png");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .main__menu .navbar-default .navbar-collapse .nav.navbar-nav .open > a, .main__menu .navbar-default .navbar-collapse .nav.navbar-nav .open > a:hover, .main__menu .navbar-default .navbar-collapse .nav.navbar-nav .open > a:focus {
@@ -8260,7 +8263,7 @@ body {
 
 .main__menu .navbar-default .navbar-collapse .navbar-form .form-control {
   border-radius: 0;
-  background-image: url("images/microphone.png");
+  background-image: url("../images/icons/magnifying.svg");
   background-repeat: no-repeat;
   background-position: right;
 }
