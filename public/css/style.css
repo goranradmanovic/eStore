@@ -8263,9 +8263,10 @@ body {
 
 .main__menu .navbar-default .navbar-collapse .navbar-form .form-control {
   border-radius: 0;
-  background-image: url("../images/icons/magnifying.svg");
-  background-repeat: no-repeat;
-  background-position: right;
+  background-image: url("../images/icons/magnifying-glass.svg");
+  background-position: 5px 5px;
+  background-repeat: repeat-y;
+  padding-left: 35px;
 }
 
 .main__menu .navbar-default .navbar-collapse .navbar-form .btn-default {
