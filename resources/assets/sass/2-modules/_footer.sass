@@ -1,12 +1,22 @@
 .footer
 	width: 100%
-	height: 60px
-	margin-top: 10px
+	height: auto
 	background-color: $bg-color-footer
 
-	+element('text')
-		margin: 0
-		padding-top: 20px
-		padding-bottom: 5px 
-		text-align: center
-		color: white
+	+element('social')
+	
+		+modifier('link')
+			display: inline-block
+			width: 50px
+			height: 50px
+			margin-left: 15px
+
+		+modifier('fb')
+			background:
+				image: url('../images/icons/facebook.svg')
+				repeat: no-repeat
+
+		+modifier('tw')
+			background:
+				image: url('../images/icons/twitter.svg')
+				repeat: no-repeat

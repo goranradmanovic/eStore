@@ -8418,15 +8418,23 @@ body {
 
 .footer {
   width: 100%;
-  height: 60px;
-  margin-top: 10px;
-  background-color: #003466;
+  height: auto;
+  background-color: pink;
 }
 
-.footer__text {
-  margin: 0;
-  padding-top: 20px;
-  padding-bottom: 5px;
-  text-align: center;
-  color: white;
+.footer__social--link {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  margin-left: 15px;
+}
+
+.footer__social--fb {
+  background-image: url("../images/icons/facebook.svg");
+  background-repeat: no-repeat;
+}
+
+.footer__social--tw {
+  background-image: url("../images/icons/twitter.svg");
+  background-repeat: no-repeat;
 }
