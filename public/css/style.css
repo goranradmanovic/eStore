@@ -8418,23 +8418,107 @@ body {
 
 .footer {
   width: 100%;
-  height: auto;
-  background-color: pink;
+  height: 65vh;
+  margin-top: 35px;
+  padding: 80px 10px 10px 10px;
+  background-color: #323A45;
+  color: #F0F0F0;
+  font-weight: 700;
+}
+
+.footer__text {
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.footer__social {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  flex-direction: row;
 }
 
 .footer__social--link {
-  display: inline-block;
   width: 50px;
   height: 50px;
-  margin-left: 15px;
+  margin-right: 15px;
+  cursor: pointer;
 }
 
-.footer__social--fb {
+.footer__social--link--fb {
   background-image: url("../images/icons/facebook.svg");
-  background-repeat: no-repeat;
+  background-size: contain;
+  -webkit-transition: -webkit-filter 500ms;
+  transition: -webkit-filter 500ms;
+  transition: filter 500ms;
+  transition: filter 500ms, -webkit-filter 500ms;
 }
 
-.footer__social--tw {
+.footer__social--link--fb:hover {
+  -webkit-filter: hue-rotate(40deg) saturate(0.5) brightness(390%) saturate(4);
+  filter: hue-rotate(40deg) saturate(0.5) brightness(390%) saturate(4);
+}
+
+.footer__social--link--tw {
   background-image: url("../images/icons/twitter.svg");
-  background-repeat: no-repeat;
+  background-size: contain;
+  -webkit-transition: -webkit-filter 500ms;
+  transition: -webkit-filter 500ms;
+  transition: filter 500ms;
+  transition: filter 500ms, -webkit-filter 500ms;
+}
+
+.footer__social--link--tw:hover {
+  -webkit-filter: hue-rotate(40deg) saturate(0.5) brightness(390%) saturate(4);
+  filter: hue-rotate(40deg) saturate(0.5) brightness(390%) saturate(4);
+}
+
+.footer__social--link--in {
+  background-image: url("../images/icons/instagram.svg");
+  background-size: contain;
+  -webkit-transition: -webkit-filter 500ms;
+  transition: -webkit-filter 500ms;
+  transition: filter 500ms;
+  transition: filter 500ms, -webkit-filter 500ms;
+}
+
+.footer__social--link--in:hover {
+  -webkit-filter: hue-rotate(40deg) saturate(0.5) brightness(390%) saturate(4);
+  filter: hue-rotate(40deg) saturate(0.5) brightness(390%) saturate(4);
+}
+
+.footer__social--link--li {
+  background-image: url("../images/icons/linkedin.svg");
+  background-size: contain;
+  -webkit-transition: -webkit-filter 500ms;
+  transition: -webkit-filter 500ms;
+  transition: filter 500ms;
+  transition: filter 500ms, -webkit-filter 500ms;
+}
+
+.footer__social--link--li:hover {
+  -webkit-filter: hue-rotate(40deg) saturate(0.5) brightness(390%) saturate(4);
+  filter: hue-rotate(40deg) saturate(0.5) brightness(390%) saturate(4);
+}
+
+.footer__nav {
+  width: 45%;
+}
+
+.footer__nav--link {
+  margin-right: 15px;
+  color: #FFFFFF;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.footer__nav--link:hover {
+  color: #E0E0E0;
+}
+
+.footer__nav--concat {
+  width: 45%;
+  float: right;
+  text-align: center;
 }
