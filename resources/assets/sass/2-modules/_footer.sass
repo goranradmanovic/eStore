@@ -1,16 +1,35 @@
 .footer
 	width: 100%
-	height: 65vh
+	height: 30em
 	margin-top: 35px;
 	padding: 80px 10px 10px 10px
 	background-color: $bg-color-footer
 	color: $bg-color-content
 	font-weight: 700
 
+	@media only screen and (max-width: 320px)
+		height: 40em
+
+	@media only screen and (max-width: 640px)
+		height: 50em
+
+	@media only screen and (max-width: 960px)
+		height: 50em
+
 	+element('text')
 		margin-bottom: 20px
 		text-transform: uppercase
 
+		@media only screen and (max-width: 320px)
+			text-align: center
+
+		@media only screen and (max-width: 640px)
+			text-align: center
+
+		@media only screen and (max-width: 960px)
+			text-align: center
+
+	// Social icons and links
 	+element('social')
 		display: flex
 		flex-direction: row
@@ -21,10 +40,20 @@
 			margin-right: 15px
 			cursor: pointer
 
+			@media only screen and (max-width: 320px)
+				margin: 15px auto 25px auto
+
+			@media only screen and (max-width: 640px)
+				margin: 15px auto 25px auto
+
+			@media only screen and (max-width: 960px)
+				margin: 15px auto 25px auto
+
 			+modifier('fb')
 				background:
 					image: url('../images/icons/facebook.svg')
 					size: contain
+					repeat: no-repeat
 				transition: filter 500ms;
 
 				&:hover
@@ -34,6 +63,7 @@
 				background:
 					image: url('../images/icons/twitter.svg')
 					size: contain
+					repeat: no-repeat
 				transition: filter 500ms;
 
 				&:hover
@@ -43,6 +73,7 @@
 				background:
 					image: url('../images/icons/instagram.svg')
 					size: contain
+					repeat: no-repeat
 				transition: filter 500ms;
 
 				&:hover
@@ -52,24 +83,126 @@
 				background:
 					image: url('../images/icons/linkedin.svg')
 					size: contain
+					repeat: no-repeat
 				transition: filter 500ms;
 
 				&:hover
 					filter: hue-rotate(40deg) saturate(0.5) brightness(390%) saturate(4)
 
+	// Footer navigation
 	+element('nav')
-		width: 45%
+		margin-bottom: 40px
+		text-align: center
 
 		+modifier('link')
-			margin-right: 15px
+			margin-right: 30px
 			color: $text-color-white
 			text-decoration: none
 			cursor: pointer
 
 			&:hover
 				color: $text-color-footer-hover
+			
+			&:focus
+				color: $bg-color-nav-hover
 
-		+modifier('concat')
-			width: 45%
-			float: right
-			text-align: center
+			@media only screen and (max-width: 320px)
+				display: block
+				margin: 5px 0 0 0
+
+			@media only screen and (max-width: 640px)
+				display: block
+				margin: 5px 0 0 0
+
+			@media only screen and (max-width: 960px)
+				display: block
+				margin: 5px 0 0 0
+
+	// Footer subscribe form
+	+element('form')
+		width: 100%
+		margin: 25px auto
+
+		+modifier('inline')
+			width: 59%
+			margin-left: 22%
+
+			@media only screen and (max-width: 320px)
+				width: auto
+				margin-left: 0
+
+			@media only screen and (max-width: 640px)
+				width: auto
+				margin-left: 0
+
+			@media only screen and (max-width: 960px)
+				width: auto
+				margin-left: 0
+
+		+modifier('title')
+			margin-left: 22.5%
+			color: $text-color-white
+
+			@media only screen and (max-width: 320px)
+				margin-left: 0
+
+			@media only screen and (max-width: 640px)
+				margin-left: 0
+
+			@media only screen and (max-width: 960px)
+				margin-left: 0
+
+		+modifier('email')
+			border: none
+			border-bottom: 2px solid $text-color-white
+			border-radius: 0
+			padding: 2px 7px 12px 2px
+			box-shadow: none
+			font-size: 2.2em
+			font-weight: 100
+			background-color: inherit
+			color: $text-color-white
+
+			&:focus
+				border-color: inherit
+				box-shadow: none
+				outline-offset: 0
+				outline: none
+
+		+modifier('btn')
+			height: 1.75em
+			margin-left: -3px
+			padding: 1px
+			border: none
+			border-bottom: 2px solid $text-color-white
+			font-size: 1.5em
+			font-weight: 200
+			background-color: inherit
+			color: $text-color-white
+			transition: color 500ms
+
+			&:hover
+				color: $bg-color-nav-hover
+
+			&:focus
+				outline-offset: 0
+				outline: none
+
+	// Footer copyright
+	+element('copy')
+		height: 30px
+		margin-top: 70px
+		text-align: center
+
+		+modifier('info')
+			display: block
+			margin-bottom: 5px
+			font-size: 0.9em
+
+			+modifier('link')
+				color: $text-color-white
+				cursor: pointer
+				transition: color 400ms
+
+				&:hover
+					color: $bg-color-nav-hover
