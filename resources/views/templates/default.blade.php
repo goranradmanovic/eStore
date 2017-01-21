@@ -12,6 +12,7 @@
     <meta name="keywords" content="">
     <link rel="icon" href="images/favicon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/app.js"></script>
     <title>@yield('title')</title>
   </head>
   <body>
@@ -69,15 +70,23 @@
               <div class="footer__social"><a class="footer__social--link footer__social--link--fb" href="#"></a><a class="footer__social--link footer__social--link--tw" href="#"></a><a class="footer__social--link footer__social--link--in" href="#"></a><a class="footer__social--link footer__social--link--li" href="#"></a></div>
             </div>
             <div class="col-md-8">
-              <div class="footer__nav"><a class="footer__nav--link" href="#">Privacy</a><a class="footer__nav--link" href="#">Terms</a><a class="footer__nav--link" href="#">Disclaimer</a><a class="footer__nav--link" href="#">Site Map</a></div>
-              <div class="footer__nav--contact">
-                <h3>Concat Us</h3>
+              <div class="footer__nav"><a class="footer__nav--link" href="#">Privacy</a><a class="footer__nav--link" href="#">Terms</a><a class="footer__nav--link" href="#">Disclaimer</a><a class="footer__nav--link" href="#">Site Map</a><a class="footer__nav--link" href="#">Contac Us</a></div>
+              <div class="footer__form">
+                <h3 class="footer__form--title">Subscribe</h3>
+                <form class="form-inline footer__form--inline" action="" method="post" autocomplete="off">
+                  <div class="form-group">
+                    <input class="form-control footer__form--email" type="email" placeholder="Email Address">
+                    <input class="footer__form--btn" type="submit" value="Submit">
+                  </div>
+                </form>
               </div>
             </div>
+          </div>
+          <div class="col-md-12">
+            <div class="footer__copy"><span class="footer__copy--info">Designed and developed by <a class="footer__copy--info--link" href="http://www.goranradmanovic.byethost13.com/" target="_blank">Goran Radmanovic.</a></span><span class="footer__copy--info"> &copy; 2017 My Company - All rights reserved</span></div>
           </div>
         </footer>
       </div>
     </div>
-    <script src="js/app.js"></script>
   </body>
 </html>
