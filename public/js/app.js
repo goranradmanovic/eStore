@@ -40038,12 +40038,12 @@ var app = new Vue({
     el: '#app',
 
     data: {
-		isActive: false,
+		date: '',
 	},
 
     methods: {
-    	active: function(event) {
-    		console.log('clicked');
+    	formatDate: function() {
+    		this.data.date =  new Date().getFullYear();
     	}
     }
 });
