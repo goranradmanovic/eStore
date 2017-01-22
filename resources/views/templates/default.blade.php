@@ -12,7 +12,6 @@
     <meta name="keywords" content="">
     <link rel="icon" href="images/favicon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/app.js"></script>
     <title>@yield('title')</title>
   </head>
   <body>
@@ -62,7 +61,8 @@
               </div>
             </div>
           </nav>
-        </menu>@yield('content')
+        </menu>
+        <div class="container main-container">@yield('content')</div>
         <footer class="footer">
           <div class="col-md-12">
             <div class="col-md-4">
@@ -88,5 +88,6 @@
         </footer>
       </div>
     </div>
+    <script src="js/app.js"></script>
   </body>
 </html>

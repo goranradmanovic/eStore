@@ -14,13 +14,15 @@ html(lang='en')
 		meta(name='keywords' content='')
 		link(rel='icon' href='images/favicon/favicon.ico' type='image/x-icon')
 		link(rel='stylesheet' href='css/style.css')
-		script(src='js/app.js')
 		title @yield('title')
 	body
 		.container-fluid(id='app')
 			.row
 				include partials/navigation.pug
 				
-				| @yield('content')
+				.container.main-container
+					| @yield('content')
 
 				include partials/footer.pug
+
+		script(src='js/app.js')
