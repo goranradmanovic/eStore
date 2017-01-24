@@ -1,21 +1,23 @@
-.col-md-12
-	.articles
-		.articles__item(v-for='article in articles')
-			h3.articles__item--title
-				a(:href='article.titleLink' target='blank' class='articles_item--link' v-text='article.title')
+.row
+	.col-md-12
+		.articles(v-for='article in articles')
+			.col-md-4
+				.articles__item
+					h3.articles__item--title
+						a(:href='article.titleLink' target='blank' class='articles_item--title--link' v-text='article.title')
 
-			.articles__item--image
-				a(:href='article.productLink' target='_blank')
-					img(:src='article.imgURL' alt='Product image')
+					.articles__item--link
+						a(:href='article.productLink' target='_blank')
+							img(:src='article.imgURL' alt='Product image' class="articles__item--link--image")
 
-			.articles__item--details
-				p.article__item--details--text(v-text='article.description')
+					.articles__item--details
+						p.articles__item--details--text(v-text='article.description')
 
-			.articles__item--price
-				| @verbatim
-				| $ {{ article.price }}
-				| @endverbatim
+					.articles__item--price
+						//- This was used because output of $ char. before number of the price.
+						| @verbatim
+						| $ {{ article.price }}
+						| @endverbatim
 
-			.articles__item--button
-				a(:href='article.buttonLink') Click this
-
+					.articles__item--button
+						a(:href='article.buttonLink') It's a bargain

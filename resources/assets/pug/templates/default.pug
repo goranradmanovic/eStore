@@ -16,13 +16,12 @@ html(lang='en')
 		link(rel='stylesheet' href='css/style.css')
 		title @yield('title')
 	body
+		include partials/navigation.pug
+		
 		.container-fluid(id='app')
-			.row
-				include partials/navigation.pug
-				
-				.container.main-container
-					| @yield('content')
 
-				include partials/footer.pug
+			| @yield('content')
+
+			include partials/footer.pug
 
 		script(src='js/app.js')
