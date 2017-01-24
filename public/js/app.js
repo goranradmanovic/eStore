@@ -40039,7 +40039,7 @@ var articles = [
 		"title": "Personalized Zodiac Birthday Certificate",
 		"titleLink": "#",
 		"productLink": "#",
-		"imgURL": "http://placehold.it/300x250?text=Example+Image",
+		"imgURL": "http://placehold.it/381x250?text=Example+Image",
 		"description": "Treat a loved one to some insight into their name and birthday by giving them one of these personalized zodiac birthday certificates. It’s written on elegant linen paper and features information on the meaning of their name and zodiac sign.",
 		"price": 20.00,
 		"buttonLink": '#'
@@ -40048,7 +40048,7 @@ var articles = [
 		"title": "LEGO Robot Building Kit",
 		"titleLink": "#",
 		"productLink": "#",
-		"imgURL": "http://placehold.it/300x250?text=Example+Image",
+		"imgURL": "http://placehold.it/381x250?text=Example+Image",
 		"description": "Nurture your young intellect’s mind during playtime with the LEGO robot building kit. This 543 piece set works in tandem with a special app designed to teach kids the art of coding in an easy and fun way using challenging games.",
 		"price": 159.99,
 		"buttonLink": '#'
@@ -40057,7 +40057,7 @@ var articles = [
 		"title": "Indoor/Outdoor Heated Slippers",
 		"titleLink": "#",
 		"productLink": "#",
-		"imgURL": "http://placehold.it/300x250?text=Example+Image",
+		"imgURL": "http://placehold.it/381x250?text=Example+Image",
 		"description": "Help stay warm when the temperature drops below freezing by putting on these indoor/outdoor heated slippers. These ankle high boots come with four different heat settings and can last up to 10 hours on a single charge.",
 		"price": 99.99,
 		"buttonLink": '#'
@@ -40066,7 +40066,7 @@ var articles = [
 		"title": "Shiitaki Mushroom Log Kit",
 		"titleLink": "#",
 		"productLink": "#",
-		"imgURL": "http://placehold.it/300x250?text=Example+Image",
+		"imgURL": "http://placehold.it/381x250?text=Example+Image",
 		"description": "Give your meals an exotic touch by sprinkling them with your own homegrown shiitaki mushrooms. The kit comes with a small hand-cut wooden log inoculated with spores that’ll produce a batch of organic and delicious shiitake mushrooms with little effort.",
 		"price": 29.95,
 		"buttonLink": '#'
@@ -40075,7 +40075,7 @@ var articles = [
 		"title": "Hidden Compartments Stash Belt",
 		"titleLink": "#",
 		"productLink": "#",
-		"imgURL": "http://placehold.it/300x250?text=Example+Image",
+		"imgURL": "http://placehold.it/381x250?text=Example+Image",
 		"description": "Keep your valuables safe while you’re out and about by storing them in the hidden compartment stash belt. It features an elegant all black design and comes outfitted with a long slender compartment, ideal for storing small items like cash and jewelry.",
 		"price": 89.99,
 		"buttonLink": '#'
@@ -40084,11 +40084,38 @@ var articles = [
 		"title": "Motion Sensing Floodlight Security Cam",
 		"titleLink": "#",
 		"productLink": "#",
-		"imgURL": "http://placehold.it/300x250?text=Example+Image",
+		"imgURL": "http://placehold.it/381x250?text=Example+Image",
 		"description": "Keep your property safe without spending a fortune on pricey systems using this motion sensing floodlight security camera. It comes with built-in floodlights, siren alarm, and audio so you can communicate with whoever is within view using your smartphone.",
 		"price": 249.99,
 		"buttonLink": '#'
-	}
+	},
+	{	
+		"title": "Personalized Zodiac Birthday Certificate",
+		"titleLink": "#",
+		"productLink": "#",
+		"imgURL": "http://placehold.it/381x250?text=Example+Image",
+		"description": "Treat a loved one to some insight into their name and birthday by giving them one of these personalized zodiac birthday certificates. It’s written on elegant linen paper and features information on the meaning of their name and zodiac sign.",
+		"price": 20.00,
+		"buttonLink": '#'
+	},
+	{
+		"title": "Hidden Compartments Stash Belt",
+		"titleLink": "#",
+		"productLink": "#",
+		"imgURL": "http://placehold.it/381x250?text=Example+Image",
+		"description": "Keep your valuables safe while you’re out and about by storing them in the hidden compartment stash belt. It features an elegant all black design and comes outfitted with a long slender compartment, ideal for storing small items like cash and jewelry.",
+		"price": 89.99,
+		"buttonLink": '#'
+	},
+	{
+		"title": "Indoor/Outdoor Heated Slippers",
+		"titleLink": "#",
+		"productLink": "#",
+		"imgURL": "http://placehold.it/381x250?text=Example+Image",
+		"description": "Help stay warm when the temperature drops below freezing by putting on these indoor/outdoor heated slippers. These ankle high boots come with four different heat settings and can last up to 10 hours on a single charge.",
+		"price": 99.99,
+		"buttonLink": '#'
+	},
 ];
 
 
