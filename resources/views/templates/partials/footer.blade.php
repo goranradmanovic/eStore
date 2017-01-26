@@ -22,5 +22,5 @@
     <div class="col-md-12">
       <div class="footer__copy"><span class="footer__copy--info">Designed and developed by <a class="footer__copy--info--link" href="http://www.goranradmanovic.byethost13.com/" target="_blank">Goran Radmanovic.</a></span><span class="footer__copy--info"> &copy; 2017 My Company - All rights reserved</span></div>
     </div>
-  </footer>
+  </footer><a class="scrollToTop" href="#" title="Scroll To Top" alt="Scroll To Top" role="button"></a>
 </div>

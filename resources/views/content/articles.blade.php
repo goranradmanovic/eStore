@@ -9,14 +9,14 @@
           <div class="articles__item--details">
             <p class="articles__item--details--text" v-text="article.description"></p>
           </div>
-          <div class="articles__item--footer">
-            <div class="articles__item--footer--price">
-              @verbatim
-              $ {{ article.price }}
-              @endverbatim
-            </div>
-            <div class="articles__item--footer--button"><a class="articles__item--footer--button--link" :href="article.buttonLink" role="button">It's a bargain</a></div>
+        </div>
+        <div class="articles__footer">
+          <div class="articles__footer--price">
+            @verbatim
+            $ {{ article.price }}
+            @endverbatim
           </div>
+          <div class="articles__footer--cta"><a class="articles__footer--cta--link" :href="article.buttonLink" role="button">It's a bargain</a></div>
         </div>
       </div>
     </div>
