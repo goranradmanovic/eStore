@@ -5,7 +5,7 @@
 	+element('item')
 		width: auto
 		height: auto
-		margin: 25px auto 50px auto
+		margin: 25px auto 0 auto
 
 		+modifier('title')
 			margin-bottom: 10px
@@ -24,56 +24,62 @@
 		+modifier('link')
 			
 			+modifier('image')
+				width: 100%
 				border-radius: 5px
 
 				@media only screen and (max-width: 960px)
-					width: 99%
+					width: 100%
 
 				@media only screen and (max-width: 640px)
-					width: 99%
+					width: 100%
 
 				@media only screen and (max-width: 320px)
-					width: 99%
+					width: 100%
 
 		+modifier('details')
+			width: auto
+			height: 100px
 			margin: 10px auto
 
 			+modifier('text')
 				text-align: justify
+				margin-bottom: 0
 
-		+modifier('footer')
-			width: 100%
-			height: 50px
+	+element('footer')
+		width: 100%
+		height: 50px
+		padding: 1px 0
 
-			+modifier('price')
-				display: inline-block
-				width: auto
-				font-size: 1.4em
+		+modifier('price')
+			display: inline-block
+			width: auto
+			font-size: 1.4em
+			font-weight: 600
+			color: $bg-color-nav
+
+		+modifier('cta')
+			display: inline-block
+			float: right
+			padding: 7.5px
+			border: 1px solid $bg-color-nav-hover
+			border-radius: 3px
+			background-color: $cta-color
+			cursor: pointer
+			transition: background-color 400ms
+
+			&:hover
+				background-color: $bg-color-nav-hover
+				box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5)
+
+			&:focus
+				background-color: $bg-color-nav-active
+
+			+modifier('link')
+				font-size: 1.5em
 				font-weight: 600
-				color: $bg-color-nav
-
-			+modifier('button')
-				display: inline-block
-				float: right
-				padding: 7.5px
-				border: 1.5px solid $bg-color-nav-hover
-				border-radius: 7px
-				background-color: $bg-color-nav
-				cursor: pointer
-				transition: background-color 400ms
+				color: $text-color-white
+				text-transform: uppercase
 
 				&:hover
-					background-color: $bg-color-nav-hover
-					border: 1.5px solid $bg-color-nav
-
-				&:focus
-					background-color: $bg-color-nav-active
-
-				+modifier('link')
-					font-size: 1.5em
-					font-weight: 600
 					color: $text-color-white
-
-					&:hover
-						color: $text-color-white
-						text-decoration: none
+					text-decoration: none
