@@ -1,3 +1,10 @@
+window.Laravel = { csrfToken: '{{ csrf_token() }}' };
+
+$.ajaxSetup({
+	headers: {
+		'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+	}
+});
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -14,6 +21,7 @@ require('./bootstrap');
  */
 
 Vue.component('example', require('./components/Example.vue'));
+Vue.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#token').getAttribute('value');
 
 var articles = [
 	{	
@@ -100,12 +108,36 @@ var articles = [
 ];
 
 
+
+
+
 const app = new Vue({
     el: '#app',
     data: {
 		articles: articles,
 	},
+	methods: {
+		submitSubscribeEmail: function () {
+
+			var subscribeEmail = this.email;
+			
+			this.$http.post('/', subscribeEmail, function(data) {this.email = data.email});
+		},
+	}
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //jQuery
 $(document).ready(function(){

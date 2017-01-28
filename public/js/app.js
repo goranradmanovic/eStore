@@ -40017,6 +40017,13 @@ module.exports = function(module) {
 /* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
+window.Laravel = { csrfToken: '{{ csrf_token() }}' };
+
+$.ajaxSetup({
+	headers: {
+		'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+	}
+});
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -40033,6 +40040,7 @@ __webpack_require__(1);
  */
 
 Vue.component('example', __webpack_require__(2));
+Vue.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#token').getAttribute('value');
 
 var articles = [
 	{	
@@ -40119,12 +40127,36 @@ var articles = [
 ];
 
 
+
+
+
 var app = new Vue({
     el: '#app',
     data: {
 		articles: articles,
 	},
+	methods: {
+		submitSubscribeEmail: function () {
+
+			var subscribeEmail = this.email;
+			
+			this.$http.post('/', subscribeEmail, function(data) {this.email = data.email});
+		},
+	}
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //jQuery
 $(document).ready(function(){
