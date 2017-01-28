@@ -24,7 +24,7 @@
         </ul>
         <form class="navbar-form navbar-left">
           <div class="form-group">
-            <input class="form-control" type="text" placeholder="Search"/>
+            <input class="form-control" type="text" placeholder="Search"/>{{ csrf_field() }}
           </div>
           <button class="btn btn-default" type="submit">Search</button>
         </form>

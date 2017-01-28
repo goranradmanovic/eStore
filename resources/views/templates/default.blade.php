@@ -10,6 +10,7 @@
     <meta name="author" content="Goran Radmanovic">
     <meta name="robots" content="index, follow, all">
     <meta name="keywords" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}" id="token">
     <link rel="icon" href="images/favicon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
     <title>@yield('title')</title>
@@ -40,7 +41,7 @@
             </ul>
             <form class="navbar-form navbar-left">
               <div class="form-group">
-                <input class="form-control" type="text" placeholder="Search">
+                <input class="form-control" type="text" placeholder="Search">{{ csrf_field() }}
               </div>
               <button class="btn btn-default" type="submit">Search</button>
             </form>
@@ -72,10 +73,10 @@
               <div class="footer__nav"><a class="footer__nav--link" href="#">Privacy</a><a class="footer__nav--link" href="#">Terms</a><a class="footer__nav--link" href="#">Disclaimer</a><a class="footer__nav--link" href="#">Site Map</a><a class="footer__nav--link" href="#">Contac Us</a></div>
               <div class="footer__form">
                 <h3 class="footer__form--title">Subscribe</h3>
-                <form class="form-inline footer__form--inline" action="" method="post" autocomplete="off">
+                <form class="form-inline footer__form--inline" action="" method="post" autocomplete="off" id="subscribeForm" v-on:submit.prevent="submitSubscribeEmail">
                   <div class="form-group">
-                    <input class="form-control footer__form--email" type="email" placeholder="Email Address">
-                    <input class="footer__form--btn" type="submit" value="Submit">
+                    <input class="form-control footer__form--email" type="email" placeholder="Email Address" v-model="email">
+                    <input class="footer__form--btn" type="submit" value="Submit">{{ csrf_field() }}
                   </div>
                 </form>
               </div>
@@ -87,7 +88,7 @@
         </footer><a class="scrollToTop" href="#" title="Scroll To Top" alt="Scroll To Top" role="button"></a>
       </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <script src="js/app.js"></script>
   </body>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script src="js/app.js"></script>
 </html>

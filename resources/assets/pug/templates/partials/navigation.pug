@@ -42,6 +42,7 @@ menu.main__menu
 				form.navbar-form.navbar-left
 					.form-group
 						input.form-control(type='text', placeholder='Search')
+						| {{ csrf_field() }}
 					button.btn.btn-default(type='submit') Search
 				ul.nav.navbar-nav.navbar-right
 					li
