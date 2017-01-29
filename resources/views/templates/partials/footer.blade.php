@@ -10,9 +10,9 @@
         <div class="footer__nav"><a class="footer__nav--link" href="#">Privacy</a><a class="footer__nav--link" href="#">Terms</a><a class="footer__nav--link" href="#">Disclaimer</a><a class="footer__nav--link" href="#">Site Map</a><a class="footer__nav--link" href="#">Contac Us</a></div>
         <div class="footer__form">
           <h3 class="footer__form--title">Subscribe</h3>
-          <form class="form-inline footer__form--inline" action="" method="post" autocomplete="off" id="subscribeForm" v-on:submit.prevent="submitSubscribeEmail">
+          <form class="form-inline footer__form--inline" action="{{ url('/') }}" method="post" autocomplete="off" id="subscribeForm" v-on:submit.prevent="submitSubscribeEmail"> 
             <div class="form-group">
-              <input class="form-control footer__form--email" type="email" placeholder="Email Address" v-model="email"/>
+              <input class="form-control footer__form--email" type="email" name="subscribeEmail" placeholder="Email Address" v-model="email"/>
               <input class="footer__form--btn" type="submit" value="Submit"/>{{ csrf_field() }}
             </div>
           </form>
