@@ -20,9 +20,11 @@
 
 				.footer__form
 					h3.footer__form--title Subscribe
-					form(action='' method='post' autocomplete='off' class='form-inline footer__form--inline' id='subscribeForm' v-on:submit.prevent='submitSubscribeEmail')
+					//- v-on:submit.prevent='submitSubscribeEmail')
+					form(action="{{ url('/') }}" method='post' autocomplete='off' class='form-inline footer__form--inline' id='subscribeForm' v-on:submit.prevent='submitSubscribeEmail') 
 						.form-group
-							input(type='email' placeholder='Email Address' class='form-control footer__form--email' v-model='email')
+							//-  v-model='email'
+							input(type='email' name='subscribeEmail' placeholder='Email Address' class='form-control footer__form--email' v-model='email')
 							input(type='submit' value='Submit' class='footer__form--btn')
 							| {{ csrf_field() }}
 
