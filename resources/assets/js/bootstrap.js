@@ -1,4 +1,7 @@
+//Importing axios npm package for Ajax http requests
+window.axios = require('axios');
 
+//Importing lodash libr.
 window._ = require('lodash');
 
 /**
@@ -43,3 +46,5 @@ Vue.http.interceptors.push((request, next) => {
 //     broadcaster: 'pusher',
 //     key: 'your-pusher-key'
 // });
+
+
