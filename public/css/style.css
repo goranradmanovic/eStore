@@ -8634,6 +8634,7 @@ body {
 }
 
 .footer__form--email {
+  height: 1.5em;
   border: none;
   border-bottom: 2px solid #FFFFFF;
   border-radius: 0;
@@ -8653,7 +8654,7 @@ body {
 }
 
 .footer__form--btn {
-  height: 1.75em;
+  height: 2.4em;
   margin-left: -3px;
   padding: 1px;
   border: none;
