@@ -1,4 +1,4 @@
-window.Laravel = { csrfToken: '{{ csrf_token() }}' };
+//window.Laravel = { csrfToken: '{{ csrf_token() }}' };
 
 
 
@@ -114,25 +114,29 @@ const app = new Vue({
     el: '#app',
     data: {
 		articles: articles,
+		email: '',
 	},
 	methods: {
-		submitSubscribeEmail: function () {
+		submitSubscribeEmail: function (event) {
 
+			event.preventDefault();
+			var subscribeForm = $('#subscribeForm');
 			var subscribeEmail = this.email;
-			
-			this.$http.post('/', subscribeEmail).then(response => {
-            	console.log(response.data)
-        	});
+
+			axios.post('/', {subscribeEmail: subscribeEmail})
+				.then(function(response) {
+					console.log(response);
+					$('#subscribeForm').reset();  
+				if(response.data.status == 200){
+					subscribeForm.reset();  
+
+					// show success message here
+				}
+			});
 		},
 	},
 });
 
-/*
-$.ajaxSetup({
-	headers: {
-		'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-	}
-});*/
 
 
 
@@ -169,39 +173,3 @@ function scrollToTop() {
 	});
 }
 
-/*
-function submitSubscribeEmail() {
-
-	$('#subscribeForm').on('submit', function(event) {
-
-		event.preventDefault();
-
-		var subscribeEmail = $('.footer__form--email').val();
-
-		/*$.ajax({
-			url: "/",
-			type: "post",
-			data: subscribeEmail,
-			contentType: "application/x-www-form-urlencoded",
-			sucess: function(responseData, textSatus, jqXHR) {
-				console.log(responseData);
-				console.log(textSatus);
-				console.log(jqXHR);
-				$("#subscribeForm").trigger("reset");
-			},
-			error: function(jqXHR, textSatus, error) {
-				console.log(error);
-				console.log(textSatus);
-				console.log(jqXHR);
-				$("#subscribeForm").trigger("reset");
-			}
-		});
-
-		$.post('/', subscribeEmail, function(response) {
-			console.log(response);
-			$("#subscribeForm").trigger("reset");
-		});
-
-	});
-}
-*/
