@@ -61,11 +61,223 @@
 /******/ 	__webpack_require__.p = "";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 11);
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ function(module, exports, __webpack_require__) {
+
+window.Laravel = { csrfToken: '{{ csrf_token() }}' };
+
+
+
+/**
+ * First we will load all of this project's JavaScript dependencies which
+ * include Vue and Vue Resource. This gives a great starting point for
+ * building robust, powerful web applications using Vue and Laravel.
+ */
+
+__webpack_require__(2);
+
+/**
+ * Next, we will create a fresh Vue application instance and attach it to
+ * the page. Then, you may begin adding components to this application
+ * or customize the JavaScript scaffolding to fit your unique needs.
+ */
+
+Vue.component('example', __webpack_require__(3));
+//Vue.http.headers.common['Access-Control-Allow-Origin'] = 'http://192.168.1.10:3000';
+//Vue.http.headers.common['Access-Control-Request-Method'] = '*';
+//Vue.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#token').getAttribute('value');
+
+
+var articles = [
+	{	
+		"title": "Personalized Zodiac Birthday Certificate",
+		"titleLink": "#",
+		"productLink": "#",
+		"imgURL": "http://placehold.it/381x250?text=Example+Image",
+		"description": "Treat a loved one to some insight into their name and birthday by giving them one of these personalized zodiac birthday certificates. It’s written on elegant linen paper and features information on the meaning of their name and zodiac sign.",
+		"price": 20.00,
+		"buttonLink": '#'
+	},
+	{
+		"title": "LEGO Robot Building Kit",
+		"titleLink": "#",
+		"productLink": "#",
+		"imgURL": "http://placehold.it/381x250?text=Example+Image",
+		"description": "Nurture your young intellect’s mind during playtime with the LEGO robot building kit. This 543 piece set works in tandem with a special app designed to teach kids the art of coding in an easy and fun way using challenging games.",
+		"price": 159.99,
+		"buttonLink": '#'
+	},
+	{
+		"title": "Indoor/Outdoor Heated Slippers",
+		"titleLink": "#",
+		"productLink": "#",
+		"imgURL": "http://placehold.it/381x250?text=Example+Image",
+		"description": "Help stay warm when the temperature drops below freezing by putting on these indoor/outdoor heated slippers. These ankle high boots come with four different heat settings and can last up to 10 hours on a single charge.",
+		"price": 99.99,
+		"buttonLink": '#'
+	},
+	{
+		"title": "Shiitaki Mushroom Log Kit",
+		"titleLink": "#",
+		"productLink": "#",
+		"imgURL": "http://placehold.it/381x250?text=Example+Image",
+		"description": "Give your meals an exotic touch by sprinkling them with your own homegrown shiitaki mushrooms. The kit comes with a small hand-cut wooden log inoculated with spores that’ll produce a batch of organic and delicious shiitake mushrooms with little effort.",
+		"price": 29.95,
+		"buttonLink": '#'
+	},
+	{
+		"title": "Hidden Compartments Stash Belt",
+		"titleLink": "#",
+		"productLink": "#",
+		"imgURL": "http://placehold.it/381x250?text=Example+Image",
+		"description": "Keep your valuables safe while you’re out and about by storing them in the hidden compartment stash belt. It features an elegant all black design and comes outfitted with a long slender compartment, ideal for storing small items like cash and jewelry.",
+		"price": 89.99,
+		"buttonLink": '#'
+	},
+	{
+		"title": "Motion Sensing Floodlight Security Cam",
+		"titleLink": "#",
+		"productLink": "#",
+		"imgURL": "http://placehold.it/381x250?text=Example+Image",
+		"description": "Keep your property safe without spending a fortune on pricey systems using this motion sensing floodlight security camera. It comes with built-in floodlights, siren alarm, and audio so you can communicate with whoever is within view using your smartphone.",
+		"price": 249.99,
+		"buttonLink": '#'
+	},
+	{	
+		"title": "Personalized Zodiac Birthday Certificate",
+		"titleLink": "#",
+		"productLink": "#",
+		"imgURL": "http://placehold.it/381x250?text=Example+Image",
+		"description": "Treat a loved one to some insight into their name and birthday by giving them one of these personalized zodiac birthday certificates. It’s written on elegant linen paper and features information on the meaning of their name and zodiac sign.",
+		"price": 20.00,
+		"buttonLink": '#'
+	},
+	{
+		"title": "Hidden Compartments Stash Belt",
+		"titleLink": "#",
+		"productLink": "#",
+		"imgURL": "http://placehold.it/381x250?text=Example+Image",
+		"description": "Keep your valuables safe while you’re out and about by storing them in the hidden compartment stash belt. It features an elegant all black design and comes outfitted with a long slender compartment, ideal for storing small items like cash and jewelry.",
+		"price": 89.99,
+		"buttonLink": '#'
+	},
+	{
+		"title": "Indoor/Outdoor Heated Slippers",
+		"titleLink": "#",
+		"productLink": "#",
+		"imgURL": "http://placehold.it/381x250?text=Example+Image",
+		"description": "Help stay warm when the temperature drops below freezing by putting on these indoor/outdoor heated slippers. These ankle high boots come with four different heat settings and can last up to 10 hours on a single charge.",
+		"price": 99.99,
+		"buttonLink": '#'
+	},
+];
+
+
+
+
+
+var app = new Vue({
+    el: '#app',
+    data: {
+		articles: articles,
+	},
+	methods: {
+		submitSubscribeEmail: function () {
+
+			var subscribeEmail = this.email;
+			
+			this.$http.post('/', subscribeEmail).then(function (response) {
+            	console.log(response.data)
+        	});
+		},
+	},
+});
+
+/*
+$.ajaxSetup({
+	headers: {
+		'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+	}
+});*/
+
+
+
+
+
+
+
+
+
+
+//jQuery
+$(document).ready(function(){
+	//Calling the function
+	scrollToTop();
+	
+	//Ajaxing
+	//submitSubscribeEmail();
+});
+
+function scrollToTop() {
+	//Check to see if the window is top if not then display button
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 100) {
+			$('.scrollToTop').fadeIn();
+		} else {
+			$('.scrollToTop').fadeOut();
+		}
+	});
+	
+	//Click event to scroll to top
+	$('.scrollToTop').click(function(){
+		$('html, body').animate({scrollTop : 0}, 800);
+		return false;
+	});
+}
+
+/*
+function submitSubscribeEmail() {
+
+	$('#subscribeForm').on('submit', function(event) {
+
+		event.preventDefault();
+
+		var subscribeEmail = $('.footer__form--email').val();
+
+		/*$.ajax({
+			url: "/",
+			type: "post",
+			data: subscribeEmail,
+			contentType: "application/x-www-form-urlencoded",
+			sucess: function(responseData, textSatus, jqXHR) {
+				console.log(responseData);
+				console.log(textSatus);
+				console.log(jqXHR);
+				$("#subscribeForm").trigger("reset");
+			},
+			error: function(jqXHR, textSatus, error) {
+				console.log(error);
+				console.log(textSatus);
+				console.log(jqXHR);
+				$("#subscribeForm").trigger("reset");
+			}
+		});
+
+		$.post('/', subscribeEmail, function(response) {
+			console.log(response);
+			$("#subscribeForm").trigger("reset");
+		});
+
+	});
+}
+*/
+
+/***/ },
+/* 1 */
 /***/ function(module, exports) {
 
 var g;
@@ -90,11 +302,11 @@ module.exports = g;
 
 
 /***/ },
-/* 1 */
+/* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
 
-window._ = __webpack_require__(6);
+window._ = __webpack_require__(7);
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -102,8 +314,8 @@ window._ = __webpack_require__(6);
  * code may be modified to fit the specific needs of your application.
  */
 
-window.$ = window.jQuery = __webpack_require__(5);
-__webpack_require__(3);
+window.$ = window.jQuery = __webpack_require__(6);
+__webpack_require__(4);
 
 /**
  * Vue is a modern JavaScript library for building interactive web interfaces
@@ -111,8 +323,8 @@ __webpack_require__(3);
  * and simple, leaving you to focus on building your next great project.
  */
 
-window.Vue = __webpack_require__(9);
-__webpack_require__(8);
+window.Vue = __webpack_require__(10);
+__webpack_require__(9);
 
 /**
  * We'll register a HTTP interceptor to attach the "CSRF" header to each of
@@ -141,17 +353,17 @@ Vue.http.interceptors.push(function (request, next) {
 
 
 /***/ },
-/* 2 */
+/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = {}
 
 /* script */
-__vue_exports__ = __webpack_require__(4)
+__vue_exports__ = __webpack_require__(5)
 
 /* template */
-var __vue_template__ = __webpack_require__(7)
+var __vue_template__ = __webpack_require__(8)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -185,7 +397,7 @@ module.exports = __vue_exports__
 
 
 /***/ },
-/* 3 */
+/* 4 */
 /***/ function(module, exports) {
 
 /*!
@@ -2568,7 +2780,7 @@ if (typeof jQuery === 'undefined') {
 
 
 /***/ },
-/* 4 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2597,7 +2809,7 @@ if (typeof jQuery === 'undefined') {
 
 
 /***/ },
-/* 5 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -12823,7 +13035,7 @@ return jQuery;
 
 
 /***/ },
-/* 6 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -29911,10 +30123,10 @@ return jQuery;
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(10)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(11)(module)))
 
 /***/ },
-/* 7 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -29942,7 +30154,7 @@ if (false) {
 }
 
 /***/ },
-/* 8 */
+/* 9 */
 /***/ function(module, exports) {
 
 "use strict";
@@ -31466,7 +31678,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 module.exports = plugin;
 
 /***/ },
-/* 9 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {/*!
@@ -39985,10 +40197,10 @@ return Vue$3;
 
 })));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ },
-/* 10 */
+/* 11 */
 /***/ function(module, exports) {
 
 module.exports = function(module) {
@@ -40012,175 +40224,6 @@ module.exports = function(module) {
 	return module;
 }
 
-
-/***/ },
-/* 11 */
-/***/ function(module, exports, __webpack_require__) {
-
-window.Laravel = { csrfToken: '{{ csrf_token() }}' };
-
-$.ajaxSetup({
-	headers: {
-		'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-	}
-});
-
-/**
- * First we will load all of this project's JavaScript dependencies which
- * include Vue and Vue Resource. This gives a great starting point for
- * building robust, powerful web applications using Vue and Laravel.
- */
-
-__webpack_require__(1);
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
-Vue.component('example', __webpack_require__(2));
-Vue.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#token').getAttribute('value');
-
-var articles = [
-	{	
-		"title": "Personalized Zodiac Birthday Certificate",
-		"titleLink": "#",
-		"productLink": "#",
-		"imgURL": "http://placehold.it/381x250?text=Example+Image",
-		"description": "Treat a loved one to some insight into their name and birthday by giving them one of these personalized zodiac birthday certificates. It’s written on elegant linen paper and features information on the meaning of their name and zodiac sign.",
-		"price": 20.00,
-		"buttonLink": '#'
-	},
-	{
-		"title": "LEGO Robot Building Kit",
-		"titleLink": "#",
-		"productLink": "#",
-		"imgURL": "http://placehold.it/381x250?text=Example+Image",
-		"description": "Nurture your young intellect’s mind during playtime with the LEGO robot building kit. This 543 piece set works in tandem with a special app designed to teach kids the art of coding in an easy and fun way using challenging games.",
-		"price": 159.99,
-		"buttonLink": '#'
-	},
-	{
-		"title": "Indoor/Outdoor Heated Slippers",
-		"titleLink": "#",
-		"productLink": "#",
-		"imgURL": "http://placehold.it/381x250?text=Example+Image",
-		"description": "Help stay warm when the temperature drops below freezing by putting on these indoor/outdoor heated slippers. These ankle high boots come with four different heat settings and can last up to 10 hours on a single charge.",
-		"price": 99.99,
-		"buttonLink": '#'
-	},
-	{
-		"title": "Shiitaki Mushroom Log Kit",
-		"titleLink": "#",
-		"productLink": "#",
-		"imgURL": "http://placehold.it/381x250?text=Example+Image",
-		"description": "Give your meals an exotic touch by sprinkling them with your own homegrown shiitaki mushrooms. The kit comes with a small hand-cut wooden log inoculated with spores that’ll produce a batch of organic and delicious shiitake mushrooms with little effort.",
-		"price": 29.95,
-		"buttonLink": '#'
-	},
-	{
-		"title": "Hidden Compartments Stash Belt",
-		"titleLink": "#",
-		"productLink": "#",
-		"imgURL": "http://placehold.it/381x250?text=Example+Image",
-		"description": "Keep your valuables safe while you’re out and about by storing them in the hidden compartment stash belt. It features an elegant all black design and comes outfitted with a long slender compartment, ideal for storing small items like cash and jewelry.",
-		"price": 89.99,
-		"buttonLink": '#'
-	},
-	{
-		"title": "Motion Sensing Floodlight Security Cam",
-		"titleLink": "#",
-		"productLink": "#",
-		"imgURL": "http://placehold.it/381x250?text=Example+Image",
-		"description": "Keep your property safe without spending a fortune on pricey systems using this motion sensing floodlight security camera. It comes with built-in floodlights, siren alarm, and audio so you can communicate with whoever is within view using your smartphone.",
-		"price": 249.99,
-		"buttonLink": '#'
-	},
-	{	
-		"title": "Personalized Zodiac Birthday Certificate",
-		"titleLink": "#",
-		"productLink": "#",
-		"imgURL": "http://placehold.it/381x250?text=Example+Image",
-		"description": "Treat a loved one to some insight into their name and birthday by giving them one of these personalized zodiac birthday certificates. It’s written on elegant linen paper and features information on the meaning of their name and zodiac sign.",
-		"price": 20.00,
-		"buttonLink": '#'
-	},
-	{
-		"title": "Hidden Compartments Stash Belt",
-		"titleLink": "#",
-		"productLink": "#",
-		"imgURL": "http://placehold.it/381x250?text=Example+Image",
-		"description": "Keep your valuables safe while you’re out and about by storing them in the hidden compartment stash belt. It features an elegant all black design and comes outfitted with a long slender compartment, ideal for storing small items like cash and jewelry.",
-		"price": 89.99,
-		"buttonLink": '#'
-	},
-	{
-		"title": "Indoor/Outdoor Heated Slippers",
-		"titleLink": "#",
-		"productLink": "#",
-		"imgURL": "http://placehold.it/381x250?text=Example+Image",
-		"description": "Help stay warm when the temperature drops below freezing by putting on these indoor/outdoor heated slippers. These ankle high boots come with four different heat settings and can last up to 10 hours on a single charge.",
-		"price": 99.99,
-		"buttonLink": '#'
-	},
-];
-
-
-
-
-
-var app = new Vue({
-    el: '#app',
-    data: {
-		articles: articles,
-	},
-	methods: {
-		submitSubscribeEmail: function () {
-
-			var subscribeEmail = this.email;
-			
-			this.$http.post('/', subscribeEmail, function(data) {this.email = data.email});
-		},
-	}
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//jQuery
-$(document).ready(function(){
-	//Calling the function
-	scrollToTop();
-	
-});
-
-function scrollToTop() {
-	//Check to see if the window is top if not then display button
-	$(window).scroll(function(){
-		if ($(this).scrollTop() > 100) {
-			$('.scrollToTop').fadeIn();
-		} else {
-			$('.scrollToTop').fadeOut();
-		}
-	});
-	
-	//Click event to scroll to top
-	$('.scrollToTop').click(function(){
-		$('html, body').animate({scrollTop : 0}, 800);
-		return false;
-	});
-}
 
 /***/ }
 /******/ ]);

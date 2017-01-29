@@ -1,10 +1,6 @@
 window.Laravel = { csrfToken: '{{ csrf_token() }}' };
 
-$.ajaxSetup({
-	headers: {
-		'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-	}
-});
+
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -21,7 +17,10 @@ require('./bootstrap');
  */
 
 Vue.component('example', require('./components/Example.vue'));
-Vue.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#token').getAttribute('value');
+//Vue.http.headers.common['Access-Control-Allow-Origin'] = 'http://192.168.1.10:3000';
+//Vue.http.headers.common['Access-Control-Request-Method'] = '*';
+//Vue.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#token').getAttribute('value');
+
 
 var articles = [
 	{	
@@ -121,14 +120,19 @@ const app = new Vue({
 
 			var subscribeEmail = this.email;
 			
-			this.$http.post('/', subscribeEmail, function(data) {this.email = data.email});
+			this.$http.post('/', subscribeEmail).then(response => {
+            	console.log(response.data)
+        	});
 		},
-	}
+	},
 });
 
-
-
-
+/*
+$.ajaxSetup({
+	headers: {
+		'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+	}
+});*/
 
 
 
@@ -144,6 +148,8 @@ $(document).ready(function(){
 	//Calling the function
 	scrollToTop();
 	
+	//Ajaxing
+	//submitSubscribeEmail();
 });
 
 function scrollToTop() {
@@ -162,3 +168,40 @@ function scrollToTop() {
 		return false;
 	});
 }
+
+/*
+function submitSubscribeEmail() {
+
+	$('#subscribeForm').on('submit', function(event) {
+
+		event.preventDefault();
+
+		var subscribeEmail = $('.footer__form--email').val();
+
+		/*$.ajax({
+			url: "/",
+			type: "post",
+			data: subscribeEmail,
+			contentType: "application/x-www-form-urlencoded",
+			sucess: function(responseData, textSatus, jqXHR) {
+				console.log(responseData);
+				console.log(textSatus);
+				console.log(jqXHR);
+				$("#subscribeForm").trigger("reset");
+			},
+			error: function(jqXHR, textSatus, error) {
+				console.log(error);
+				console.log(textSatus);
+				console.log(jqXHR);
+				$("#subscribeForm").trigger("reset");
+			}
+		});
+
+		$.post('/', subscribeEmail, function(response) {
+			console.log(response);
+			$("#subscribeForm").trigger("reset");
+		});
+
+	});
+}
+*/
