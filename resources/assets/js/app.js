@@ -117,22 +117,35 @@ const app = new Vue({
 		email: '',
 	},
 	methods: {
+		//Method for sending subscriber email via Ajax request
 		submitSubscribeEmail: function (event) {
 
+			//Prevent Subscribe email form from submiting on common way
 			event.preventDefault();
+
+			//Getting the form HTML el.
 			var subscribeForm = $('#subscribeForm');
+
+			//Getting the value from the subscribe email form that is entered by user  
 			var subscribeEmail = this.email;
 
-			axios.post('/', {subscribeEmail: subscribeEmail})
-				.then(function(response) {
+			//Send data via AJAX request to the root controller
+			axios.post('/', {subscribeEmail: subscribeEmail}).then(function(response) {
 					console.log(response);
-					$('#subscribeForm').reset();  
-				if(response.data.status == 200){
-					subscribeForm.reset();  
+				
+					//If response form server is 200 etc. OK 
+					if(response.status == 200) {
 
-					// show success message here
-				}
-			});
+						//Show success message here
+						//SweetAlert
+
+						//Then reset and clear subscribe email form 
+						subscribeForm[0].reset();  
+					} else {
+						//Error message
+						//SweetAlert
+					}
+				});
 		},
 	},
 });
