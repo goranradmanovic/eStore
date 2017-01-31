@@ -44,6 +44,12 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        //I add this to my Exceptions/Handler.php in the "render" method for catching validation errors when using an ajax request
+        if($request->ajax())
+        {
+            return response()->json(['responseText' => $e->getMessage()], 500);
+        }
+
         return parent::render($request, $exception);
     }
 
