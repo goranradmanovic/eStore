@@ -21,7 +21,21 @@ class Controller extends BaseController
     //Getting data from the Subscribe form and writing data to the database
     public function createSubscription(Request $request) {
 
-    	$request->all();
-    	return response()->json(['status' => 'OK']);
+    	/*$this->validate($request->all(), [
+    		'subscribeEmail' => 'required|email|unique|max:255'
+    	]);*/
+
+    	//dd($request->all());
+
+    	if (Request::ajax()) {
+    		//return response()->json(['responseText' => 'This is ajax call'], 200);
+    		
+    		dd('Hello World');
+    	}
+
+
+    	//Return message status if everything is OK
+    	//return response()->json(['responseText' => 'Success!'], 200);
+    	//return response()->json(['responseText' => $request->all()], 200);
     }
 }
