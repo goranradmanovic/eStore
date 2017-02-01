@@ -8,6 +8,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 use Illuminate\Http\Request;
+use App\Models\Subscriber\Subscriber;
 
 class Controller extends BaseController
 {
@@ -21,18 +22,20 @@ class Controller extends BaseController
     //Getting data from the Subscribe form and writing data to the database
     public function createSubscription(Request $request) {
 
-    	/*$this->validate($request->all(), [
-    		'subscribeEmail' => 'required|email|unique|max:255'
-    	]);*/
+        //Validate user form input ect. user email
+    	$this->validate($request, [
+    		'subscribeEmail' => 'required|email|unique:subscribers,email|max:255'
+    	]);
 
-    	//dd($request->all());
+        //Creating new entry to the Subscriber table
+        Subscriber::create(['email' => $request->input('subscribeEmail')]);
 
-    	if (Request::ajax()) {
-    		//return response()->json(['responseText' => 'This is ajax call'], 200);
-    		
-    		dd('Hello World');
+    	if (Response::ajax()) {
+            return response()->json(['responseText' => 'Success!'], 200);
     	}
 
+
+       
 
     	//Return message status if everything is OK
     	//return response()->json(['responseText' => 'Success!'], 200);
