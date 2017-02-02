@@ -25,6 +25,7 @@
 						.form-group
 							input(type='email' name='subscribeEmail' placeholder='Email Address' class='form-control footer__form--email' v-model='email')
 							input(type='submit' value='Submit' class='footer__form--btn')
+							//- Cross Site Request Forgery Field
 							| {{ csrf_field() }}
 
 		.col-md-12
