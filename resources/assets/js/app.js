@@ -1,4 +1,4 @@
-//window.Laravel = { csrfToken: '{{ csrf_token() }}' };
+window.Laravel = { csrfToken: '{{ csrf_token() }}' };
 
 
 
@@ -17,9 +17,9 @@ require('./bootstrap');
  */
 
 Vue.component('example', require('./components/Example.vue'));
-//Vue.http.headers.common['Access-Control-Allow-Origin'] = 'http://192.168.1.10:3000';
-//Vue.http.headers.common['Access-Control-Request-Method'] = '*';
-//Vue.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#token').getAttribute('value');
+Vue.http.headers.common['Access-Control-Allow-Origin'] = 'http://192.168.1.10:3000';
+Vue.http.headers.common['Access-Control-Request-Method'] = '*';
+Vue.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#token').getAttribute('value');
 
 
 var articles = [
@@ -132,19 +132,31 @@ const app = new Vue({
 			//Send data via AJAX request to the root controller
 			axios.post('/', {subscribeEmail: subscribeEmail}).then(function(response) {
 					console.log(response);
-				
+					console.log(response.status);
+
 					//If response form server is 200 etc. OK 
-					if(response.status == 200) {
+					/*if(response.status == 200) {
 
 						//Show success message here
 						//SweetAlert
 
+						console.log('Form is submitted');
+						console.log(response.status);
+						console.log(response);
+
 						//Then reset and clear subscribe email form 
-						subscribeForm[0].reset();  
-					} else {
-						//Error message
-						//SweetAlert
+						subscribeForm[0].reset();
+
 					}
+
+					if (response.status == 422) {
+						//Error message'subscribeEmail' 
+						//SweetAlert
+						
+					
+						var errors = $.parseJSON(data.responseText); 
+						console.log(errors);
+					}*/
 				});
 		},
 	},
