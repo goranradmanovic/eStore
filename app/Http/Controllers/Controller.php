@@ -27,18 +27,41 @@ class Controller extends BaseController
     		'subscribeEmail' => 'required|email|unique:subscribers,email|max:255'
     	]);
 
+        //If form fields validation fails
+        if () {
+
+        }
+
+
         //Creating new entry to the Subscriber table
         Subscriber::create(['email' => $request->input('subscribeEmail')]);
 
-    	if (Response::ajax()) {
-            return response()->json(['responseText' => 'Success!'], 200);
-    	}
+    	/*if (Response::ajax()) {
+            //return response()->json(['responseText' => 'OK'], 200);
+            
+    	}*/
 
+      
+           /* if($request->ajax())
+            {
+                return response()->json(array(
+                    'success' => false,
+                    'message' => 'There are incorect values in the form!',
+                    'errors' => $validator->getMessageBag()->toArray()
+                ), 422);
+            }*/
 
+            /*return response()->json(array(
+                    'success' => false,
+                    'message' => 'There are incorect values in the form!',
+                    'errors' => $validator->getMessageBag()->toArray()
+                ), 422);*/
+
+        //return response()->view('hello', $data, 200);
        
 
     	//Return message status if everything is OK
-    	//return response()->json(['responseText' => 'Success!'], 200);
+    	return response()->json(['responseText' => 'Success!'], 200);
     	//return response()->json(['responseText' => $request->all()], 200);
     }
 }
