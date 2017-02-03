@@ -41854,8 +41854,6 @@ var app = new Vue({
 
 			//Send data via AJAX request to the root controller
 			axios.post('/', {subscribeEmail: subscribeEmail}).then(function(response) {
-					console.log(response);
-					console.log(response.status);
 
 					//If response form server is 200 etc. OK 
 					/*if(response.status == 200) {
@@ -41863,23 +41861,21 @@ var app = new Vue({
 						//Show success message here
 						//SweetAlert
 
-						console.log('Form is submitted');
+						console.log(response.data);
 						console.log(response.status);
-						console.log(response);
+						console.log(response.headers);
 
 						//Then reset and clear subscribe email form 
 						subscribeForm[0].reset();
-
-					}
-
-					if (response.status == 422) {
-						//Error message'subscribeEmail' 
-						//SweetAlert
-						
-					
-						var errors = $.parseJSON(data.responseText); 
-						console.log(errors);
 					}*/
+
+				}).catch(function (error) {
+
+					//Error SweetAlert
+					console.log(error.response.data);
+					console.log(error.response.status);
+					console.log(error.response.headers);
+					console.log(error.message);
 				});
 		},
 	},
