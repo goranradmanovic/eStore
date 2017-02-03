@@ -8583,6 +8583,30 @@ body {
   margin: 25px auto;
 }
 
+.footer__form--title {
+  margin-left: 22.5%;
+  margin-bottom: 30px;
+  color: #FFFFFF;
+}
+
+@media only screen and (max-width: 320px) {
+  .footer__form--title {
+    margin-left: 0;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .footer__form--title {
+    margin-left: 0;
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  .footer__form--title {
+    margin-left: 0;
+  }
+}
+
 .footer__form--inline {
   width: 59%;
   margin-left: 22%;
@@ -8605,30 +8629,6 @@ body {
 @media only screen and (max-width: 960px) {
   .footer__form--inline {
     width: auto;
-    margin-left: 0;
-  }
-}
-
-.footer__form--title {
-  margin-left: 22.5%;
-  margin-bottom: 30px;
-  color: #FFFFFF;
-}
-
-@media only screen and (max-width: 320px) {
-  .footer__form--title {
-    margin-left: 0;
-  }
-}
-
-@media only screen and (max-width: 640px) {
-  .footer__form--title {
-    margin-left: 0;
-  }
-}
-
-@media only screen and (max-width: 960px) {
-  .footer__form--title {
     margin-left: 0;
   }
 }
@@ -8674,6 +8674,10 @@ body {
 .footer__form--btn:focus {
   outline-offset: 0;
   outline: none;
+}
+
+.footer__form--defaulterror {
+  margin-top: 20px;
 }
 
 .footer__copy {
