@@ -20,13 +20,22 @@
 
 				.footer__form
 					h3.footer__form--title Subscribe
-					//- v-on:submit.prevent='submitSubscribeEmail'  
-					form(action="{{ url('/') }}" method='post' autocomplete='off' class='form-inline footer__form--inline' id='subscribeForm' v-on:submit.prevent='submitSubscribeEmail') 
+					//-  v-on:submit='submitSubscribeEmail'
+					form(action="{{ url('/') }}" method='post' autocomplete='off' class='form-inline footer__form--inline' id='subscribeForm' ) 
 						.form-group
-							input(type='email' name='subscribeEmail' placeholder='Email Address' class='form-control footer__form--email' v-model='email')
+							input(type='email' name='subscribeEmail' placeholder='Email Address' class='form-control footer__form--email' v-model='email' value="{{ old('email') }}")
 							input(type='submit' value='Submit' class='footer__form--btn')
 							//- Cross Site Request Forgery Field
 							| {{ csrf_field() }}
+
+						//- Fallback displaying error message with balde
+						| @if (count($errors) > 0)
+						| 	<ul class="footer__form--defaulterror">
+						| 		@foreach ($errors->all() as $error)
+						| 			<li class="text-danger">{{ $error }}</li>
+						| 		@endforeach
+						| 	</ul>
+						| @endif
 
 		.col-md-12
 			.footer__copy
