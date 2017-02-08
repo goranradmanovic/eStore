@@ -41723,8 +41723,6 @@ module.exports = function(module) {
 
 window.Laravel = { csrfToken: '{{ csrf_token() }}' };
 
-
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * include Vue and Vue Resource. This gives a great starting point for
@@ -41856,7 +41854,7 @@ var app = new Vue({
 			axios.post('/', {subscribeEmail: subscribeEmail}).then(function(response) {
 
 					//If response form server is 200 etc. OK 
-					/*if(response.status == 200) {
+					if(response.status == 200) {
 
 						//Show success message here
 						//SweetAlert
@@ -41864,10 +41862,11 @@ var app = new Vue({
 						console.log(response.data);
 						console.log(response.status);
 						console.log(response.headers);
+						console.log(response.message);
 
 						//Then reset and clear subscribe email form 
 						subscribeForm[0].reset();
-					}*/
+					}
 
 				}).catch(function (error) {
 
