@@ -9,7 +9,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 
 class EmailSubscriber extends Mailable
 {
-    use Queueable, SerializesModels;
+    use Queueable, SerializesModels; //Traits
 
     /**
      * Create a new message instance.
@@ -28,6 +28,7 @@ class EmailSubscriber extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        //We will return email template from emails folder
+        return $this->view('emails.subscriber');
     }
 }
