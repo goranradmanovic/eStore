@@ -21,7 +21,7 @@
 				.footer__form
 					h3.footer__form--title Subscribe
 					//-  v-on:submit='submitSubscribeEmail'
-					form(action="{{ url('/') }}" method='post' autocomplete='off' class='form-inline footer__form--inline' id='subscribeForm' ) 
+					form(action="{{ url('/') }}" method='post' autocomplete='off' class='form-inline footer__form--inline' id='subscribeForm' v-on:submit='submitSubscribeEmail') 
 						.form-group
 							input(type='email' name='subscribeEmail' placeholder='Email Address' class='form-control footer__form--email' v-model='email' value="{{ old('email') }}")
 							input(type='submit' value='Submit' class='footer__form--btn')
