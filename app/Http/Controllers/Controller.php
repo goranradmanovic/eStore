@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Validator;
 use Illuminate\{
     Foundation\Bus\DispatchesJobs,
     Routing\Controller as BaseController,
@@ -34,10 +33,10 @@ class Controller extends BaseController
         //Creating new entry to the Subscriber table
         Subscriber::create(['email' => $request->input('subscribeEmail')]);
     
-        //Sending email message to the user subscriber email
-        //Mail::to($request->input('subscribeEmail'))->send(new EmailSubscriber());
+        //Sending email message to the user subscriber email (email.subscriber template new EmailSubscriber())
+        Mail::to($request->input('subscribeEmail'))->send(new EmailSubscriber());
 
         //Return message status if everything is OK
-        return response()->json(['responseText' => 'You are successfuly subscribed.'], 200);
+        return response()->json(['responseText' => 'You are successfuly subscribed. Please check your email inbox.'], 200);
     }
 }
