@@ -41862,7 +41862,6 @@ var app = new Vue({
 						console.log(response.data);
 						console.log(response.status);
 						console.log(response.headers);
-						console.log(response.message);
 
 						//Then reset and clear subscribe email form 
 						subscribeForm[0].reset();
