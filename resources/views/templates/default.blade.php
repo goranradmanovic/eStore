@@ -25,8 +25,9 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
               <li v-on:click="active"><a href="#">Matcha Tea<span class="sr-only">(current)</span></a></li>
-              <li><a href="#">Fitness Gear</a></li>
               <li><a href="#">Food Supplements</a></li>
+              <li><a href="#">Fitness Gear</a></li>
+              <li><a href="#">Random</a></li>
               <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="#">Action</a></li>
@@ -46,7 +47,6 @@
               <button class="btn btn-default" type="submit">Search</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="#">Link</a></li>
               <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="#">Action</a></li>
@@ -90,7 +90,7 @@
             </div>
           </div>
           <div class="col-md-12">
-            <div class="footer__copy"><span class="footer__copy--info">Designed and developed by <a class="footer__copy--info--link" href="http://www.goranradmanovic.byethost13.com/" target="_blank">Goran Radmanovic.</a></span><span class="footer__copy--info"> &copy; 2017 My Company - All rights reserved</span></div>
+            <div class="footer__copy"><span class="footer__copy--info">Designed and developed by <a class="footer__copy--info--link" href="http://www.goranradmanovic.byethost13.com/" target="_blank">Goran Radmanovic.</a></span><span class="footer__copy--info"> &copy; @{{ year }} My Company - All rights reserved</span></div>
           </div>
         </footer><a class="scrollToTop" href="#" title="Scroll To Top" alt="Scroll To Top" role="button"></a>
       </div>
