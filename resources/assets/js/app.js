@@ -111,8 +111,10 @@ var articles = [
 const app = new Vue({
     el: '#app',
     data: {
-		articles: articles,
-		email: '',
+		articles: articles, //Data about article info and images
+		email: '',	//Setting empty email var
+		year: new Date().getFullYear(), //Get full year for footer info
+		items: {}, //Empty object for storing all items
 	},
 	methods: {
 		//Method for sending subscriber email via Ajax request
@@ -120,9 +122,6 @@ const app = new Vue({
 
 			//Prevent Subscribe email form from submiting on common way
 			event.preventDefault();
-
-			//Getting the form HTML el.
-			var subscribeForm = $('#subscribeForm');
 
 			//Getting the value from the subscribe email form that is entered by user  
 			var subscribeEmail = this.email;
@@ -133,25 +132,61 @@ const app = new Vue({
 					//If response form server is 200 etc. OK 
 					if(response.status == 200) {
 
-						//Show success message here
-						//SweetAlert
-
-						console.log(response.data);
-						console.log(response.status);
-						console.log(response.headers);
+						//Show success message here (SweetAler)
+						swal({
+							title: "<span class='modalTextColorSuccessTitle'>Success</span>",
+							text: "<span class='modalTextColorSuccess'>" + response.data.responseText + "</span>",
+							showConfirmButton: false,
+							timer: 3000,
+							html: true,
+						});
 
 						//Then reset and clear subscribe email form 
 						subscribeForm[0].reset();
+
+						//Console log respones from server
+						/*console.log(response.data);
+						console.log(response.status);
+						console.log(response.headers);*/
 					}
 
 				}).catch(function (error) {
 
-					//Error SweetAlert
-					console.log(error.response.data);
+					//If error status is equal to 422 (Laravel validate() send this status with users erorrs)
+					if (error.response.status == 422) {
+						//Show error message here (SweetAler)
+						swal({
+							title: "<span class='modalTextColorErrorTitle'>Warrning!</span>",
+							text: "<span class='modalTextColorError'>" + error.response.data.subscribeEmail[0] + "</span>",
+							showConfirmButton: true,
+							confirmButtonColor: "#DD6B55",
+							html: true,
+						});
+					}
+					
+					//Console log respones from server
+					/*console.log(error.response.data);
 					console.log(error.response.status);
 					console.log(error.response.headers);
-					console.log(error.message);
+					console.log(error.response.data.subscribeEmail[0]);*/
 				});
+		},
+
+		//Method for grabbing products items
+		productsItems: function () {
+
+			//Getting data response from server
+			axios.get('/').then(function (response) {
+
+				console.log(response.data);
+				console.log(response.status);
+				console.log(response.headers);
+
+			}).catch(function (error) {
+				console.log(error.response.data);
+				console.log(error.response.status);
+				console.log(error.response.headers);
+			});
 		},
 	},
 });
