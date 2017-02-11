@@ -20,7 +20,6 @@
 
 				.footer__form
 					h3.footer__form--title Subscribe
-					//-  v-on:submit='submitSubscribeEmail'
 					form(action="{{ url('/') }}" method='post' autocomplete='off' class='form-inline footer__form--inline' id='subscribeForm' v-on:submit='submitSubscribeEmail') 
 						.form-group
 							input(type='email' name='subscribeEmail' placeholder='Email Address' class='form-control footer__form--email' v-model='email' value="{{ old('email') }}")
@@ -41,6 +40,6 @@
 			.footer__copy
 				span.footer__copy--info Designed and developed by 
 					a(href='http://www.goranradmanovic.byethost13.com/' class='footer__copy--info--link' target='_blank') Goran Radmanovic.
-				span.footer__copy--info  &copy; 2017 My Company - All rights reserved
+				span.footer__copy--info  &copy; @{{ year }} My Company - All rights reserved
 
 	a(href="#" class='scrollToTop' title='Scroll To Top' alt='Scroll To Top' role='button')
