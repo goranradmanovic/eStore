@@ -4,6 +4,9 @@ window.axios = require('axios');
 //Importing lodash libr.
 window._ = require('lodash');
 
+//Importing SweetAlert
+window.swal = require('sweetalert');
+
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
  * for JavaScript based Bootstrap features such as modals and tabs. This
