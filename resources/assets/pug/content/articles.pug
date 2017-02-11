@@ -1,4 +1,4 @@
-.row
+.row(v-on:load='productsItems')
 	.col-md-12
 		.articles(v-for='article in articles')
 			.col-md-4
@@ -14,11 +14,7 @@
 						p.articles__item--details--text(v-text='article.description')
 
 				.articles__footer
-					.articles__footer--price
-						//- This was used because output of $ char. before number of the price.
-						| @verbatim
-						| $ {{ article.price }}
-						| @endverbatim
+					.articles__footer--price $ @{{ article.price }}
 
 					.articles__footer--cta
 						a(:href='article.buttonLink' class='articles__footer--cta--link' role='button') It's a bargain

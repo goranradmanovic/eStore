@@ -1,5 +1,5 @@
 
-<div class="row">
+<div class="row" v-on:load="productsItems">
   <div class="col-md-12">
     <div class="articles" v-for="article in articles">
       <div class="col-md-4">
@@ -11,11 +11,7 @@
           </div>
         </div>
         <div class="articles__footer">
-          <div class="articles__footer--price">
-            @verbatim
-            $ {{ article.price }}
-            @endverbatim
-          </div>
+          <div class="articles__footer--price">$ @{{ article.price }}</div>
           <div class="articles__footer--cta"><a class="articles__footer--cta--link" :href="article.buttonLink" role="button">It's a bargain</a></div>
         </div>
       </div>
