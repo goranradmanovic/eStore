@@ -21,7 +21,9 @@ class Controller extends BaseController
     //Method for returning home view ect. page
     public function index()
     {
-        return view('home'); //Return home page
+        //return view('home'); //Return home page
+        
+        return response()->view('home', ['hello world'], 200);
     }
 
     //Getting data from the Subscribe form and writing data to the database , 
