@@ -1,5 +1,5 @@
 
-<div class="row" v-on:load="productsItems">
+<div class="row">
   <div class="col-md-12">
     <div class="articles" v-for="article in articles">
       <div class="col-md-4">
