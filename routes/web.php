@@ -14,3 +14,4 @@
 //Route for home page
 Route::get('/', 'Controller@index');
 Route::post('/', 'Controller@createSubscription');
+Route::get('/products', 'Controller@getAllProducts');
