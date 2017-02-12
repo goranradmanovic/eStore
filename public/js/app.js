@@ -43132,16 +43132,13 @@ var articles = [
 ];
 
 
-
-
-
 var app = new Vue({
     el: '#app',
     data: {
 		articles: articles, //Data about article info and images
 		email: '',	//Setting empty email var
 		year: new Date().getFullYear(), //Get full year for footer info
-		items: {}, //Empty object for storing all items
+		productItems: {}, //Empty object for storing all items
 	},
 	methods: {
 		//Method for sending subscriber email via Ajax request
@@ -43156,54 +43153,54 @@ var app = new Vue({
 			//Send data via AJAX request to the root controller
 			axios.post('/', {subscribeEmail: subscribeEmail}).then(function(response) {
 
-					//If response form server is 200 etc. OK 
-					if(response.status == 200) {
+				//If response form server is 200 etc. OK 
+				if(response.status == 200) {
 
-						//Show success message here (SweetAler)
-						swal({
-							title: "<span class='modalTextColorSuccessTitle'>Success</span>",
-							text: "<span class='modalTextColorSuccess'>" + response.data.responseText + "</span>",
-							showConfirmButton: false,
-							timer: 3000,
-							html: true,
-						});
+					//Show success message here (SweetAler)
+					swal({
+						title: "<span class='modalTextColorSuccessTitle'>Success</span>",
+						text: "<span class='modalTextColorSuccess'>" + response.data.responseText + "</span>",
+						showConfirmButton: false,
+						timer: 3000,
+						html: true,
+					});
 
-						//Then reset and clear subscribe email form 
-						subscribeForm[0].reset();
+					//Then reset and clear subscribe email form 
+					subscribeForm[0].reset();
 
-						//Console log respones from server
-						/*console.log(response.data);
-						console.log(response.status);
-						console.log(response.headers);*/
-					}
-
-				}).catch(function (error) {
-
-					//If error status is equal to 422 (Laravel validate() send this status with users erorrs)
-					if (error.response.status == 422) {
-						//Show error message here (SweetAler)
-						swal({
-							title: "<span class='modalTextColorErrorTitle'>Warrning!</span>",
-							text: "<span class='modalTextColorError'>" + error.response.data.subscribeEmail[0] + "</span>",
-							showConfirmButton: true,
-							confirmButtonColor: "#DD6B55",
-							html: true,
-						});
-					}
-					
 					//Console log respones from server
-					/*console.log(error.response.data);
-					console.log(error.response.status);
-					console.log(error.response.headers);
-					console.log(error.response.data.subscribeEmail[0]);*/
-				});
+					/*console.log(response.data);
+					console.log(response.status);
+					console.log(response.headers);*/
+				}
+
+			}).catch(function (error) {
+
+				//If error status is equal to 422 (Laravel validate() send this status with users erorrs)
+				if (error.response.status == 422) {
+					//Show error message here (SweetAler)
+					swal({
+						title: "<span class='modalTextColorErrorTitle'>Warrning!</span>",
+						text: "<span class='modalTextColorError'>" + error.response.data.subscribeEmail[0] + "</span>",
+						showConfirmButton: true,
+						confirmButtonColor: "#DD6B55",
+						html: true,
+					});
+				}
+				
+				//Console log respones from server
+				/*console.log(error.response.data);
+				console.log(error.response.status);
+				console.log(error.response.headers);
+				console.log(error.response.data.subscribeEmail[0]);*/
+			});
 		},
 
 		//Method for grabbing products items
-		productsItems: function () {
+		/*productsItems: function () {
 
 			//Getting data response from server
-			axios.get('/').then(function (response) {
+			axios.get('/products').then(function (response) {
 
 				console.log(response.data);
 				console.log(response.status);
@@ -43214,19 +43211,29 @@ var app = new Vue({
 				console.log(error.response.status);
 				console.log(error.response.headers);
 			});
-		},
+		},*/
+	},
+
+	mounted: function () {
+		this.$nextTick(function () {
+			//Getting data response from server
+			axios.get('/products').then(function (response) {
+
+				this.productsItems = response.data;
+				console.log(response.data);
+				console.log(response.status);
+				console.log(response.headers);
+
+			}).catch(function (error) {
+				console.log(error.response.data);
+				console.log(error.response.status);
+				console.log(error.response.headers);
+			});
+		})
 	},
 });
 
-
-
-
-
-
-
-
-
-
+console.log(app)
 
 //jQuery
 $(document).ready(function(){
@@ -43234,7 +43241,7 @@ $(document).ready(function(){
 	scrollToTop();
 	
 	//Ajaxing
-	//submitSubscribeEmail();
+	
 });
 
 function scrollToTop() {
