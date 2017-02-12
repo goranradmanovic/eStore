@@ -166,8 +166,8 @@ return [
         /*
          * Package Service Providers...
          */
-
-        //
+        //Package for transforming blade vars (php) to javascript vars
+        'Laracasts\Utilities\JavaScript\JavaScriptServiceProvider',
 
         /*
          * Application Service Providers...
