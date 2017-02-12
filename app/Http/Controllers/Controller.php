@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use JavaScript;
 use Illuminate\{
     Foundation\Bus\DispatchesJobs,
     Routing\Controller as BaseController,
@@ -11,7 +12,11 @@ use Illuminate\{
     Http\Request
 };
 use App\Mail\EmailSubscriber;
-use App\Models\Subscriber\Subscriber;
+use App\Models\{
+    Subscriber\Subscriber,
+    Category\Category,
+    Product\Product
+};
 
 class Controller extends BaseController
 {
@@ -21,9 +26,27 @@ class Controller extends BaseController
     //Method for returning home view ect. page
     public function index()
     {
-        //return view('home'); //Return home page
-        
-        return response()->view('home', ['hello world'], 200);
+        //New instance of Product class
+        $product = new Product;
+
+        //Getting all product items for displying on home page
+        $allProductItems = $product->getAllProductItems();
+
+        //Transforming PHP vars to JS vars for using in VueJS object
+        JavaScript::put(['allProductItems' => $allProductItems]);
+
+        return view('home'); //Return home page
+    }
+
+    public function getAllProducts()
+    {
+        //New instance of Product class
+        $product = new Product;
+
+        //Getting all product items for displying on home page
+        $allProductItems = $product->getAllProductItems();
+
+        return response()->json($allProductItems);
     }
 
     //Getting data from the Subscribe form and writing data to the database , 
