@@ -1,5 +1,7 @@
 
 <div class="row">
+  <p>@{{productItems}}</p>
+  <p>@{{year}}</p>
   <div class="col-md-12">
     <div class="articles" v-for="article in articles">
       <div class="col-md-4">
