@@ -43138,7 +43138,7 @@ var app = new Vue({
 		articles: articles, //Data about article info and images
 		email: '',	//Setting empty email var
 		year: new Date().getFullYear(), //Get full year for footer info
-		productItems: {}, //Empty object for storing all items
+		productItems: [], //Empty object for storing all items
 	},
 	methods: {
 		//Method for sending subscriber email via Ajax request
@@ -43197,10 +43197,14 @@ var app = new Vue({
 		},
 
 		//Method for grabbing products items
-		/*productsItems: function () {
+		productsItems: function () {
 
 			//Getting data response from server
 			axios.get('/products').then(function (response) {
+				//this.productsItems = Object.assign({}, this.productsItems, response.data);
+				//this.productsItems = response.data;
+
+				this.$add('productItems', response.data);
 
 				console.log(response.data);
 				console.log(response.status);
@@ -43211,29 +43215,32 @@ var app = new Vue({
 				console.log(error.response.status);
 				console.log(error.response.headers);
 			});
-		},*/
+		},
 	},
 
-	mounted: function () {
-		this.$nextTick(function () {
+	mounted: function mounted() {
+
+		this.productsItems();
+		/*this.$nextTick(function () {
 			//Getting data response from server
 			axios.get('/products').then(function (response) {
 
-				this.productsItems = response.data;
-				console.log(response.data);
+				this.productsItems = Object.assign({}, this.productsItems, response.data);
+				
+				/*console.log(response.data);
 				console.log(response.status);
-				console.log(response.headers);
+				console.log(response.headers);*
+
+				console.log(this.productsItems);
 
 			}).catch(function (error) {
-				console.log(error.response.data);
-				console.log(error.response.status);
-				console.log(error.response.headers);
+				console.error(error.response.data);
+				console.error(error.response.status);
+				console.error(error.response.headers);
 			});
-		})
+		})*/
 	},
 });
-
-console.log(app)
 
 //jQuery
 $(document).ready(function(){
