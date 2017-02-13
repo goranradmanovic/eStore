@@ -46,6 +46,7 @@ class Controller extends BaseController
         //Getting all product items for displying on home page
         $allProductItems = $product->getAllProductItems();
 
+        //Return JSON response with data
         return response()->json($allProductItems);
     }
 
