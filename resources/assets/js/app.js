@@ -20,99 +20,17 @@ Vue.http.headers.common['Access-Control-Request-Method'] = '*';
 Vue.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#token').getAttribute('value');
 
 
-var articles = [
-	{	
-		"title": "Personalized Zodiac Birthday Certificate",
-		"titleLink": "#",
-		"productLink": "#",
-		"imgURL": "http://placehold.it/381x250?text=Example+Image",
-		"description": "Treat a loved one to some insight into their name and birthday by giving them one of these personalized zodiac birthday certificates. It’s written on elegant linen paper and features information on the meaning of their name and zodiac sign.",
-		"price": 20.00,
-		"buttonLink": '#'
-	},
-	{
-		"title": "LEGO Robot Building Kit",
-		"titleLink": "#",
-		"productLink": "#",
-		"imgURL": "http://placehold.it/381x250?text=Example+Image",
-		"description": "Nurture your young intellect’s mind during playtime with the LEGO robot building kit. This 543 piece set works in tandem with a special app designed to teach kids the art of coding in an easy and fun way using challenging games.",
-		"price": 159.99,
-		"buttonLink": '#'
-	},
-	{
-		"title": "Indoor/Outdoor Heated Slippers",
-		"titleLink": "#",
-		"productLink": "#",
-		"imgURL": "http://placehold.it/381x250?text=Example+Image",
-		"description": "Help stay warm when the temperature drops below freezing by putting on these indoor/outdoor heated slippers. These ankle high boots come with four different heat settings and can last up to 10 hours on a single charge.",
-		"price": 99.99,
-		"buttonLink": '#'
-	},
-	{
-		"title": "Shiitaki Mushroom Log Kit",
-		"titleLink": "#",
-		"productLink": "#",
-		"imgURL": "http://placehold.it/381x250?text=Example+Image",
-		"description": "Give your meals an exotic touch by sprinkling them with your own homegrown shiitaki mushrooms. The kit comes with a small hand-cut wooden log inoculated with spores that’ll produce a batch of organic and delicious shiitake mushrooms with little effort.",
-		"price": 29.95,
-		"buttonLink": '#'
-	},
-	{
-		"title": "Hidden Compartments Stash Belt",
-		"titleLink": "#",
-		"productLink": "#",
-		"imgURL": "http://placehold.it/381x250?text=Example+Image",
-		"description": "Keep your valuables safe while you’re out and about by storing them in the hidden compartment stash belt. It features an elegant all black design and comes outfitted with a long slender compartment, ideal for storing small items like cash and jewelry.",
-		"price": 89.99,
-		"buttonLink": '#'
-	},
-	{
-		"title": "Motion Sensing Floodlight Security Cam",
-		"titleLink": "#",
-		"productLink": "#",
-		"imgURL": "http://placehold.it/381x250?text=Example+Image",
-		"description": "Keep your property safe without spending a fortune on pricey systems using this motion sensing floodlight security camera. It comes with built-in floodlights, siren alarm, and audio so you can communicate with whoever is within view using your smartphone.",
-		"price": 249.99,
-		"buttonLink": '#'
-	},
-	{	
-		"title": "Personalized Zodiac Birthday Certificate",
-		"titleLink": "#",
-		"productLink": "#",
-		"imgURL": "http://placehold.it/381x250?text=Example+Image",
-		"description": "Treat a loved one to some insight into their name and birthday by giving them one of these personalized zodiac birthday certificates. It’s written on elegant linen paper and features information on the meaning of their name and zodiac sign.",
-		"price": 20.00,
-		"buttonLink": '#'
-	},
-	{
-		"title": "Hidden Compartments Stash Belt",
-		"titleLink": "#",
-		"productLink": "#",
-		"imgURL": "http://placehold.it/381x250?text=Example+Image",
-		"description": "Keep your valuables safe while you’re out and about by storing them in the hidden compartment stash belt. It features an elegant all black design and comes outfitted with a long slender compartment, ideal for storing small items like cash and jewelry.",
-		"price": 89.99,
-		"buttonLink": '#'
-	},
-	{
-		"title": "Indoor/Outdoor Heated Slippers",
-		"titleLink": "#",
-		"productLink": "#",
-		"imgURL": "http://placehold.it/381x250?text=Example+Image",
-		"description": "Help stay warm when the temperature drops below freezing by putting on these indoor/outdoor heated slippers. These ankle high boots come with four different heat settings and can last up to 10 hours on a single charge.",
-		"price": 99.99,
-		"buttonLink": '#'
-	},
-];
-
-
 const app = new Vue({
     el: '#app',
+
+    //All data
     data: {
-		articles: articles, //Data about article info and images
+    	products: [], //Empty array for storing all items
 		email: '',	//Setting empty email var
 		year: new Date().getFullYear(), //Get full year for footer info
-		productItems: [], //Empty object for storing all items
 	},
+
+	//Functions
 	methods: {
 		//Method for sending subscriber email via Ajax request
 		submitSubscribeEmail: function (event) {
@@ -162,26 +80,26 @@ const app = new Vue({
 				}
 				
 				//Console log respones from server
-				/*console.log(error.response.data);
+				console.log(error.response.data);
 				console.log(error.response.status);
 				console.log(error.response.headers);
-				console.log(error.response.data.subscribeEmail[0]);*/
+				console.log(error.response.data.subscribeEmail[0]);
 			});
 		},
 
 		//Method for grabbing products items
 		productsItems: function () {
+			//Refering to the VUEJS this pointer
+			var vm = this;
 
-			//Getting data response from server
+			//Getting data response from server at the /products end point
 			axios.get('/products').then(function (response) {
-				//this.productsItems = Object.assign({}, this.productsItems, response.data);
-				//this.productsItems = response.data;
 
-				this.$add('productItems', response.data);
+				vm.products = response.data;
 
-				console.log(response.data);
+				/*console.log(response.data);
 				console.log(response.status);
-				console.log(response.headers);
+				console.log(response.headers);*/
 
 			}).catch(function (error) {
 				console.log(error.response.data);
@@ -191,29 +109,14 @@ const app = new Vue({
 		},
 	},
 
+	//Loads the function when page is ready
 	mounted() {
 
-		this.productsItems();
-		/*this.$nextTick(function () {
-			//Getting data response from server
-			axios.get('/products').then(function (response) {
-
-				this.productsItems = Object.assign({}, this.productsItems, response.data);
-				
-				/*console.log(response.data);
-				console.log(response.status);
-				console.log(response.headers);*
-
-				console.log(this.productsItems);
-
-			}).catch(function (error) {
-				console.error(error.response.data);
-				console.error(error.response.status);
-				console.error(error.response.headers);
-			});
-		})*/
+		this.productsItems(); //Calling the func. for getting all product items from page
 	},
 });
+
+
 
 //jQuery
 $(document).ready(function(){
