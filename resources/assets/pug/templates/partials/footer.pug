@@ -27,7 +27,7 @@
 							//- Cross Site Request Forgery Field
 							| {{ csrf_field() }}
 
-						//- Fallback displaying error message with balde
+						//- Fallback displaying error message with balde if JS ie disable
 						| @if (count($errors) > 0)
 						| 	<ul class="footer__form--defaulterror">
 						| 		@foreach ($errors->all() as $error)
