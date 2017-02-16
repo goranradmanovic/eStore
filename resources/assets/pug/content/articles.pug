@@ -1,22 +1,20 @@
 .row
-	p @{{productItems}}
-	p @{{year}}
 	.col-md-12
-		.articles(v-for='article in articles')
+		.articles(v-for='product in products')
 			.col-md-4
 				.articles__item
 					h3.articles__item--title
-						a(:href='article.titleLink' target='blank' class='articles_item--title--link' v-text='article.title')
+						a(:href='product.product_link' target='blank' class='articles_item--title--link' v-text='product.title')
 
 					.articles__item--link
-						a(:href='article.productLink' target='_blank')
-							img(:src='article.imgURL' alt='Product image' class="articles__item--link--image")
+						a(:href='product.product_link' target='_blank')
+							img(:src='product.img_url' alt='Product image' class="articles__item--link--image")
 
 					.articles__item--details
-						p.articles__item--details--text(v-text='article.description')
+						p.articles__item--details--text(v-text='product.description')
 
 				.articles__footer
-					.articles__footer--price $ @{{ article.price }}
+					.articles__footer--price $ @{{ product.price }}
 
 					.articles__footer--cta
-						a(:href='article.buttonLink' class='articles__footer--cta--link' role='button') It's a bargain
+						a(:href='product.cta_link' class='articles__footer--cta--link' role='button') It's a bargain
