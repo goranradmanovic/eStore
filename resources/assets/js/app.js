@@ -35,6 +35,9 @@ const app = new Vue({
 		//Method for sending subscriber email via Ajax request
 		submitSubscribeEmail: function (event) {
 
+			//Getting subscriber form
+			var subscribeForm = $('#subscribeForm');
+
 			//Prevent Subscribe email form from submiting on common way
 			event.preventDefault();
 
@@ -67,6 +70,7 @@ const app = new Vue({
 
 			}).catch(function (error) {
 
+				console.error(error);
 				//If error status is equal to 422 (Laravel validate() send this status with users erorrs)
 				if (error.response.status == 422) {
 					//Show error message here (SweetAler)
