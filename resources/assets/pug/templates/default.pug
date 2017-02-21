@@ -17,7 +17,10 @@ html(lang='en')
 		link(rel='stylesheet' href='css/style.css')
 		title @yield('title')
 	body
+
 		include partials/navigation.pug
+
+		include partials/errors.pug
 		
 		.container-fluid(id='app')
 
