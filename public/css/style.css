@@ -9325,6 +9325,50 @@ body {
   -webkit-tap-highlight-color: #FFF498;
 }
 
+.flash {
+  position: absolute;
+  top: -70px;
+  left: 0;
+  width: 100vw;
+  height: 50px;
+  padding: 7px;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+.flash__message--success {
+  font-size: 1.6em;
+  font-weight: 700;
+  text-transform: capitalize;
+  text-align: center;
+  color: white;
+}
+
+.flash__message--warning {
+  font-size: 1.6em;
+  font-weight: 700;
+  text-transform: capitalize;
+  text-align: center;
+  color: #DAA520;
+}
+
+.flash__message--error {
+  font-size: 1.6em;
+  font-weight: 700;
+  text-transform: capitalize;
+  text-align: center;
+  color: #DD6B55;
+  z-index: 1;
+}
+
+.flash__message--error--link {
+  background-color: none;
+  color: #DD6B55;
+}
+
+.flash__message--error--link:hover {
+  color: #DD6B55;
+}
+
 .main__menu {
   margin-top: 0;
   padding: 0;
