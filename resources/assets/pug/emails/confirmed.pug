@@ -1,0 +1,11 @@
+doctype
+
+html(lang='en')
+	head
+
+	body
+		p Thank you for contacing us and interesting in out newsletter, please confirm your email address by cliking on confirm button. Thank you.
+
+		
+		//-Confiremed link != in atribute mean escaping => and not converting it into &gt (output row)
+		a(href!="{{ route('confirmed', ['id' => $id]) }}") Confirm
