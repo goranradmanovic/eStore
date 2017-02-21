@@ -1,0 +1,39 @@
+.flash
+	position: absolute
+	top: -70px
+	left: 0
+	width: 100vw
+	height: 50px
+	padding: 7px
+	background-color: rgba(0, 0, 0, .85)
+
+	+element('message')
+
+		+modifier('success')
+			font-size: 1.6em
+			font-weight: 700
+			text-transform: capitalize
+			text-align: center
+			color: white
+
+		+modifier('warning')
+			font-size: 1.6em
+			font-weight: 700
+			text-transform: capitalize
+			text-align: center
+			color: $warning-color
+
+		+modifier('error')
+			font-size: 1.6em
+			font-weight: 700
+			text-transform: capitalize
+			text-align: center
+			color: $error-color
+			z-index: 1
+
+			+modifier('link')
+				background-color: none
+				color: $error-color
+
+				&:hover
+					color: $error-color
