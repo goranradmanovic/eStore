@@ -9327,46 +9327,66 @@ body {
 
 .flash {
   position: absolute;
-  top: -70px;
+  top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 50px;
-  padding: 7px;
+  padding: 10px;
+  z-index: 1;
   background-color: rgba(0, 0, 0, 0.85);
 }
 
-.flash__message--success {
+.flash__message {
   font-size: 1.6em;
   font-weight: 700;
   text-transform: capitalize;
   text-align: center;
-  color: white;
+}
+
+@media only screen and (max-width: 320px) {
+  .flash__message {
+    font-size: 0.8em;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .flash__message {
+    font-size: 0.9em;
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  .flash__message {
+    font-size: 1em;
+  }
+}
+
+.flash__message--success {
+  color: #00b1b3;
 }
 
 .flash__message--warning {
-  font-size: 1.6em;
-  font-weight: 700;
-  text-transform: capitalize;
-  text-align: center;
   color: #DAA520;
 }
 
 .flash__message--error {
-  font-size: 1.6em;
-  font-weight: 700;
-  text-transform: capitalize;
-  text-align: center;
-  color: #DD6B55;
-  z-index: 1;
-}
-
-.flash__message--error--link {
-  background-color: none;
   color: #DD6B55;
 }
 
-.flash__message--error--link:hover {
+.flash__message--error--box {
+  width: 20px;
+  height: 20px;
+  margin-top: -2px;
+  float: right;
+  font-size: 1.1em;
+  cursor: pointer;
   color: #DD6B55;
+}
+
+.flash__message--error--box:hover {
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+  color: white;
 }
 
 .main__menu {

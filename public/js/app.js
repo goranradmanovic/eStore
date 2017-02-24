@@ -43055,6 +43055,7 @@ var app = new Vue({
     	products: [], //Empty array for storing all items
 		email: '',	//Setting empty email var
 		year: new Date().getFullYear(), //Get full year for footer info
+		//displayFlash: true,
 	},
 
 	//Functions
@@ -43138,12 +43139,29 @@ var app = new Vue({
 				console.log(error.response.headers);
 			});
 		},
+
+		//Method for slidingup flash success or warning message
+		flashMessageHide: function () {
+			//Getting the flash message success div and flash message warning div and holding that messages for 4sec and the slide it up, but not flas message error div
+			$('.flash:has(.flash__message--success), .flash:has(.flash__message--warning)').not('.flash:has(.flash__message--error)').delay(4000).slideUp();
+		},
+
+		//Method for closing flash error message
+		flashCloseError: function () {
+			$('.flash__message--error--box').on('click', function() {
+				$('.flash').slideUp();
+			});
+		},
 	},
 
 	//Loads the function when page is ready
 	mounted: function mounted() {
 
 		this.productsItems(); //Calling the func. for getting all product items from page
+
+		this.flashMessageHide(); //Calling func. for hiding flash messages
+
+		this.flashCloseError(); //Calling func. for hiding flash messages
 	},
 });
 
