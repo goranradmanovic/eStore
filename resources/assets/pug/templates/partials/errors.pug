@@ -1,21 +1,20 @@
 //- If it there some of the session messages the displaz flash div and some other session messages
 | @if (Session::has('massageSuccess') || Session::has('messageWarning') || Session::has('messageError'))
-.row
-	.col-md-12
-		.flash
-			//- If session has this success key then display success message 
-			| @if (Session::has('massageSuccess'))
-			.flash__message--success {{ session('massageSuccess') }}
-			| @endif
+.flash
+	.flash__message
+		//-If session has this success key then display success message 
+		| @if (Session::has('massageSuccess'))
+		.flash__message--success {{ session('massageSuccess') }}
+		| @endif
 
-			//- If session has this warrning key then display warrning message 
-			| @if (Session::has('messageWarning'))
-			.flash__message--warning {{ session('messageWarning') }}
-			| @endif
+		//- If session has this warrning key then display warrning message 
+		| @if (Session::has('messageWarning'))
+		.flash__message--warning {{ session('messageWarning') }}
+		| @endif
 
-			//- If session has this error key then display error message 
-			| @if (Session::has('messageError'))
-			.flash__message--error {{ session('messageError') }}
-				button(class='flash__message--error--link') &times;
-			| @endif
+		//- If session has this error key then display error message 
+		| @if (Session::has('messageError'))
+		.flash__message--error {{ session('messageError') }}
+			span(class='flash__message--error--box') &times;
+		| @endif
 | @endif
