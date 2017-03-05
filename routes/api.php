@@ -16,3 +16,6 @@ use Illuminate\Http\Request;
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
+
+//API route for getting all data about products in JSON
+Route::get('/products', 'Controller@getAllProducts')->middleware('api');
