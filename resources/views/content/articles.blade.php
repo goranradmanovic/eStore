@@ -1,5 +1,5 @@
 
-<div class="row">
+<div class="row" v-cloak="v-cloak">
   <div class="col-md-12">
     <div class="articles" v-for="product in products">
       <div class="col-md-4">
@@ -15,6 +15,13 @@
           <div class="articles__footer--cta"><a class="articles__footer--cta--link" :href="product.cta_link" role="button">It's a bargain</a></div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+<div class="row" v-cloak="v-cloak">
+  <div class="col-md-12">
+    <div class="col-md-2 col-md-offset-5">
+      <button class="btn btn-default load__btn" v-on:click="loadMoreProducts()" v-bind:disabled="!loadMoreLink">Show More<span class="load__btn--spinner" v-show="preLoader"></span></button>
     </div>
   </div>
 </div>
