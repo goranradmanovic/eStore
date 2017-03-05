@@ -72,6 +72,9 @@
 				box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5)
 
 			&:focus
+				outline: none
+				text-decoration: none
+				color: $text-color-white
 				background-color: $bg-color-nav-active
 
 			+modifier('link')
@@ -83,3 +86,55 @@
 				&:hover
 					color: $text-color-white
 					text-decoration: none
+
+				&:focus
+					outline: none
+					text-decoration: none
+					color: $text-color-white
+
+//Load More Button
+.load__btn
+	margin-top: 40px
+	margin-left: 15%
+	padding: 15px
+	border: 1px solid $bg-color-nav-hover
+	background-color: $cta-color
+	color: $text-color-white
+	text-transform: uppercase
+	cursor: pointer
+	transition: background-color 400ms
+
+	&:hover
+		background-color: $bg-color-nav-hover
+		color: $text-color-white
+		box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5)
+
+	&:active
+		color: $text-color-white
+		background-color: $bg-color-nav-active
+
+	&:focus
+		color: $text-color-white
+		background-color: $bg-color-nav-active
+
+	+modifier('spinner')
+		position: relative
+		top: 5px
+		left: 5px
+		display: inline-block
+		width: 20px
+		height: 20px
+		border-radius: 50%
+		border: 3px solid $border-color
+		border-top: 3px solid $border-color-top
+		animation: spin 1s linear infinite
+
+@keyframes spin
+	0%
+		transform: rotate(0deg)
+	100%
+		transform: rotate(360deg)
+
+//Changing boostrap default style for disable btn
+.btn-default[disabled]:hover
+	background-color: $bg-color-nav-active
