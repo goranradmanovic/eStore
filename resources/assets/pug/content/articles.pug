@@ -1,4 +1,4 @@
-.row
+.row(v-cloak)
 	.col-md-12
 		.articles(v-for='product in products')
 			.col-md-4
@@ -18,3 +18,8 @@
 
 					.articles__footer--cta
 						a(:href='product.cta_link' class='articles__footer--cta--link' role='button') It's a bargain
+.row(v-cloak)
+	.col-md-12
+		.col-md-2.col-md-offset-5
+			button(class='btn btn-default load__btn' v-on:click='loadMoreProducts()' v-bind:disabled='!loadMoreLink') Show More
+				span(class='load__btn--spinner' v-show='preLoader')
