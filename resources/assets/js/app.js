@@ -15,10 +15,11 @@ require('./bootstrap');
  */
 
 Vue.component('example', require('./components/Example.vue'));
+Vue.http.headers.common['Access-Control-Allow-Origin'] = 'http://192.168.1.10:8000';
 Vue.http.headers.common['Access-Control-Allow-Origin'] = 'http://192.168.1.10:3000';
 Vue.http.headers.common['Access-Control-Request-Method'] = '*';
 Vue.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#token').getAttribute('value');
-
+Vue.http.options.crossOrigin = true;
 
 const app = new Vue({
     el: '#app',
@@ -28,9 +29,13 @@ const app = new Vue({
     	products: [], //Empty array for storing all items
 		email: '',	//Setting empty email var
 		year: new Date().getFullYear(), //Get full year for footer info
-		//displayFlash: true,
+		loadMoreLink: '', //Var for storing link for next set of data
+		preLoader: false, //Setting preloader to not show
 	},
+	//Componenets
+	components: {
 
+	},
 	//Functions
 	methods: {
 		//Method for sending subscriber email via Ajax request
@@ -71,7 +76,6 @@ const app = new Vue({
 
 			}).catch(function (error) {
 
-				console.error(error);
 				//If error status is equal to 422 (Laravel validate() send this status with users erorrs)
 				if (error.response.status == 422) {
 					//Show error message here (SweetAler)
@@ -92,24 +96,26 @@ const app = new Vue({
 			});
 		},
 
-		//Method for grabbing products items
-		productsItems: function () {
+		//Method for grabbing products items first (initial) page
+		loadProductsItems: function () {
 			//Refering to the VUEJS this pointer
-			var vm = this;
+			let vm = this;
 
-			//Getting data response from server at the /products end point
-			axios.get('/products').then(function (response) {
+			//Getting data response from server at the api/products end point
+			axios.get('/api/products').then(function (response) {
 
-				vm.products = response.data;
+				vm.products = response.data.data; //We are writing response.data.data because we use pagination method in Laravel, usualy we use only response.data
 
+				vm.loadMoreLink = response.data.next_page_url;
+			
 				/*console.log(response.data);
 				console.log(response.status);
 				console.log(response.headers);*/
 
 			}).catch(function (error) {
-				console.log(error.response.data);
+				/*console.log(error.response.data);
 				console.log(error.response.status);
-				console.log(error.response.headers);
+				console.log(error.response.headers);*/
 			});
 		},
 
@@ -125,44 +131,63 @@ const app = new Vue({
 				$('.flash').slideUp();
 			});
 		},
+
+		//Method for loading more product data on click of Load more btn
+		loadMoreProducts: function () {
+			let vm = this; //This is referencing data object
+			let nextPageUrl = vm.loadMoreLink; //Accessing next page url from the products response from the server
+			vm.preLoader = true; //Setting preloader to true and displaying to the user
+
+			//Calling AJAX method for getting new set of data for displaying to the user
+			axios.get(nextPageUrl).then(function (response) {
+
+				//Adding more items (data) to the products array for displaying
+				vm.products = vm.products.concat(response.data.data);
+
+				//Checking if there is next link for new set of data for displaying, otherwise set to null (disable Load More Button)
+				vm.loadMoreLink = (response.data.next_page_url) ? response.data.next_page_url : null;
+
+				//Setting preloader to false and removing from displaying to the user
+				vm.preLoader = false;
+				
+				/*console.log(response.data);
+				console.log(response.status);
+				console.log(response.headers);*/
+			}).catch(function (error) {
+				/*console.log(error.response.data);
+				console.log(error.response.status);
+				console.log(error.response.headers);*/
+			});
+		},
+
+		//Function for back to top button
+		scrollToTop: function () {
+			//Check to see if the window is top if not then display button
+			$(window).scroll(function(){
+				if ($(this).scrollTop() > 100) {
+					$('.scrollToTop').fadeIn();
+				} else {
+					$('.scrollToTop').fadeOut();
+				}
+			});
+
+			//Click event to scroll to top
+			$('.scrollToTop').click(function(){
+				$('html, body').animate({scrollTop : 0}, 800);
+				return false;
+			});
+		},
 	},
 
 	//Loads the function when page is ready
 	mounted() {
 
-		this.productsItems(); //Calling the func. for getting all product items from page
+		this.loadProductsItems(); //Calling the func. for getting all product items from page
 
 		this.flashMessageHide(); //Calling func. for hiding flash messages
 
 		this.flashCloseError(); //Calling func. for hiding flash messages
+
+		this.scrollToTop();
 	},
 });
-
-
-
-//jQuery
-$(document).ready(function(){
-	//Calling the function
-	scrollToTop();
-	
-	//Ajaxing
-	
-});
-
-function scrollToTop() {
-	//Check to see if the window is top if not then display button
-	$(window).scroll(function(){
-		if ($(this).scrollTop() > 100) {
-			$('.scrollToTop').fadeIn();
-		} else {
-			$('.scrollToTop').fadeOut();
-		}
-	});
-	
-	//Click event to scroll to top
-	$('.scrollToTop').click(function(){
-		$('html, body').animate({scrollTop : 0}, 800);
-		return false;
-	});
-}
-
