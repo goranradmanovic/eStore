@@ -20,7 +20,7 @@ class Product extends Model
 	//Method for retriving all product items
 	public function getAllProductItems()
 	{
-		//Get all product from product table
-		return $this->all();
+		//Get all product from product table (return $this->all()) and paginate all result by number we define, default is 15 items per page
+		return $this->paginate(5);
 	}
 }
