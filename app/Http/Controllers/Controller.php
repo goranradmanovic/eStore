@@ -31,7 +31,7 @@ class Controller extends BaseController
     //Getting data from the Subscribe form and writing data to the database , 
     public function createSubscription(Request $request)
     {
-        $subscriber = new Subscriber;
+        $subscriber = new Subscriber; //New instance of Subscriber class
 
         //Validate user form input ect. user email
         $this->validate($request, ['subscribeEmail' => 'required|email|unique:subscribers,email|max:255']);
@@ -52,7 +52,7 @@ class Controller extends BaseController
     //Method for getting URL param ect. email ID
     public function confirmedEmail(Request $request, $id)
     {   
-        $subscriber = new Subscriber;
+        $subscriber = new Subscriber; //New instance of Subscriber class
 
         //Getting the email ID and cating it to integer
         $subscribeEmailId = (int) $request->id;
@@ -84,7 +84,7 @@ class Controller extends BaseController
     public function getAllProducts()
     {
         //New instance of Product class
-        $product = new Product;
+        $product = new Product; //New instance of Product class
 
         //Getting all product items for displying on home page
         $allProductItems = $product->getAllProductItems();
