@@ -158,6 +158,24 @@ const app = new Vue({
 				console.log(error.response.status);
 				console.log(error.response.headers);*/
 			});
+
+			//Calling Animation function when new set of data is ready for displaying
+			this.productsAnimation();
+		},
+
+		//Function for adding css class for animation
+		productsAnimation: function () {
+			
+			//First set time out for wait to VUE to display articles wrapper div
+			setTimeout(function() {
+				//Get all articles wrapper and iterate over all divs
+				$('.articles__wrapper').each(function(i) {
+					//Set time out for adding article animation class to each el. one by one over time (150ms * i)
+					setTimeout(function(){
+						$('.articles__wrapper').eq(i).addClass('article__animation'); //Adding class to each article wrapper div el.
+					}, 150 * i);
+				});
+			}, 200);
 		},
 
 		//Function for back to top button
@@ -188,6 +206,8 @@ const app = new Vue({
 
 		this.flashCloseError(); //Calling func. for hiding flash messages
 
-		this.scrollToTop();
+		this.productsAnimation(); //Calling func. for adding animation class to the products items
+
+		this.scrollToTop(); //Calling func. for scrolling page to the top
 	},
 });
