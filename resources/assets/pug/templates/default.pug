@@ -21,7 +21,7 @@ html(lang='en')
 		
 		include partials/navigation.pug
 		
-		.container-fluid(id='app')
+		.container-fluid(id='app' v-cloak)
 
 			| @yield('content')
 

@@ -72,7 +72,7 @@
         </div>
       </nav>
     </menu>
-    <div class="container-fluid" id="app">@yield('content')
+    <div class="container-fluid" id="app" v-cloak>@yield('content')
       <div class="row">
         <footer class="footer">
           <div class="col-md-12">
