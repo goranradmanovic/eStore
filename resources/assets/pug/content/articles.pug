@@ -1,24 +1,25 @@
-.row(v-cloak)
+.row
 	.col-md-12
 		.articles(v-for='product in products')
 			.col-md-4
-				.articles__item
-					h3.articles__item--title
-						a(:href='product.product_link' target='blank' class='articles_item--title--link' v-text='product.title')
+				.articles__wrapper
+					.articles__item
+						h3.articles__item--title
+							a(:href='product.product_link' target='blank' class='articles_item--title--link' v-text='product.title')
 
-					.articles__item--link
-						a(:href='product.product_link' target='_blank')
-							img(:src='product.img_url' alt='Product image' class="articles__item--link--image")
+						.articles__item--link
+							a(:href='product.product_link' target='_blank')
+								img(:src='product.img_url' alt='Product image' class="articles__item--link--image")
 
-					.articles__item--details
-						p.articles__item--details--text(v-text='product.description')
+						.articles__item--details
+							p.articles__item--details--text(v-text='product.description')
 
-				.articles__footer
-					.articles__footer--price $ @{{ product.price }}
+					.articles__footer
+						.articles__footer--price $ @{{ product.price }}
 
-					.articles__footer--cta
-						a(:href='product.cta_link' class='articles__footer--cta--link' role='button') It's a bargain
-.row(v-cloak)
+						.articles__footer--cta
+							a(:href='product.cta_link' class='articles__footer--cta--link' role='button') It's a bargain
+.row
 	.col-md-12
 		.col-md-2.col-md-offset-5
 			button(class='btn btn-default load__btn' v-on:click='loadMoreProducts()' v-bind:disabled='!loadMoreLink') Show More
