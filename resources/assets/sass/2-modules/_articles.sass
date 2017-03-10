@@ -2,6 +2,9 @@
 	width: auto
 	height: auto
 
+	+element('wrapper')
+		opacity: 0
+
 	+element('item')
 		width: auto
 		height: auto
@@ -129,12 +132,36 @@
 		border-top: 3px solid $border-color-top
 		animation: spin 1s linear infinite
 
-@keyframes spin
-	0%
-		transform: rotate(0deg)
-	100%
-		transform: rotate(360deg)
+		@keyframes spin
+			0%
+				transform: rotate(0deg)
+			100%
+				transform: rotate(360deg)
 
 //Changing boostrap default style for disable btn
 .btn-default[disabled]:hover
 	background-color: $bg-color-nav-active
+
+//Animations for displaying articles items
+@keyframes ItemAnimaFirst
+	0%
+		opacity: 0
+		transform: scale(0.3) rotateY(90deg)
+	60%
+		transform: scale(1.4)
+	90%
+		transform: scale(0.9)
+	100%
+		opacity: 1
+
+@keyframes ItemAnimaSecond
+	0%
+		opacity: 0
+		transform: scale(0.5)
+
+	100%
+		opacity: 1
+		transform: scale(1)
+
+.article__animation
+	animation: ItemAnimaSecond 400ms ease-in forwards

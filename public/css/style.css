@@ -9483,6 +9483,10 @@ body {
   height: auto;
 }
 
+.articles__wrapper {
+  opacity: 0;
+}
+
 .articles__item {
   width: auto;
   height: auto;
@@ -9664,6 +9668,75 @@ body {
 
 .btn-default[disabled]:hover {
   background-color: #14B9D6;
+}
+
+@-webkit-keyframes ItemAnimaFirst {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.3) rotateY(90deg);
+    transform: scale(0.3) rotateY(90deg);
+  }
+  60% {
+    -webkit-transform: scale(1.4);
+    transform: scale(1.4);
+  }
+  90% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes ItemAnimaFirst {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.3) rotateY(90deg);
+    transform: scale(0.3) rotateY(90deg);
+  }
+  60% {
+    -webkit-transform: scale(1.4);
+    transform: scale(1.4);
+  }
+  90% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes ItemAnimaSecond {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes ItemAnimaSecond {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+.article__animation {
+  -webkit-animation: ItemAnimaSecond 400ms ease-in forwards;
+  animation: ItemAnimaSecond 400ms ease-in forwards;
 }
 
 .footer {
