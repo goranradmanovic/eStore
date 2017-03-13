@@ -43054,6 +43054,7 @@ var app = new Vue({
     //All data
     data: {
     	products: [], //Empty array for storing all items
+    	categories: [], //Empty array for storing all categories items informations
 		email: '',	//Setting empty email var
 		year: new Date().getFullYear(), //Get full year for footer info
 		loadMoreLink: '', //Var for storing link for next set of data
@@ -43222,10 +43223,31 @@ var app = new Vue({
 				return false;
 			});
 		},
+
+		loadCategooriesItems: function () {
+
+			var vm = this; //Asigne this from VUEJS object to vm var.
+
+			axios.get('/api/categories').then(function (response) {
+
+				vm.categories = response.data; //Adding data from the API to categories var
+				console.log(vm.categories);
+
+				/*console.log(response);
+				console.log(response.data);
+				console.log(response.status);
+				console.log(response.headers);*/
+			}).catch(function (error) {
+				console.log(error.response.data);
+				console.log(error.response.status);
+				console.log(error.response.headers);
+			});
+		},
 	},
 
 	//Loads the function when page is ready
 	mounted: function mounted() {
+		this.loadCategooriesItems(); //Calling the func. for getting all categories item informations
 
 		this.loadProductsItems(); //Calling the func. for getting all product items from page
 
