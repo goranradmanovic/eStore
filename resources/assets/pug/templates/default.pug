@@ -16,15 +16,19 @@ html(lang='en')
 		link(rel='icon' href='images/favicon/favicon.ico' type='image/x-icon')
 		link(rel='stylesheet' href='css/style.css')
 		title @yield('title')
+
 	body
-		include partials/errors.pug
 		
-		include partials/navigation.pug
-		
-		.container-fluid(id='app' v-cloak)
+		div(id='app' v-cloak)
 
-			| @yield('content')
+			include partials/errors.pug
+			
+			include partials/navigation.pug
 
-			include partials/footer.pug
+			.container-fluid
+
+				| @yield('content')
+
+				include partials/footer.pug
 
 	script(src='js/app.js')
