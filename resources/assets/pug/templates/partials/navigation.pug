@@ -13,15 +13,11 @@ menu.main__menu
 			//- Collect the nav links, forms, and other content for toggling
 			#bs-example-navbar-collapse-1.collapse.navbar-collapse
 				ul.nav.navbar-nav
-					li(v-on:click='active')
-						a(href='#') Matcha Tea
+					//- Looping thru all categories
+					li(v-for='categorie in categories')
+						//- Displaying category link with path and id and link name
+						a(:href="'/category/' + categorie.id" v-text='categorie.category_name')
 							span.sr-only (current)
-					li
-						a(href='#') Food Supplements
-					li
-						a(href='#') Fitness Gear
-					li
-						a(href='#') Random
 
 					li.dropdown
 						a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
