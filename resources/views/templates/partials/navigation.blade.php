@@ -7,10 +7,7 @@
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li v-on:click="active"><a href="#">Matcha Tea<span class="sr-only">(current)</span></a></li>
-          <li><a href="#">Food Supplements</a></li>
-          <li><a href="#">Fitness Gear</a></li>
-          <li><a href="#">Random</a></li>
+          <li v-for="categorie in categories"><a :href="'/category/' + categorie.id" v-text="categorie.category_name"><span class="sr-only">(current)</span></a></li>
           <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="#">Action</a></li>
