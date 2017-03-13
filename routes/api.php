@@ -19,3 +19,6 @@ Route::get('/user', function (Request $request) {
 
 //API route for getting all data about products in JSON
 Route::get('/products', 'Controller@getAllProducts')->middleware('api');
+
+//API route for getting all data about categorey in JSON
+Route::get('/categories', 'Controller@getAllCategories')->middleware('api');
