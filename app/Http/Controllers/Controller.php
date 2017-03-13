@@ -14,7 +14,8 @@ use App\Mail\ConfirmEmail;
 use App\Mail\EmailSubscriber;
 use App\Models\{
     Subscriber\Subscriber,
-    Product\Product
+    Product\Product,
+    Category\Category
 };
 
 class Controller extends BaseController
@@ -78,6 +79,16 @@ class Controller extends BaseController
         return redirect()->route('home')->with('messageWarning', 'You are already successfully confirmed your email address.');
     }
 
+    public function showCategorie()
+    {   
+        // 1. Get category id from link
+        // 2. Call getAllCategoriesItems and pass category idand get all data
+        // 3. Pass all data to var
+        // 4. Pass all data to the view
+        
+        echo 'Hello World';
+    }
+
     //*** API Functions ***//
     
     //Functi. for getting all data about product and sending in JSON response
@@ -91,5 +102,18 @@ class Controller extends BaseController
 
         //Return JSON response with data
         return response()->json($allProductItems);
+    }
+
+    //Function for getting all items from one category
+    public function getAllCategories()
+    {
+        //New instance of Category class
+        $category = new Category;
+
+        //Get all categories items for displying on page
+        $categoriesItems = $category->getCategories();
+
+        //Return JSON response with data
+        return response()->json($categoriesItems);
     }
 }
