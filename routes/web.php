@@ -23,5 +23,5 @@ Route::post('/', 'Controller@createSubscription');
 //Route for confirmed email address
 Route::get('/email/confirmed/{id}', 'Controller@confirmedEmail')->name('confirmed');
 
-//Route for displaying category items
-Route::get('/category/{category_id}', 'Controller@showCategorie')->name('category');
+//Route for displaying all data from single category
+Route::get('category/{category_id}', 'Controller@showSingleCategorie');

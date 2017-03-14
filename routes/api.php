@@ -22,3 +22,6 @@ Route::get('/products', 'Controller@getAllProducts')->middleware('api');
 
 //API route for getting all data about categorey in JSON
 Route::get('/categories', 'Controller@getAllCategories')->middleware('api');
+
+//Route for displaying category items
+Route::get('/category/{category_id}', 'Controller@getSingleCategorieProducts')->middleware('api');
