@@ -5,10 +5,10 @@
 				.articles__wrapper
 					.articles__item
 						h3.articles__item--title
-							a(:href='product.product_link' target='blank' class='articles_item--title--link' v-text='product.title')
+							a(:href='product.product_link' class='articles_item--title--link' v-text='product.title')
 
 						.articles__item--link
-							a(:href='product.product_link' target='_blank')
+							a(:href='product.product_link')
 								img(:src='product.img_url' alt='Product image' class="articles__item--link--image")
 
 						.articles__item--details
@@ -24,3 +24,6 @@
 		.col-md-2.col-md-offset-5
 			button(class='btn btn-default load__btn' v-on:click='loadMoreProducts()' v-bind:disabled='!loadMoreLink') Show More
 				span(class='load__btn--spinner' v-show='preLoader')
+
+.modal__loader(v-show='pageLoader')
+	span(class='modal__loader--spinner')
