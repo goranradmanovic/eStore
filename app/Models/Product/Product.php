@@ -23,4 +23,11 @@ class Product extends Model
 		//Get all product from product table (return $this->all()) and paginate all result by number we define, default is 15 items per page
 		return $this->paginate(5);
 	}
+
+	//Method for getting single producst item 
+	public function getSingleProductItem($productId)
+	{
+		//Find single item from products table by ID and return the result
+		return $this->find($productId);
+	}
 }
