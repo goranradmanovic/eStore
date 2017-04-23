@@ -81,12 +81,19 @@ class Controller extends BaseController
 
     //Function for displaying page for all data from single category
     public function showSingleCategorie()
-    {   
+    {
         //Return view and display data with VUJE from api/caterory/{category_id}
-        echo 'Hello World';
+        return view('/pages/category');
     }
 
+    //Function for displaying page fro single product item
+    public function showSingleItem()
+    {
+        //Return view and display data with VUEJS drom api/product/{product_id}
+        return view('pages/product');
+    }
 
+     
      /////////////////////////
     //*** API Functions ***//
    /////////////////////////
@@ -129,5 +136,18 @@ class Controller extends BaseController
 
         //Return all data as JSON response
         return response()->json($allProducts);
+    }
+
+    //Function for shown single product item. Param is product ID
+    public function getSingleProduct($product_id)
+    {
+        //New instance of Product class etc. model
+        $product = new Product;
+
+        //Record for single product item
+        $singleItem = $product->getSingleProductItem($product_id);
+
+        //Return all data as JSON response
+        return response()->json($singleItem);
     }
 }
