@@ -8,7 +8,7 @@ menu.main__menu
 					span.icon-bar
 					span.icon-bar
 					span.icon-bar
-				a.navbar-brand(href='#')
+				a.navbar-brand(href="{{ url('/') }}")
 					span(class='brand__img')
 			//- Collect the nav links, forms, and other content for toggling
 			#bs-example-navbar-collapse-1.collapse.navbar-collapse
@@ -16,7 +16,7 @@ menu.main__menu
 					//- Looping thru all categories
 					li(v-for='categorie in categories')
 						//- Displaying category link with path and id and link name
-						a(:href="'/category/' + categorie.id" v-text='categorie.category_name')
+						a(:href="'/pages/category/' + categorie.id" v-text='categorie.category_name')
 							span.sr-only (current)
 
 					li.dropdown
