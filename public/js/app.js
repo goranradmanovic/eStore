@@ -43057,13 +43057,24 @@ var app = new Vue({
     	categories: [], //Empty array for storing all categories items informations
 		email: '',	//Setting empty email var
 		year: new Date().getFullYear(), //Get full year for footer info
-		loadMoreLink: '', //Var for storing link for next set of data
-		preLoader: false, //Setting preloader to not show
+		loadMoreLink: null, //Var for storing link for next set of data
+		preLoader: false, //Setting preloader to not show (for button show more)
+		pageLoader: false, //Setting preloader to not show for the main page
+		urlName: window.location.pathname.split('/')[2], //Setting url name ect. category/product
+		urlID: null, //Setting URL ID for fetching all data for category/single product
+
+		//API Links
+		apiCategories: '/api/categories', //API link for all categories for creating the nav linkd
+		apiProducts: '/api/products', //API link for all products
+		apiSingleCatProducts: '/api/category/', //Api link for single category products ('/api/category/' + categoryId)
+		apiSingleProductItem: '/api/product/', //Api link for single products item ('/api/product/' + productId)
 	},
+
 	//Componenets
 	components: {
 
 	},
+
 	//Functions
 	methods: {
 		//Method for sending subscriber email via Ajax request
@@ -43124,29 +43135,6 @@ var app = new Vue({
 			});
 		},
 
-		//Method for grabbing products items first (initial) page
-		loadProductsItems: function () {
-			//Refering to the VUEJS this pointer
-			var vm = this;
-
-			//Getting data response from server at the api/products end point
-			axios.get('/api/products').then(function (response) {
-
-				vm.products = response.data.data; //We are writing response.data.data because we use pagination method in Laravel, usualy we use only response.data
-
-				vm.loadMoreLink = response.data.next_page_url;
-			
-				/*console.log(response.data);
-				console.log(response.status);
-				console.log(response.headers);*/
-
-			}).catch(function (error) {
-				/*console.log(error.response.data);
-				console.log(error.response.status);
-				console.log(error.response.headers);*/
-			});
-		},
-
 		//Method for slidingup flash success or warning message
 		flashMessageHide: function () {
 			//Getting the flash message success div and flash message warning div and holding that messages for 4sec and the slide it up, but not flas message error div
@@ -43157,6 +43145,31 @@ var app = new Vue({
 		flashCloseError: function () {
 			$('.flash__message--error--box').on('click', function() {
 				$('.flash').slideUp();
+			});
+		},
+
+		//Method for grabbing products items first (initial) page or single category products
+		ajaxCall: function (apiLink) {
+			//Refering to the VUEJS this pointer
+			var vm = this;
+			vm.pageLoader = true; //Turn on main page loader,until all product is downloaded
+			vm.products = [];
+
+			//Getting data response from server at the api/products end point
+			axios.get(apiLink).then(function (response) {
+
+				vm.products = response.data.data; //We are writing response.data.data because we use pagination method in Laravel, usualy we use only response.data
+				vm.loadMoreLink = response.data.next_page_url; //Setting URL path for show more button (hitting the next link with new data)
+				vm.pageLoader = false; //Turn off main page loader
+
+				/*console.log(response.data);
+				console.log(response.status);
+				console.log(response.headers);*/
+
+			}).catch(function (error) {
+				/*console.log(error.response.data);
+				console.log(error.response.status);
+				console.log(error.response.headers);*/
 			});
 		},
 
@@ -43171,10 +43184,8 @@ var app = new Vue({
 
 				//Adding more items (data) to the products array for displaying
 				vm.products = vm.products.concat(response.data.data);
-
 				//Checking if there is next link for new set of data for displaying, otherwise set to null (disable Load More Button)
 				vm.loadMoreLink = (response.data.next_page_url) ? response.data.next_page_url : null;
-
 				//Setting preloader to false and removing from displaying to the user
 				vm.preLoader = false;
 				
@@ -43224,14 +43235,16 @@ var app = new Vue({
 			});
 		},
 
-		loadCategooriesItems: function () {
+		//Method for getting all categories names and id-s for creating navigation links to category/1,2,3 ...
+		loadCategoriesItems: function (apiLink) {
 
 			var vm = this; //Asigne this from VUEJS object to vm var.
 
-			axios.get('/api/categories').then(function (response) {
+			//Fetch data from API
+			axios.get(apiLink).then(function (response) {
 
 				vm.categories = response.data; //Adding data from the API to categories var
-				console.log(vm.categories);
+				//console.log(vm.categories);
 
 				/*console.log(response);
 				console.log(response.data);
@@ -43243,19 +43256,44 @@ var app = new Vue({
 				console.log(error.response.headers);
 			});
 		},
+
+		//Function for getting URL id param from category URL link (category/1)
+		getURLId: function (idPlaceholder) {
+
+			idPlaceholder = window.location.pathname.split('/')[3]; //Getting the categories id from the URL
+			
+			//If categoryId is equal to undefined then return false,otherwise return categoryId
+			return (typeof idPlaceholder == 'undefined') ? false : idPlaceholder;
+		},
 	},
 
 	//Loads the function when page is ready
 	mounted: function mounted() {
-		this.loadCategooriesItems(); //Calling the func. for getting all categories item informations
 
-		this.loadProductsItems(); //Calling the func. for getting all product items from page
+		this.loadCategoriesItems(this.apiCategories); //Calling the func. for getting all categories item informations
+
+		//If currentURLId(this.productItemId) is equal to false ect. if we are on home page, load all product items (there is no productItemId on home page)
+		if (!this.getURLId(this.productItemId)) {
+			this.ajaxCall(this.apiProducts); //Calling the func. for getting all product items for home page
+		}
+
+		//If currentId is exixsting then call API for single category data and products
+		if (this.urlName == 'category' && this.getURLId(this.urlID)) {
+			this.urlID = this.getURLId(this.urlID); //Setting the categoryId var to value return by currentURLId() function
+			this.ajaxCall(this.apiSingleCatProducts + this.urlID); //Calling the func. for getting all product items for category page
+		}
+		
+		//If productItemId is existing then call API for single product item
+		if (this.urlName == 'product' && this.getURLId(this.urlID)) {
+			this.urlID = this.getURLId(this.urlID); //Setting the categoryId var to value return by currentURLId() function
+			this.ajaxCall(this.apiSingleProductItem + this.urlID); //Calling the func. for getting all data for single product item per page
+		}
+
+		this.productsAnimation(); //Calling func. for adding animation class to the products items
 
 		this.flashMessageHide(); //Calling func. for hiding flash messages
 
 		this.flashCloseError(); //Calling func. for hiding flash messages
-
-		this.productsAnimation(); //Calling func. for adding animation class to the products items
 
 		this.scrollToTop(); //Calling func. for scrolling page to the top
 	},
