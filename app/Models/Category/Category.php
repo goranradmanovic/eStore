@@ -26,6 +26,6 @@ class Category extends Model
     public function getAllCategoriesItems(int $categoryId)
     {
     	//This will return all product items from one category
-    	return $this->find($categoryId)->product()->get();
+    	return $this->find($categoryId)->product()->paginate(5);
     }
 }
