@@ -131,6 +131,18 @@ class Controller extends BaseController
         //New instance of Category class
         $categories = new Category;
 
+        if ((int) $category_id === 4)
+        {
+            //New instance of Product class
+            $product = new Product;
+
+            //Getting all radnom product items from Product table
+            $randomProductItems = $product->getAllRandomProductItems();
+
+            //Returning all random product items 
+            return response()->json($randomProductItems);
+        }
+
         //Getting all products from single category
         $allProducts = $categories->getAllCategoriesItems($category_id);
 
