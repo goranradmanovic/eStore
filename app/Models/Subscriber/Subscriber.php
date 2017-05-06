@@ -34,7 +34,7 @@ class Subscriber extends Model
     //without updating table again
     public function isEmailConfirmed($emailId)
     {
-        //If user is already confirm his email address return true,in other case return false
+        //If user is already confirmed his email address return true,in other case return false
         return (bool) $this->where('id', $emailId)->first(['confirmed'])->confirmed ?? true;
     }
 
