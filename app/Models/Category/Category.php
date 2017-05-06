@@ -12,7 +12,8 @@ class Category extends Model
     //Relationship to Products database table
     public function product()
     {
-       return $this->hasOne('App\Models\Product\Product');
+        //Return relationship from Category to Product model
+        return $this->hasOne('App\Models\Product\Product');
     }
 
     //Method for getting id and category_name from category table
