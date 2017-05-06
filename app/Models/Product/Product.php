@@ -24,8 +24,15 @@ class Product extends Model
 		return $this->paginate(5);
 	}
 
+	//Method for retriving all random product items
+	public function getAllRandomProductItems()
+	{
+		//Return random results and paginated
+		return $this->orderByRaw('RAND(4)')->paginate(5);
+	}
+
 	//Method for getting single producst item 
-	public function getSingleProductItem($productId)
+	public function getSingleProductItem(int $productId)
 	{
 		//Find single item from products table by ID and return the result
 		return $this->find($productId);
