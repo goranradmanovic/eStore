@@ -128,8 +128,18 @@ const app = new Vue({
 			vm.pageLoader = true; //Turn on main page loader,until all product is downloaded
 			vm.products = [];
 
-			//Getting data response from server at the api/products end point
+			//Extracting 'product' from the URL string
+			let productURL = apiLink.match(/product/g);
+
+			//Getting data response from server from the API
 			axios.get(apiLink).then(function (response) {
+
+				//If we are on product page, then we dont have pagination and we must use response.data for getting required single product data
+				if (productURL[0] === 'product') {
+					//Getting single product data
+					vm.products = response.data;
+					return; // Returning because we want to escape seting vm.products = response.data.data to undefined, because we dont have pagination
+				}
 
 				vm.products = response.data.data; //We are writing response.data.data because we use pagination method in Laravel, usualy we use only response.data
 				vm.loadMoreLink = response.data.next_page_url; //Setting URL path for show more button (hitting the next link with new data)
@@ -243,6 +253,8 @@ const app = new Vue({
 	//Loads the function when page is ready
 	mounted() {
 
+		this.productsAnimation(); //Calling func. for adding animation class to the products items
+
 		this.loadCategoriesItems(this.apiCategories); //Calling the func. for getting all categories item informations
 
 		//If currentURLId(this.productItemId) is equal to false ect. if we are on home page, load all product items (there is no productItemId on home page)
@@ -261,8 +273,6 @@ const app = new Vue({
 			this.urlID = this.getURLId(this.urlID); //Setting the categoryId var to value return by currentURLId() function
 			this.ajaxCall(this.apiSingleProductItem + this.urlID); //Calling the func. for getting all data for single product item per page
 		}
-
-		this.productsAnimation(); //Calling func. for adding animation class to the products items
 
 		this.flashMessageHide(); //Calling func. for hiding flash messages
 
