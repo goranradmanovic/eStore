@@ -9786,6 +9786,27 @@ html, body {
   animation: spin 1s linear infinite;
 }
 
+.product {
+  width: 100%;
+  height: 100%;
+  background-color: pink;
+}
+
+.product__image {
+  width: 100%;
+  height: 100%;
+  padding: 2px;
+  border: 1px solid #f3f3f3;
+  border-radius: 5px;
+  background-color: orange;
+}
+
+.product__info {
+  width: 100%;
+  height: 100%;
+  background-color: gray;
+}
+
 .footer {
   width: 100%;
   height: 30em;
@@ -10098,7 +10119,7 @@ html, body {
 
 .scrollToTop {
   position: fixed;
-  top: 100px;
+  top: 400px;
   right: 0;
   width: 25px;
   height: 25px;
