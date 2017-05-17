@@ -9789,22 +9789,111 @@ html, body {
 .product {
   width: 100%;
   height: 100%;
-  background-color: pink;
 }
 
 .product__image {
   width: 100%;
   height: 100%;
-  padding: 2px;
-  border: 1px solid #f3f3f3;
+  padding: 5px;
   border-radius: 5px;
-  background-color: orange;
+  background-color: #FFFFFF;
+}
+
+.product__image--picture {
+  width: 100%;
+  height: 100%;
 }
 
 .product__info {
   width: 100%;
   height: 100%;
-  background-color: gray;
+}
+
+.product__info--title {
+  margin: 0 0 25px 0;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #465a6d;
+  font-size: 1.7em;
+  color: #465a6d;
+}
+
+.product__info--description {
+  width: 50%;
+  height: auto;
+  float: right;
+}
+
+.product__info--description--text {
+  font-size: 1.6em;
+  font-weight: 600;
+  text-align: justify;
+  line-height: 1.7;
+  color: #465a6d;
+}
+
+.product__info--lastprice {
+  width: 50%;
+  height: auto;
+  margin-bottom: 15px;
+  color: #839aaf;
+}
+
+.product__info--lastprice--amount {
+  text-decoration: line-through;
+}
+
+.product__info--price {
+  width: 50%;
+  height: auto;
+  margin: 0 0 25px 0;
+  font-size: 2em;
+  font-weight: 700;
+  color: #465a6d;
+}
+
+.product__info--price--amount {
+  color: #f21b23;
+}
+
+.product__info--cta {
+  display: inline-block;
+  padding: 7.5px;
+  border: 1px solid #00b1b3;
+  border-radius: 3px;
+  background-color: #01a8d4;
+  cursor: pointer;
+  -webkit-transition: background-color 400ms;
+  transition: background-color 400ms;
+}
+
+.product__info--cta:hover {
+  background-color: #00b1b3;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+}
+
+.product__info--cta:focus {
+  outline: none;
+  text-decoration: none;
+  color: #FFFFFF;
+  background-color: #14B9D6;
+}
+
+.product__info--cta--link {
+  font-size: 1.5em;
+  font-weight: 600;
+  color: #FFFFFF;
+  text-transform: uppercase;
+}
+
+.product__info--cta--link:hover {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.product__info--cta--link:focus {
+  outline: none;
+  text-decoration: none;
+  color: #FFFFFF;
 }
 
 .footer {
