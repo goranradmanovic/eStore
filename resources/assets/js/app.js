@@ -128,14 +128,11 @@ const app = new Vue({
 			vm.pageLoader = true; //Turn on main page loader,until all product is downloaded
 			vm.products = [];
 
-			//Extracting 'product' from the URL string
-			let productURL = apiLink.match(/product/g);
-
 			//Getting data response from server from the API
 			axios.get(apiLink).then(function (response) {
 
 				//If we are on product page, then we dont have pagination and we must use response.data for getting required single product data
-				if (productURL[0] === 'product') {
+				if (vm.urlName === 'product') {
 					//Getting single product data
 					vm.products = response.data;
 					return; // Returning because we want to escape seting vm.products = response.data.data to undefined, because we dont have pagination
