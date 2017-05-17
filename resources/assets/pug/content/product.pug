@@ -3,7 +3,20 @@
 		.product
 			.col-md-6
 				.product__image
-					span @{{ products.title }}
+					img(:src='products.img_url' alt='Product image.jpg' class="product__image--picture")
+
 			.col-md-6
 				.product__info
-					p Hello
+					h1.product__info--title(v-text='products.title')
+
+					.product__info--description
+						span.product__info--description--text(v-text='products.description')
+							
+					.product__info--lastprice Last price: 
+						span.product__info--lastprice--amount $ @{{ products.price + 11.78 }}
+
+					.product__info--price Price: 
+						span.product__info--price--amount $ @{{ products.price }}
+
+					.product__info--cta
+						a(:href='products.cta_link' class='product__info--cta--link' role='button') It's a bargain	
