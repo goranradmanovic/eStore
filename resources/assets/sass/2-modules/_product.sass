@@ -1,6 +1,15 @@
 .product
 	width: 100%
-	height: 100%
+	height: 50vh
+
+	@media only screen and (max-width: 960px)
+		height: auto
+
+	@media only screen and (max-width: 640px)
+		height: auto
+
+	@media only screen and (max-width: 320px)
+		height: auto
 
 	+element('image')
 		width: 100%
@@ -13,37 +22,71 @@
 			width: 100%
 			height: 100%
 
+		@media only screen and (max-width: 960px)
+			margin-bottom: 20px
+
+		@media only screen and (max-width: 640px)
+			margin-bottom: 20px
+
+		@media only screen and (max-width: 320px)
+			margin-bottom: 20px
+
 	+element('info')
 		width: 100%
 		height: 100%
 
 		+modifier('title')
-			margin: 0 0 25px 0
+			margin: 0 0 35px 0
 			padding-bottom: 5px
 			border-bottom: 1px solid $border-color-gray
 			font-size: 1.7em
 			color: $text-color-gray
+			text-align: center
 
 		+modifier('description')
-			width: 50%
+			width: 55%
 			height: auto
 			float: right
+			text-align: justify
 
 			+modifier('text')
 				font-size: 1.6em
-				font-weight: 600
-				text-align: justify
+				font-weight: 500
 				line-height: 1.7
 				color: $text-color-gray
 
+			@media only screen and (max-width: 960px)
+				width: 100%
+				margin-bottom: 20px
+
+			@media only screen and (max-width: 640px)
+				width: 100%
+				margin-bottom: 20px
+
+			@media only screen and (max-width: 320px)
+				width: 100%
+				margin-bottom: 20px
+
 		+modifier('lastprice')
-			width: 50%
+			width: 45%
 			height: auto
 			margin-bottom: 15px
 			color: $text-color-slategray
 
 			+modifier('amount')
 				text-decoration: line-through
+
+			@media only screen and (max-width: 960px)
+				width: 50%
+				margin: auto
+
+			@media only screen and (max-width: 640px)
+				width: 50%
+				margin: auto
+
+			@media only screen and (max-width: 320px)
+				width: 50%
+				margin: auto
 
 		+modifier('price')
 			width: 50%
@@ -55,6 +98,18 @@
 
 			+modifier('amount')
 				color: $text-color-red
+
+			@media only screen and (max-width: 960px)
+				width: 70%
+				margin: 20px auto
+
+			@media only screen and (max-width: 640px)
+				width: 70%
+				margin: 20px auto
+
+			@media only screen and (max-width: 320px)
+				width: 70%
+				margin: 20px auto
 			
 		+modifier('cta')
 			display: inline-block
@@ -90,4 +145,11 @@
 					text-decoration: none
 					color: $text-color-white
 
-		
+			@media only screen and (max-width: 960px)
+				margin-left: 25%
+
+			@media only screen and (max-width: 640px)
+				margin-left: 25%
+
+			@media only screen and (max-width: 320px)
+				margin-left: 25%		
