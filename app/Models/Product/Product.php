@@ -21,7 +21,7 @@ class Product extends Model
 	public function getAllProductItems()
 	{
 		//Get all product from product table (return $this->all()) and paginate all result by number we define, default is 15 items per page
-		return $this->paginate(5);
+		return $this->select('title', 'product_link', 'img_url', 'description', 'price', 'cta_link')->paginate(5);
 	}
 
 	//Method for retriving all random product items
