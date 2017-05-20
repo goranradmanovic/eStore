@@ -43075,6 +43075,14 @@ var app = new Vue({
 
 	},
 
+	//Filter (custom filters for app)
+	filters: {
+		//Limiting text output to some length ect. 100 characters
+		truncate: function (value) {
+			return value.substring(0, 150) + ' ...';
+		}
+	},
+
 	//Functions
 	methods: {
 		//Method for sending subscriber email via Ajax request

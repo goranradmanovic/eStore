@@ -9482,6 +9482,7 @@ html, body {
 .commercials {
   width: 100%;
   height: 100%;
+  margin-bottom: 50px;
 }
 
 .commercials__picture {
@@ -9554,7 +9555,7 @@ html, body {
 
 .articles__item--details {
   width: auto;
-  height: 100px;
+  height: 80px;
   margin: 10px auto;
 }
 
@@ -9620,8 +9621,8 @@ html, body {
 }
 
 .load__btn {
-  margin-top: 40px;
-  margin-left: 15%;
+  display: block;
+  margin: 40px auto 0 auto;
   padding: 15px;
   border: 1px solid #00b1b3;
   background-color: #01a8d4;
