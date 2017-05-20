@@ -12,7 +12,7 @@
 								img(:src='product.img_url' alt='Product image' class="articles__item--link--image")
 
 						.articles__item--details
-							p.articles__item--details--text(v-text='product.description')
+							p.articles__item--details--text @{{ product.description | truncate }}
 
 					.articles__footer
 						.articles__footer--price $ @{{ product.price }}
