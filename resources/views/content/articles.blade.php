@@ -8,7 +8,7 @@
             <h3 class="articles__item--title"><a class="articles_item--title--link" :href="product.product_link" v-text="product.title"></a></h3>
             <div class="articles__item--link"><a :href="product.product_link"><img class="articles__item--link--image" :src="product.img_url" alt="Product image"/></a></div>
             <div class="articles__item--details">
-              <p class="articles__item--details--text" v-text="product.description"></p>
+              <p class="articles__item--details--text">@{{ product.description | truncate }}</p>
             </div>
           </div>
           <div class="articles__footer">
