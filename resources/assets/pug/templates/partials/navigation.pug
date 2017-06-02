@@ -16,8 +16,9 @@ menu.main__menu
 					//- Looping thru all categories
 					li(v-for='categorie in categories')
 						//- Displaying category link with path and id and link name
-						a(:href="'/pages/category/' + categorie.id" v-text='categorie.category_name')
-							span.sr-only (current)
+						a(:href="'/pages/category/' + categorie.id" v-bind:data-id='categorie.id' v-text='categorie.category_name')
+							//- Screen readers only (display category name)
+							span.sr-only(v-text='categorie.category_name')
 
 					li.dropdown
 						a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
