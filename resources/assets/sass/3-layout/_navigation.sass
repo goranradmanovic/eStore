@@ -45,9 +45,6 @@
 				ul.dropdown-menu li:hover
 					background-color: $bg-color-nav-hover
 
-			ul.nav.navbar-nav li a:focus
-				background-color: $bg-color-nav-active
-
 			ul.nav.navbar-nav li
 
 				&:hover
@@ -57,6 +54,12 @@
 				color: white
 				text-transform: uppercase
 				font-weight: 800
+
+				//&:active
+					//background-color: $bg-color-nav-active
+
+				//&:focus
+					//background-color: $bg-color-nav-active
 
 			.navbar-form
 
@@ -78,3 +81,7 @@
 
 					&:hover
 						background-color: $bg-color-nav-active
+
+//When nav tab is active
+.active
+	background-color: $bg-color-nav-active
