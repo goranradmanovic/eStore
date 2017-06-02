@@ -24,7 +24,7 @@ Vue.http.options.crossOrigin = true;
 const app = new Vue({
     el: '#app',
 
-    //All data
+    //All data (apps vars)
     data: {
     	products: [], //Empty array for storing all items
     	categories: [], //Empty array for storing all categories items informations
@@ -35,6 +35,7 @@ const app = new Vue({
 		pageLoader: false, //Setting preloader to not show for the main page
 		urlName: window.location.pathname.split('/')[2], //Setting url name ect. category/product
 		urlID: null, //Setting URL ID for fetching all data for category/single product
+		URL: window.location, // Page URL info (from global JS window object)
 
 		//API Links
 		apiCategories: '/api/categories', //API link for all categories for creating the nav linkd
@@ -247,17 +248,30 @@ const app = new Vue({
 
 		//Function for getting URL id param from category URL link (category/1)
 		getURLId: function (idPlaceholder) {
-
-			idPlaceholder = window.location.pathname.split('/')[3]; //Getting the categories id from the URL
+			let vm = this;
+			idPlaceholder = vm.URL.pathname.split('/').pop(); //Getting the categories id from the URL
 			
 			//If categoryId is equal to undefined then return false,otherwise return categoryId
 			return (typeof idPlaceholder == 'undefined') ? false : idPlaceholder;
+		},
+
+		//Function for selecting active nav tab
+		activeNavTab: function () {
+			let vm = this,
+			//Getting category ID from URL
+			urlIDCategory = vm.URL.pathname.split('/').pop(); //1, 2, 3, 4 ... (from URL)
+
+			//Set time out on the selection of the nav links, because they are dinamicly generated
+			setTimeout(function() {
+				elTarget = $('.navbar-nav a[data-id="' +  urlIDCategory + '"]'); //Targeting 'a' el. from nav with specific data-id attr.
+				elTarget.addClass('active'); //Then add class '.active' to select active tab
+			}, 100);
 		},
 	},
 
 	//Loads the function when page is ready
 	mounted() {
-
+		
 		this.productsAnimation(); //Calling func. for adding animation class to the products items
 
 		this.loadCategoriesItems(this.apiCategories); //Calling the func. for getting all categories item informations
@@ -284,5 +298,7 @@ const app = new Vue({
 		this.flashCloseError(); //Calling func. for hiding flash messages
 
 		this.scrollToTop(); //Calling func. for scrolling page to the top
+
+		this.activeNavTab(); //Calling function for adding class to selected navigation tab
 	},
 });
