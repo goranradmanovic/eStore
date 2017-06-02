@@ -28,7 +28,7 @@ class Product extends Model
 	public function getAllRandomProductItems()
 	{
 		//Return random results and paginated
-		return $this->orderByRaw('RAND(4)')->paginate(5);
+		return $this->distinct()->orderByRaw('RAND(4)')->paginate(5);
 	}
 
 	//Method for getting single producst item 
