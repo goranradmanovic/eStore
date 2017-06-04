@@ -62,6 +62,17 @@ a:hover, a:focus
 ::-moz-selection
   background: $selection-color
 
+//Scrollbar track
+::-webkit-scrollbar
+  width: 12px
+
+::-webkit-scrollbar-track
+  background-color: white
+
+::-webkit-scrollbar-thumb
+  border-left: 1px solid white
+  background-color: $bg-color-scrollerbar
+
 img::selection
   background: transparent
 
@@ -77,3 +88,4 @@ html, body
 //Hide VUEJS {{ }} while compailing the VUEJS code
 [v-cloak]
   display: none
+
