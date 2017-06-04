@@ -43228,25 +43228,27 @@ var app = new Vue({
 					//Set time out for adding article animation class to each el. one by one over time (150ms * i)
 					setTimeout(function(){
 						$('.articles__wrapper').eq(i).addClass('article__animation'); //Adding class to each article wrapper div el.
-					}, 150 * i);
+					}, 200 * i);
 				});
 			}, 200);
 		},
 
 		//Function for back to top button
 		scrollToTop: function () {
+
 			//Check to see if the window is top if not then display button
 			$(window).scroll(function(){
 				if ($(this).scrollTop() > 100) {
-					$('.scrollToTop').fadeIn();
+					$('.scrollToTop').css('dispaly: block'); //Set the el. to display block
+					$('.scrollToTop').fadeIn(); //Fade in el. on the page when displaying
 				} else {
-					$('.scrollToTop').fadeOut();
+					$('.scrollToTop').fadeOut(); //Face otu scroll to top btn if page height is smaller then 100px
 				}
 			});
 
 			//Click event to scroll to top
 			$('.scrollToTop').click(function(){
-				$('html, body').animate({scrollTop : 0}, 800);
+				$('html, body').animate({scrollTop : 0}, 800); //On the click on the scroll to top btn.,animate scrolling over 800 milisec.
 				return false;
 			});
 		},

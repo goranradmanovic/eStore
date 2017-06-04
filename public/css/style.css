@@ -9307,6 +9307,19 @@ a:hover, a:focus {
   background: #FFF498;
 }
 
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: white;
+}
+
+::-webkit-scrollbar-thumb {
+  border-left: 1px solid white;
+  background-color: #414753;
+}
+
 img::-moz-selection {
   background: transparent;
 }
@@ -10343,8 +10356,9 @@ html, body {
 }
 
 .scrollToTop {
+  display: none;
   position: fixed;
-  top: 400px;
+  top: 250px;
   right: 0;
   width: 25px;
   height: 25px;
