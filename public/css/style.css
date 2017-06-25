@@ -9466,15 +9466,24 @@ html, body {
   font-weight: 800;
 }
 
-.main__menu .navbar-default .navbar-collapse .navbar-form .form-control {
-  border-radius: 0;
+.main__menu .navbar-default .navbar-collapse .navbar-form {
+  width: 35%;
+}
+
+.main__menu .navbar-default .navbar-collapse .navbar-form .form-group {
+  width: 100%;
+}
+
+.main__menu .navbar-default .navbar-collapse .navbar-form .form-group .form-control {
+  width: 100%;
+  border-radius: 3px;
   background-image: url("../images/icons/magnifying-glass.svg");
   background-position: 5px 5px;
   background-repeat: repeat-y;
   padding-left: 35px;
 }
 
-.main__menu .navbar-default .navbar-collapse .navbar-form .btn-default {
+.main__menu .navbar-default .navbar-collapse .navbar-form .form-group .btn-default {
   height: 34px;
   background-color: #00b1b3;
   color: white;
@@ -9484,8 +9493,40 @@ html, body {
   text-transform: uppercase;
 }
 
-.main__menu .navbar-default .navbar-collapse .navbar-form .btn-default:hover {
+.main__menu .navbar-default .navbar-collapse .navbar-form .form-group .btn-default:hover {
   background-color: #14B9D6;
+}
+
+.main__menu .navbar-default .navbar-collapse .navbar-form .form-group .form__search {
+  padding: 0;
+  margin: 0;
+  width: 31.1%;
+  position: absolute;
+  top: 50px;
+  left: 55%;
+  right: 0;
+  z-index: 1;
+  border-radius: 3px;
+  background-image: -webkit-linear-gradient(top, #fdfdfd, #eceef4);
+  background-image: linear-gradient(to bottom, #fdfdfd, #eceef4);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.main__menu .navbar-default .navbar-collapse .navbar-form .form-group .form__search--list {
+  height: 50px;
+  padding: 2px;
+  list-style-type: none;
+}
+
+.main__menu .navbar-default .navbar-collapse .navbar-form .form-group .form__search--list--results {
+  width: 100%;
+  background-color: pink;
+}
+
+.main__menu .navbar-default .navbar-collapse .navbar-form .form-group .form__search--list--results--image {
+  width: 45px;
+  height: 45px;
+  margin-right: 10px;
 }
 
 .active {
@@ -9711,6 +9752,7 @@ html, body {
   60% {
     -webkit-transform: scale(1.4);
     transform: scale(1.4);
+    opacity: 0.5;
   }
   90% {
     -webkit-transform: scale(0.9);
@@ -9730,6 +9772,7 @@ html, body {
   60% {
     -webkit-transform: scale(1.4);
     transform: scale(1.4);
+    opacity: 0.5;
   }
   90% {
     -webkit-transform: scale(0.9);
@@ -9789,8 +9832,8 @@ html, body {
 }
 
 .article__animation {
-  -webkit-animation: ItemAnimaSecond 300ms ease-in forwards;
-  animation: ItemAnimaSecond 300ms ease-in forwards;
+  -webkit-animation: ItemAnimaFirst 300ms ease-in forwards;
+  animation: ItemAnimaFirst 300ms ease-in forwards;
 }
 
 .modal__loader {
