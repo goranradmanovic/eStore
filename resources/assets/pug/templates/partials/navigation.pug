@@ -39,9 +39,21 @@ menu.main__menu
 								a(href='#') One more separated link
 				form.navbar-form.navbar-left
 					.form-group
-						input.form-control(type='text', placeholder='Search')
+						input.form-control(type='text' id='typeahead' placeholder='Search' v-model='query' v-on:keyup='search')
 						| {{ csrf_field() }}
-					button.btn.btn-default(type='submit') Search
+
+						ul.form__search(v-if="searchProducts")
+							li(v-for='searchProduct in searchProducts' class="form__search--list")
+								.form__search--list--results
+									a(:href='searchProduct.product_link' class="form__search--list--results--link")
+										img(:src="searchProduct.img_url" class="form__search--list--results--image")
+
+									a(:href='searchProduct.product_link' v-text='searchProduct.title' class="form__search--list--results--link")
+
+					//-.alert.alert-danger(role='alert' v-if='error')
+						span(class='glyphicon glyphicon-exclamation-sign' area-hidden='true') @{{ error }}
+						//-button.btn.btn-default(type='submit' v-on:click='search()') Search
+
 				ul.nav.navbar-nav.navbar-right
 			
 					li.dropdown
