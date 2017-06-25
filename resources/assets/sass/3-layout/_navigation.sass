@@ -62,25 +62,64 @@
 					//background-color: $bg-color-nav-active
 
 			.navbar-form
+				width: 35%
 
-				.form-control
-					border-radius: 0
-					background-image: url('../images/icons/magnifying-glass.svg')
-					background-position: 5px 5px
-					background-repeat: repeat-y
-					padding-left: 35px
+				.form-group
+					width: 100%
+					
+					.form-control
+						width: 100%
+						border-radius: 3px
+						background-image: url('../images/icons/magnifying-glass.svg')
+						background-position: 5px 5px
+						background-repeat: repeat-y
+						padding-left: 35px
 
-				.btn-default
-					height: 34px
-					background-color: $bg-color-nav-hover
-					color: white
-					border: none
-					border-radius: 0
-					font-weight: 800
-					text-transform: uppercase
+					.btn-default
+						height: 34px
+						background-color: $bg-color-nav-hover
+						color: white
+						border: none
+						border-radius: 0
+						font-weight: 800
+						text-transform: uppercase
 
-					&:hover
-						background-color: $bg-color-nav-active
+						&:hover
+							background-color: $bg-color-nav-active
+
+					.form__search
+						padding: 0
+						margin: 0
+						width: 31.1%
+						position: absolute
+						top: 50px
+						left: 55%
+						right: 0
+						z-index: 1
+						border-radius: 3px
+						background-image: -webkit-linear-gradient(top, #fdfdfd, #eceef4)
+						background-image: -moz-linear-gradient(top, #fdfdfd, #eceef4)
+						background-image: -o-linear-gradient(top, #fdfdfd, #eceef4)
+						background-image: linear-gradient(to bottom, #fdfdfd, #eceef4)
+						-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1)
+						box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1)
+
+						+modifier('list')
+							height: 50px
+							padding: 2px
+							//border-bottom: 1px solid black
+							list-style-type: none
+
+							+modifier('results')
+								width: 100%
+								background-color: pink
+
+								+modifier('image')
+									width: 45px
+									height: 45px
+									margin-right: 10px
+
+							
 
 //When nav tab is active
 .active
