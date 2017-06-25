@@ -36,12 +36,15 @@ const app = new Vue({
 		urlName: window.location.pathname.split('/')[2], //Setting url name ect. category/product
 		urlID: null, //Setting URL ID for fetching all data for category/single product
 		URL: window.location, // Page URL info (from global JS window object)
+		query: '', //Query var from the nav search form
+		searchProducts: [], //Setting empry array for searched product items
 
 		//API Links
 		apiCategories: '/api/categories', //API link for all categories for creating the nav linkd
 		apiProducts: '/api/products', //API link for all products
 		apiSingleCatProducts: '/api/category/', //Api link for single category products ('/api/category/' + categoryId)
 		apiSingleProductItem: '/api/product/', //Api link for single products item ('/api/product/' + productId)
+		apiSearchProductsItems: '/api/search/', //Api link for search for products ('/api/search/' + query)
 	},
 
 	//Componenets
@@ -59,6 +62,7 @@ const app = new Vue({
 
 	//Functions
 	methods: {
+
 		//Method for sending subscriber email via Ajax request
 		submitSubscribeEmail: function (event) {
 
@@ -261,19 +265,36 @@ const app = new Vue({
 		activeNavTab: function () {
 			let vm = this,
 			//Getting category ID from URL
-			urlIDCategory = vm.URL.pathname.split('/').pop(); //1, 2, 3, 4 ... (from URL)
+			urlCategoryID = vm.URL.pathname.split('/').pop(); //1, 2, 3, 4 ... (from URL)
 
 			//Set time out on the selection of the nav links, because they are dinamicly generated
 			setTimeout(function() {
-				elTarget = $('.navbar-nav a[data-id="' +  urlIDCategory + '"]'); //Targeting 'a' el. from nav with specific data-id attr.
+				elTarget = $('.navbar-nav a[data-id="' +  urlCategoryID + '"]'); //Targeting 'a' el. from nav with specific data-id attr.
 				elTarget.addClass('active'); //Then add class '.active' to select active tab
 			}, 100);
 		},
+
+		search: function () {
+			
+			var vm = this;
+			console.log(vm.query)
+			if (vm.query == '' || vm.query.length < 3) {
+				return;
+			}
+
+			axios.get(vm.apiSearchProductsItems + vm.query).then(function(response) {
+				vm.searchProducts = response.data;
+			}).catch(function(erorr) {
+				console.log(error.response);
+				console.log(error.response.status);
+				console.log(error.response.headers);
+			});
+		}
 	},
 
 	//Loads the function when page is ready
 	mounted() {
-		
+
 		this.productsAnimation(); //Calling func. for adding animation class to the products items
 
 		this.loadCategoriesItems(this.apiCategories); //Calling the func. for getting all categories item informations
@@ -283,7 +304,7 @@ const app = new Vue({
 			this.ajaxCall(this.apiProducts); //Calling the func. for getting all product items for home page
 		}
 
-		//If currentId is exixsting then call API for single category data and products
+		//If currentId is existing then call API for single category data and products
 		if (this.urlName == 'category' && this.getURLId(this.urlID)) {
 			this.urlID = this.getURLId(this.urlID); //Setting the categoryId var to value return by currentURLId() function
 			this.ajaxCall(this.apiSingleCatProducts + this.urlID); //Calling the func. for getting all product items for category page
@@ -304,3 +325,6 @@ const app = new Vue({
 		this.activeNavTab(); //Calling function for adding class to selected navigation tab
 	},
 });
+
+
+$('#typeahead').typeahead();
