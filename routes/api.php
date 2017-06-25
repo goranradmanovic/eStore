@@ -23,8 +23,11 @@ Route::get('/products', 'Controller@getAllProducts')->middleware('api');
 //API route for getting all data about categorey in JSON
 Route::get('/categories', 'Controller@getAllCategories')->middleware('api');
 
-//API Route for displaying category single items
+//API Route for getting category single items
 Route::get('/category/{category_id}', 'Controller@getSingleCategorieProducts')->middleware('api');
 
-//API Route for displaying single product item
+//API Route for getting single product item
 Route::get('/product/{product_id}', 'Controller@getSingleProduct')->middleware('api');
+
+//API Route for getting search product data
+Route::get('/search/{query}', 'Api\SearchController@search')->middleware('api');
