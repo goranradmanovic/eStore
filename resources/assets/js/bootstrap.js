@@ -14,6 +14,7 @@ window.swal = require('sweetalert');
  */
 
 window.$ = window.jQuery = require('jquery');
+require('jquery-typeahead');
 require('bootstrap-sass');
 
 /**
