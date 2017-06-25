@@ -2,10 +2,13 @@
 
 namespace App\Models\Product;
 
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+	use Searchable; //Using Laravel Scout trait to the Product model to make it searchable
+
 	//Fillable data table fields
 	protected $fillable = [
 		'category_id',
