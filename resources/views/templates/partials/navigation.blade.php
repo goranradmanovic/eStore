@@ -8,7 +8,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li v-for="categorie in categories"><a :href="'/pages/category/' + categorie.id" v-bind:data-id="categorie.id" v-text="categorie.category_name"><span class="sr-only" v-text="categorie.category_name"></span></a></li>
-          <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More<span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="#">Action</a></li>
               <li><a href="#">Another action</a></li>
@@ -22,7 +22,7 @@
         </ul>
         <form class="navbar-form navbar-left">
           <div class="form-group">
-            <input class="form-control" type="text" id="typeahead" placeholder="Search" v-model="query" v-on:keyup="search"/>{{ csrf_field() }}
+            <input class="form-control" type="text" placeholder="Search" v-model="query" v-on:keyup="search"/>{{ csrf_field() }}
             <ul class="form__search" v-if="searchProducts">
               <li class="form__search--list" v-for="searchProduct in searchProducts">
                 <div class="form__search--list--results"><a class="form__search--list--results--link" :href="searchProduct.product_link"><img class="form__search--list--results--image" :src="searchProduct.img_url"/></a><a class="form__search--list--results--link" :href="searchProduct.product_link" v-text="searchProduct.title"></a></div>
