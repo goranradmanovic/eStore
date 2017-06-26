@@ -57,7 +57,7 @@ const app = new Vue({
 		//Limiting text output to some length ect. 100 characters
 		truncate: function (value) {
 			return value.substring(0, 150) + ' ...';
-		}
+		},
 	},
 
 	//Functions
@@ -274,14 +274,15 @@ const app = new Vue({
 			}, 100);
 		},
 
+		//Function for searching Angolia i Laravel Scout API
 		search: function () {
 			
 			var vm = this;
-			console.log(vm.query)
-			if (vm.query == '' || vm.query.length < 3) {
-				return;
-			}
 
+			//If user is entered empty value or if the enterd value is smaller then 3 chars, then return false
+			if (vm.query.length < 0 || vm.query.length < 3) return;
+
+			//Make request to the API with user enterd query
 			axios.get(vm.apiSearchProductsItems + vm.query).then(function(response) {
 				vm.searchProducts = response.data;
 			}).catch(function(erorr) {
