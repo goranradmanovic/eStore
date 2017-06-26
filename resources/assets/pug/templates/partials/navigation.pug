@@ -22,7 +22,7 @@ menu.main__menu
 
 					li.dropdown
 						a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
-							| Dropdown 
+							| More
 							span.caret
 						ul.dropdown-menu
 							li
@@ -37,9 +37,10 @@ menu.main__menu
 							li.divider(role='separator')
 							li
 								a(href='#') One more separated link
+								
 				form.navbar-form.navbar-left
 					.form-group
-						input.form-control(type='text' id='typeahead' placeholder='Search' v-model='query' v-on:keyup='search')
+						input.form-control(type='text' placeholder='Search' v-model='query' v-on:keyup='search')
 						| {{ csrf_field() }}
 
 						ul.form__search(v-if="searchProducts")
