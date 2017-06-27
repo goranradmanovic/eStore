@@ -40,4 +40,11 @@ class Product extends Model
 		//Find single item from products table by ID and return the result
 		return $this->find($productId);
 	}
+
+	//Method for searching Product table with Algolia
+	public function searchProducts($searchQuery) {
+
+		//Search with Scout search method and Algolia
+		return $this->search($searchQuery)->get(['title', 'img_url', 'product_link']);
+	}
 }
