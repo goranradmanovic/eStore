@@ -18,13 +18,15 @@ header('Access-Control-Allow-Headers:  Content-Type, X-Auth-Token, Origin, Autho
 
 //Route for home page
 Route::get('/', 'Controller@index')->name('home');
-Route::post('/', 'Controller@createSubscription');
+
+//Route for creating new database entry for subscription table
+Route::post('/', 'Subscriber\SubscriberController@createSubscription');
 
 //Route for confirmed email address
-Route::get('/email/confirmed/{id}', 'Controller@confirmedEmail')->name('confirmed');
+Route::get('/email/confirmed/{id}', 'Subscriber\SubscriberController@confirmedEmail')->name('confirmed');
 
 //Route for displaying all data from single category
-Route::get('/pages/category/{category_id}', 'Controller@showSingleCategorie')->name('category');
+Route::get('/pages/category/{category_id}', 'Category\CategoryController@showSingleCategorie')->name('category');
 
 //Route for displaying single product item
-Route::get('/pages/product/{product_id}', 'Controller@showSingleItem');
+Route::get('/pages/product/{product_id}', 'Product\ProductController@showSingleItem');

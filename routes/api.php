@@ -18,16 +18,16 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:api');
 
 //API route for getting all data about products in JSON
-Route::get('/products', 'Controller@getAllProducts')->middleware('api');
+Route::get('/products', 'Api\ProductsController@getAllProducts')->middleware('api');
 
 //API route for getting all data about categorey in JSON
-Route::get('/categories', 'Controller@getAllCategories')->middleware('api');
+Route::get('/categories', 'Api\CategoriesController@getAllCategories')->middleware('api');
 
 //API Route for getting category single items
-Route::get('/category/{category_id}', 'Controller@getSingleCategorieProducts')->middleware('api');
+Route::get('/category/{category_id}', 'Api\ProductsController@getSingleCategorieProducts')->middleware('api');
 
 //API Route for getting single product item
-Route::get('/product/{product_id}', 'Controller@getSingleProduct')->middleware('api');
+Route::get('/product/{product_id}', 'Api\ProductsController@getSingleProduct')->middleware('api');
 
 //API Route for getting search product data
 Route::get('/search/{query}', 'Api\SearchController@search')->middleware('api');
