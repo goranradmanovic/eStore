@@ -23,7 +23,7 @@
         <form class="navbar-form navbar-left">
           <div class="form-group">
             <input class="form-control" type="text" placeholder="Search" v-model="query" v-on:keyup="search"/>{{ csrf_field() }}
-            <ul class="form__search" v-if="searchProducts">
+            <ul class="form__search" v-if="searchProducts &amp;&amp; !searchProducts.error">
               <li class="form__search--list" v-for="searchProduct in searchProducts">
                 <div class="form__search--list--results"><a class="form__search--list--results--link" :href="searchProduct.product_link"><img class="form__search--list--results--image" :src="searchProduct.img_url"/></a><a class="form__search--list--results--link" :href="searchProduct.product_link" v-text="searchProduct.title"></a></div>
               </li>
@@ -45,3 +45,8 @@
     </div>
   </nav>
 </menu>
+<div class="flash" v-if="searchProducts.error">
+  <div class="flash__message">
+    <div class="flash__message--error">@{{ searchProducts.error }}<span class="flash__message--error--box">&times;</span></div>
+  </div>
+</div>
