@@ -43,16 +43,14 @@ menu.main__menu
 						input.form-control(type='text' placeholder='Search' v-model='query' v-on:keyup='search')
 						| {{ csrf_field() }}
 
-						ul.form__search(v-if="searchProducts")
+						ul.form__search(v-if="searchProducts && !searchProducts.error")
 							li(v-for='searchProduct in searchProducts' class="form__search--list")
 								.form__search--list--results
 									a(:href='searchProduct.product_link' class="form__search--list--results--link")
 										img(:src="searchProduct.img_url" class="form__search--list--results--image")
 
 									a(:href='searchProduct.product_link' v-text='searchProduct.title' class="form__search--list--results--link")
-
-					//-.alert.alert-danger(role='alert' v-if='error')
-						span(class='glyphicon glyphicon-exclamation-sign' area-hidden='true') @{{ error }}
+						
 						//-button.btn.btn-default(type='submit' v-on:click='search()') Search
 
 				ul.nav.navbar-nav.navbar-right
@@ -71,3 +69,9 @@ menu.main__menu
 							li.divider(role='separator')
 							li
 								a(href='#') Separated link
+
+//- Flash the error message if there's no search results (v-text='searchProducts.error')
+.flash(v-if='searchProducts.error')
+	.flash__message
+		.flash__message--error @{{ searchProducts.error }}
+			span(class='flash__message--error--box') &times;
