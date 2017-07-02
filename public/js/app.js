@@ -43167,7 +43167,7 @@ var app = new Vue({
 
 		//Method for slidingup flash success or warning message
 		flashMessageHide: function () {
-			//Getting the flash message success div and flash message warning div and holding that messages for 4sec and the slide it up, but not flas message error div
+			//Getting the flash message success div and flash message warning div and holding that messages for 4sec and the slide it up, but not flash message error div
 			$('.flash:has(.flash__message--success), .flash:has(.flash__message--warning)').not('.flash:has(.flash__message--error)').delay(4000).slideUp();
 		},
 
@@ -43323,8 +43323,8 @@ var app = new Vue({
 			
 			var vm = this;
 
-			//If user is entered empty value or if the enterd value is smaller then 3 chars, then return false
-			if (vm.query.length < 0 || vm.query.length < 3) return;
+			//If user is entered empty value or if the enterd value is smaller then 5 chars, then return false
+			if (vm.query.length < 0 || vm.query.length < 5) return;
 
 			//Make request to the API with user enterd query
 			axios.get(vm.apiSearchProductsItems + vm.query).then(function(response) {
@@ -43370,9 +43370,6 @@ var app = new Vue({
 		this.activeNavTab(); //Calling function for adding class to selected navigation tab
 	},
 });
-
-
-$('#typeahead').typeahead();
 
 /***/ }
 /******/ ]);
