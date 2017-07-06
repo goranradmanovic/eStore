@@ -181,3 +181,32 @@
 //When nav tab is active
 .active
 	background-color: $bg-color-nav-active
+
+.flash
+	animation: errorMessageAnimation 400ms ease-in forwards
+
+.flash
+	//animation: hideErrorMessageAnimation 5s ease-in forwards
+
+//Error message animation
+@keyframes errorMessageAnimation
+	0%
+		opacity: 0.3
+		transform: scale(0.5)
+	50%
+		opacity: 0.6
+		transform: scale(1.4)
+	100%
+		opacity: 1
+		transform: scale(1)
+
+
+@keyframes hideErrorMessageAnimation
+	0%
+		opacity: 1
+	50%
+		opacity: 1
+	100%
+		opacity: 0
+		display: none
+
