@@ -47,6 +47,6 @@
 </menu>
 <div class="flash" v-if="searchProducts.error">
   <div class="flash__message">
-    <div class="flash__message--error">@{{ searchProducts.error }}<span class="flash__message--error--box">&times;</span></div>
+    <div class="flash__message--error">@{{ searchProducts.error }}<span class="flash__message--error--box" v-on:click="flashCloseError();">&times;</span></div>
   </div>
 </div>
