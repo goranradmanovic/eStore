@@ -43334,7 +43334,7 @@ var app = new Vue({
 				console.log(error.response.status);
 				console.log(error.response.headers);
 			});
-		}
+		},
 	},
 
 	//Loads the function when page is ready

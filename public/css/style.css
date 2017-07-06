@@ -9337,6 +9337,7 @@ html, body {
   font-family: "Raleway", sans-serif;
   background-color: #e9ebee;
   -webkit-tap-highlight-color: #FFF498;
+  overflow-x: hidden;
 }
 
 [v-cloak] {
@@ -9641,6 +9642,73 @@ html, body {
 
 .active {
   background-color: #14B9D6;
+}
+
+.flash {
+  -webkit-animation: errorMessageAnimation 400ms ease-in forwards;
+  animation: errorMessageAnimation 400ms ease-in forwards;
+}
+
+@-webkit-keyframes errorMessageAnimation {
+  0% {
+    opacity: 0.3;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 0.6;
+    -webkit-transform: scale(1.4);
+    transform: scale(1.4);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes errorMessageAnimation {
+  0% {
+    opacity: 0.3;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 0.6;
+    -webkit-transform: scale(1.4);
+    transform: scale(1.4);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@-webkit-keyframes hideErrorMessageAnimation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
+@keyframes hideErrorMessageAnimation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
 }
 
 .commercials {
