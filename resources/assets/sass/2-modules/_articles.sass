@@ -171,7 +171,7 @@
 		transform: scale(1)
 
 .article__animation
-	animation: ItemAnimaFirst 300ms ease-in forwards
+	animation: ItemAnimaSecond 300ms ease-in forwards
 
 .modal__loader
 	position: absolute
@@ -180,7 +180,8 @@
 	width: 100%
 	height: 230vh
 	z-index: 1
-	background-color: rgba(0, 0, 0, 0.8)
+	backdrop-filter: blur(10px)
+	background-color: rgba(0, 0, 0, 0.2)
 
 	+modifier('spinner')
 		position: absolute
