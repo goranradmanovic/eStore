@@ -31,6 +31,6 @@ elixir((mix) => {
        .webpack('app.js')
        .browserSync({
        		files: ["public/**/*", "resources/views/**/*"],
-			proxy: 'http://192.168.1.4:8000',
+			proxy: 'http://192.168.1.14:8000',
 		});
 });
