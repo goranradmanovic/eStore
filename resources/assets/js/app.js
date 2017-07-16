@@ -154,7 +154,7 @@ const app = new Vue({
 				vm.products = response.data.data; //We are writing response.data.data because we use pagination method in Laravel, usualy we use only response.data
 				vm.loadMoreLink = response.data.next_page_url; //Setting URL path for show more button (hitting the next link with new data)
 				vm.pageLoader = false; //Turn off main page loader
-
+				
 				/*console.log(response.data);
 				console.log(response.status);
 				console.log(response.headers);*/
@@ -192,7 +192,7 @@ const app = new Vue({
 			});
 
 			//Calling Animation function when new set of data is ready for displaying
-			this.productsAnimation();
+			//this.productsAnimation();
 		},
 
 		//Function for adding css class for animation
@@ -207,7 +207,7 @@ const app = new Vue({
 						$('.articles__wrapper').eq(i).addClass('article__animation'); //Adding class to each article wrapper div el.
 					}, 200 * i);
 				});
-			}, 200);
+			}, 400);
 		},
 
 		//Function for back to top button
@@ -294,9 +294,7 @@ const app = new Vue({
 	},
 
 	//Loads the function when page is ready
-	mounted() {
-
-		this.productsAnimation(); //Calling func. for adding animation class to the products items
+	mounted() {	
 
 		this.loadCategoriesItems(this.apiCategories); //Calling the func. for getting all categories item informations
 
@@ -324,5 +322,7 @@ const app = new Vue({
 		this.scrollToTop(); //Calling func. for scrolling page to the top
 
 		this.activeNavTab(); //Calling function for adding class to selected navigation tab
+
+		this.productsAnimation(); //Calling func. for adding animation class to the products items
 	},
 });
