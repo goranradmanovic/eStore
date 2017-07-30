@@ -30,3 +30,6 @@ Route::get('/pages/category/{category_id}', 'Category\CategoryController@showSin
 
 //Route for displaying single product item
 Route::get('/pages/product/{product_id}', 'Product\ProductController@showSingleItem');
+
+//Route for contact page
+Route::get('/contact', 'Contact\ContactController@index');
