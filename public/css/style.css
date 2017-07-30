@@ -9227,6 +9227,10 @@ body.stop-scrolling {
   }
 }
 
+* {
+  box-sizing: border-box !important;
+}
+
 .gigantic, .huge, .large, .bigger, .big,
 h1, h2, h3, h4, h5, h6 {
   color: #000;
@@ -9337,7 +9341,6 @@ html, body {
   font-family: "Raleway", sans-serif;
   background-color: #e9ebee;
   -webkit-tap-highlight-color: #FFF498;
-  overflow-x: hidden;
 }
 
 [v-cloak] {
@@ -10614,4 +10617,49 @@ html, body {
   font-size: 1.2em;
   font-weight: 600;
   color: #DD6B55;
+}
+
+.address {
+  display: inline-block;
+  width: 50%;
+  height: 35em;
+  margin: 0;
+  float: left;
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("../images/content/it-office.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("../images/content/it-office.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.address__info {
+  display: block;
+  width: 90%;
+  height: 20em;
+  margin-left: 30px;
+  margin-top: 20%;
+  font-siye: 2em;
+  color: white;
+  background-color: pink;
+}
+
+.contactform {
+  display: inline-block;
+  width: 50%;
+  height: 35em;
+  margin: 0;
+  float: left;
+  background-color: orange;
+}
+
+.share {
+  display: block;
+  width: 100%;
+  height: 100px;
+  background-color: yellow;
+}
+
+.map {
+  display: block;
+  width: 100%;
+  background-color: slategray;
 }
