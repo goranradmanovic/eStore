@@ -39,6 +39,11 @@ const app = new Vue({
 		query: '', //Query var from the nav search form
 		searchProducts: [], //Setting empry array for searched product items
 
+		//Contact form variables
+		firstName: '',
+		lastName: '',
+		message: '',
+
 		//API Links
 		apiCategories: '/api/categories', //API link for all categories for creating the nav linkd
 		apiProducts: '/api/products', //API link for all products
@@ -291,6 +296,89 @@ const app = new Vue({
 				console.log(error.response.headers);
 			});
 		},
+
+		//Function for loading GoogleMap
+		loadGoogleMap: function () {
+			
+			//Location Cordiantes
+			var uluru = {lat: 44.783140, lng: 17.202453};
+
+			//Initialising new google map
+			var map = new google.maps.Map(document.getElementById('map'), {
+				zoom: 15,
+				center: uluru
+			});
+
+			//Create marker on the map
+			var marker = new google.maps.Marker({
+				position: uluru,
+				map: map
+			});
+		},
+
+		//Function for contact form data
+		contactForm: function (event) {
+
+			let vm = this;
+
+			//Getting contact from
+			let contactForm = $('#contactForm');
+
+			//Preventing form to being submited
+			event.preventDefault();
+
+			//Contact data object for sending to PHP server
+			let contactData = {
+				'firstName': vm.firstName, 
+				'lastName': vm.lastName,
+				'email': vm.email,
+				'message': vm.message
+			}
+
+			//Sending data with post method
+			axios.post('/contact', contactData).then(function (response) {
+
+				//If response form server is 200 etc. OK 
+				if(response.status == 200) {
+
+					//Show success message here (SweetAler)
+					swal({
+						title: "<span class='modalTextColorSuccessTitle'>Success</span>",
+						text: "<span class='modalTextColorSuccess'>" + response.data.responseText + "</span>",
+						showConfirmButton: false,
+						timer: 3000,
+						html: true,
+					});
+
+					//Then reset and clear subscribe email form 
+					contactForm[0].reset();
+
+					//Console log respones from server
+					/*console.log(response.data);
+					console.log(response.status);
+					console.log(response.headers);*/
+				}
+			}).catch(function (error) {
+
+				//If error status is equal to 422 (Laravel validate() send this status with users erorrs)
+				if (error.response.status == 422) {
+					//Show error message here (SweetAler)
+					swal({
+						title: "<span class='modalTextColorErrorTitle'>Warrning!</span>",
+						text: "<span class='modalTextColorError'>" + error.response.data.subscribeEmail[0] + "</span>",
+						showConfirmButton: true,
+						confirmButtonColor: "#DD6B55",
+						html: true,
+					});
+				}
+				
+				//Console log respones from server
+				console.log(error.response.data);
+				console.log(error.response.status);
+				console.log(error.response.headers);
+				console.log(error.response.data.subscribeEmail[0]);
+			});
+		}
 	},
 
 	//Loads the function when page is ready
@@ -324,5 +412,7 @@ const app = new Vue({
 		this.activeNavTab(); //Calling function for adding class to selected navigation tab
 
 		this.productsAnimation(); //Calling func. for adding animation class to the products items
+
+		this.loadGoogleMap(); //Calling function for loading Google Map
 	},
 });
