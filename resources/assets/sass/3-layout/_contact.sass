@@ -1,42 +1,245 @@
 //Info Section
 .address
-	display: inline-block
-	width: 50%
-	height: 35em
+	display: block
+	width: 100%
+	height: auto
 	margin: 0
-	float: left
-	background-image: linear-gradient(rgba(0, 0, 0, .75), rgba(0, 0, 0, .75)), url('../images/content/it-office.jpg')
-	background-repeat: no-repeat
-	background-size: cover
 
 	+element('info')
-		display: block
-		width: 90%
-		height: 20em
-		margin-left: 30px
-		margin-top: 20%
-		font-siye: 2em
-		color: white
-		background-color: pink	
+		display: inline-block
+		width: 50%
+		height: 35em
+		float: left
+		background-image: linear-gradient(rgba(0, 0, 0, .75), rgba(0, 0, 0, .75)), url('../images/content/it-office.jpg')
+		background-repeat: no-repeat
+		background-size: cover
 
-//Contact Section
-.contactform
-	display: inline-block
-	width: 50%
-	height: 35em
-	margin: 0
-	float: left
-	background-color: orange
+		@media only screen and (max-width: 960px)
+			display: block
+			width: 100%
+			height: auto
+
+		@media only screen and (max-width: 640px)
+			display: block
+			width: 100%
+			height: auto
+
+		@media only screen and (max-width: 320px)
+			display: block
+			width: 100%
+			height: auto
+
+		+modifier('wrapper')
+			padding-top: 25%
+			padding-left: 10%
+
+			@media only screen and (max-width: 960px)
+				margin: 0
+				padding: 10%
+
+			@media only screen and (max-width: 640px)
+				margin: 0
+				padding: 10%
+
+			@media only screen and (max-width: 320px)
+				margin: 0
+				padding: 10%
+
+			+modifier('title')
+				margin-top: 0
+				font-size: 2em
+				font-weight: 600
+				text-transform: uppercase
+				color: $text-color-white
+
+			+modifier('horizontalrule')
+				width: 45%
+				margin-bottom: 20px
+				border: 1.5px solid $bg-color-nav-active
+				background-color: $bg-color-nav-active
+				border-color: $bg-color-nav-active
+				color: $bg-color-nav-active
+
+				@media only screen and (max-width: 960px)
+					width: 30%
+
+				@media only screen and (max-width: 640px)
+					width: 80%
+
+				@media only screen and (max-width: 320px)
+					width: 90%
+
+			+modifier('details')
+				font-size: 1.2em
+				font-weight: 500
+				line-height: 1.8em
+
+				+modifier('location')
+					color: $text-color-white
+
+				+modifier('email')
+					color: $bg-color-nav-active
+
+				+modifier('phone')
+					color: $text-color-white
+
+					&:first-letter
+						color: $bg-color-nav-active
+
+	//Contact Form Section
+	+element('contact')
+		display: inline-block
+		width: 50%
+		height: 35em
+		margin: 0
+		float: left
+		background-color: $bg-color-contact
+
+		@media only screen and (max-width: 960px)
+			display: block
+			width: 100%
+			height: auto
+
+		@media only screen and (max-width: 640px)
+			display: block
+			width: 100%
+			height: auto
+
+		@media only screen and (max-width: 320px)
+			display: block
+			width: 100%
+			height: auto
+
+		+modifier('title')
+			text-align: center
+			color: $text-color-black
+
+		+modifier('horizontalrule')
+			width: 15%
+			margin: 0 auto
+			margin-bottom: 14%
+			border: 1.5px solid $bg-color-nav-active
+			background-color: $bg-color-nav-active
+			border-color: $bg-color-nav-active
+			color: $bg-color-nav-active
+
+		+modifier('form')
+			width: 95%
+			margin: 0 auto
+
+			+modifier('field')
+				height: 1.5em
+				margin-bottom: 8%
+				padding: 2px 7px 12px 2px
+				border: none
+				border-bottom: 2px solid $border-contact-color-gray
+				border-radius: 0
+				box-shadow: none
+				font-size: 1.8em
+				font-weight: 100
+				background-color: inherit
+				color: $text-color-contac-gray
+
+			+modifier('firstname')
+				width: 48% !important
+
+				&:focus
+					border-color: $bg-color-nav-active
+					box-shadow: none
+					outline-offset: 0
+					outline: none
+
+				@media only screen and (max-width: 960px)
+					width: 100% !important
+
+				@media only screen and (max-width: 640px)
+					width: 100% !important
+
+				@media only screen and (max-width: 320px)
+					width: 100% !important
+
+			+modifier('lastname')
+				width: 48% !important
+				float: right
+
+				&:focus
+					border-color: $bg-color-nav-active
+					box-shadow: none
+					outline-offset: 0
+					outline: none
+
+				@media only screen and (max-width: 960px)
+					width: 100% !important
+
+				@media only screen and (max-width: 640px)
+					width: 100% !important
+
+				@media only screen and (max-width: 320px)
+					width: 100% !important
+
+			+modifier('email')
+				width: 100% !important
+
+				&:focus
+					border-color: $bg-color-nav-active
+					box-shadow: none
+					outline-offset: 0
+					outline: none
+
+			+modifier('message')
+				width: 100% !important
+
+				&:focus
+					border-color: $bg-color-nav-active
+					box-shadow: none
+					outline-offset: 0
+					outline: none
+
+			+modifier('btn')
+				width: 100%
+				font-size: 1.5em
+				font-weight: 500
+				color: $text-color-contac-gray
+				transition: background-color 400ms ease-in-out, color 400ms ease-in-out
+
+				&:hover
+					background-color: $bg-color-nav-active
+					color: $text-color-white
+
+				&:focus
+					outline-offset: 0
+					outline: none
+
+			+modifier('defaulterror')
+				margin-top: 10px
 
 //Share Section
 .share
 	display: block
 	width: 100%
-	height: 100px
-	background-color: yellow
+	height: 3em
+	font-size: 2.5em
+	line-height: 3em
+	text-align: center
+	color: $text-color-white
+	background-color: $bg-color-nav-active
+
+	@media only screen and (max-width: 960px)
+		clear: both
+
+	@media only screen and (max-width: 640px)
+		clear: both
+
+	@media only screen and (max-width: 320px)
+		clear: both
 
 //Map Section
 .map
 	display: block
 	width: 100%
-	background-color: slategray
+	height: 20em
+	filter: grayscale(100%)
+	transition: filter 400ms ease-in-out
+
+	&:hover
+		filter: none
