@@ -1,13 +1,45 @@
 .row
 	.col-md-12
 		.address
-			.address__info Piggy Bank
-
+			.address__info
+				address.address__info--wrapper
+					h3.address__info--wrapper--title Piggy Bank
+					hr.address__info--wrapper--horizontalrule
+					.address__info--wrapper--details
+						.address__info--wrapper--details--location 17 Dr. Mladena Stojanovica,
+						.address__info--wrapper--details--location Banja Luka, BIH 78000
+						.address__info--wrapper--details--email piggybank@gmail.com
+						.address__info--wrapper--details--phone P +3870651943781
 		
-		.contactform Contact Form
+			.address__contact
+				h3.address__contact--title Contact Us
+				hr.address__contact--horizontalrule
+
+				form(action="{{ url('/') }}" method='post' autocomplete='off' class='form-inline address__contact--form' id='contactForm' v-on:submit='contactForm') 
+					.form-group
+						input(type='text' name='firstName' placeholder='First Name' class='form-control address__contact--form--field address__contact--form--firstname' v-model='firstName' value="{{ old('firstName') }}")
+
+						input(type='text' name='lastName' placeholder='Last Name' class='form-control address__contact--form--field address__contact--form--lastname' v-model='lastName' value="{{ old('lastName') }}")
+
+						input(type='email' name='emailAddress' placeholder='Email Address' class='form-control address__contact--form--field address__contact--form--email' v-model='email' value="{{ old('email') }}")
+
+						input(type='text' name='message' placeholder='Message' class='form-control address__contact--form--field address__contact--form--message' v-model='message' value="{{ old('message') }}")
+
+						input(type='submit' value='Send' class='btn address__contact--form--btn')
+						//- Cross Site Request Forgery Field
+						| {{ csrf_field() }}
+
+					//- Fallback displaying error message with balde if JS is disable
+					| @if (count($errors) > 0)
+					| 	<ul class="address__contact--form--defaulterror">
+					| 		@foreach ($errors->all() as $error)
+					| 			<li class="text-danger">{{ $error }}</li>
+					| 		@endforeach
+					| 	</ul>
+					| @endif
 
 	.col-md-12
 		.share Share a Project
 
 	.col-md-12
-		.map Map
+		.map#map
