@@ -124,5 +124,6 @@
       </div>
     </div>
   </body>
+  <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBR0QW9UO-pxwG163r8SJQ0awbiIqJM3ks"></script>
   <script src="{{ asset('js/app.js') }}"></script>
 </html>
