@@ -12,7 +12,7 @@ use App\Mail\ConfirmEmail;
 use App\Mail\EmailSubscriber;
 use App\Models\Subscriber\Subscriber;
 
-//Subscriber COntroller class
+//Subscriber Controller class
 class SubscriberController extends Controller
 {
 	//Getting data from the Subscribe form and writing data to the database
