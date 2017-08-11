@@ -159,7 +159,7 @@ const app = new Vue({
 				vm.products = response.data.data; //We are writing response.data.data because we use pagination method in Laravel, usualy we use only response.data
 				vm.loadMoreLink = response.data.next_page_url; //Setting URL path for show more button (hitting the next link with new data)
 				vm.pageLoader = false; //Turn off main page loader
-				
+
 				/*console.log(response.data);
 				console.log(response.status);
 				console.log(response.headers);*/
@@ -169,6 +169,9 @@ const app = new Vue({
 				console.log(error.response.status);
 				console.log(error.response.headers);*/
 			});
+
+			//Calling Animation function when new set of data is ready for displaying
+			this.productsAnimation();
 		},
 
 		//Method for loading more product data on click of Load more btn
@@ -197,7 +200,7 @@ const app = new Vue({
 			});
 
 			//Calling Animation function when new set of data is ready for displaying
-			//this.productsAnimation();
+			this.productsAnimation();
 		},
 
 		//Function for adding css class for animation
@@ -212,7 +215,7 @@ const app = new Vue({
 						$('.articles__wrapper').eq(i).addClass('article__animation'); //Adding class to each article wrapper div el.
 					}, 200 * i);
 				});
-			}, 400);
+			}, 600);
 		},
 
 		//Function for back to top button
@@ -331,7 +334,7 @@ const app = new Vue({
 			let contactData = {
 				'firstName': vm.firstName, 
 				'lastName': vm.lastName,
-				'email': vm.email,
+				'emailAddress': vm.email,
 				'message': vm.message
 			}
 
@@ -340,7 +343,7 @@ const app = new Vue({
 
 				//If response form server is 200 etc. OK 
 				if(response.status == 200) {
-
+					
 					//Show success message here (SweetAler)
 					swal({
 						title: "<span class='modalTextColorSuccessTitle'>Success</span>",
@@ -411,7 +414,7 @@ const app = new Vue({
 
 		this.activeNavTab(); //Calling function for adding class to selected navigation tab
 
-		this.productsAnimation(); //Calling func. for adding animation class to the products items
+		//this.productsAnimation(); //Calling func. for adding animation class to the products items
 
 		this.loadGoogleMap(); //Calling function for loading Google Map
 	},
