@@ -17,11 +17,11 @@
       <div class="address__contact">
         <h3 class="address__contact--title">Contact Us</h3>
         <hr class="address__contact--horizontalrule"/>
-        <form class="form-inline address__contact--form" action="{{ url('/') }}" method="post" autocomplete="off" id="contactForm" v-on:submit="contactForm"> 
+        <form class="form-inline address__contact--form" action="{{ url('/contact') }}" method="post" autocomplete="off" id="contactForm" v-on:submit="contactForm"> 
           <div class="form-group">
             <input class="form-control address__contact--form--field address__contact--form--firstname" type="text" name="firstName" placeholder="First Name" v-model="firstName" value="{{ old('firstName') }}"/>
             <input class="form-control address__contact--form--field address__contact--form--lastname" type="text" name="lastName" placeholder="Last Name" v-model="lastName" value="{{ old('lastName') }}"/>
-            <input class="form-control address__contact--form--field address__contact--form--email" type="email" name="emailAddress" placeholder="Email Address" v-model="email" value="{{ old('email') }}"/>
+            <input class="form-control address__contact--form--field address__contact--form--email" type="email" name="emailAddress" placeholder="Email Address" v-model="email" value="{{ old('emailAddress') }}"/>
             <input class="form-control address__contact--form--field address__contact--form--message" type="text" name="message" placeholder="Message" v-model="message" value="{{ old('message') }}"/>
             <input class="btn address__contact--form--btn" type="submit" value="Send"/>{{ csrf_field() }}
           </div>
