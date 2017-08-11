@@ -15,17 +15,18 @@
 				h3.address__contact--title Contact Us
 				hr.address__contact--horizontalrule
 
-				form(action="{{ url('/') }}" method='post' autocomplete='off' class='form-inline address__contact--form' id='contactForm' v-on:submit='contactForm') 
+				form(action="{{ url('/contact') }}" method='post' autocomplete='off' class='form-inline address__contact--form' id='contactForm' v-on:submit='contactForm') 
 					.form-group
 						input(type='text' name='firstName' placeholder='First Name' class='form-control address__contact--form--field address__contact--form--firstname' v-model='firstName' value="{{ old('firstName') }}")
 
 						input(type='text' name='lastName' placeholder='Last Name' class='form-control address__contact--form--field address__contact--form--lastname' v-model='lastName' value="{{ old('lastName') }}")
 
-						input(type='email' name='emailAddress' placeholder='Email Address' class='form-control address__contact--form--field address__contact--form--email' v-model='email' value="{{ old('email') }}")
+						input(type='email' name='emailAddress' placeholder='Email Address' class='form-control address__contact--form--field address__contact--form--email' v-model='email' value="{{ old('emailAddress') }}")
 
 						input(type='text' name='message' placeholder='Message' class='form-control address__contact--form--field address__contact--form--message' v-model='message' value="{{ old('message') }}")
 
 						input(type='submit' value='Send' class='btn address__contact--form--btn')
+
 						//- Cross Site Request Forgery Field
 						| {{ csrf_field() }}
 
