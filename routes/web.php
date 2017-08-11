@@ -33,3 +33,6 @@ Route::get('/pages/product/{product_id}', 'Product\ProductController@showSingleI
 
 //Route for contact page
 Route::get('/contact', 'Contact\ContactController@index');
+
+//Route for creating new database entry for contact table
+Route::post('/contact', 'Contact\ContactController@createContact');
